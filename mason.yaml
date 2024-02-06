@@ -1,0 +1,8 @@
+bricks:
+  new_presentation:
+    path: bricks/new_presentation
+  new_widget:
+    path: bricks/new_widget
+
+  very_good_flutter_package: ^0.4.1
+  freezed_bloc: ^0.1.1

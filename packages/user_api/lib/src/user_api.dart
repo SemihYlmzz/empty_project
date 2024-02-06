@@ -1,0 +1,3 @@
+class UserApi {
+  const UserApi();
+}

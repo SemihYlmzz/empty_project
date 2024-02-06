@@ -1,0 +1,125 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "empty_application",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "empty_application (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "empty_application (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "auth_api",
+            "cwd": "packages/auth_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "auth_api (profile mode)",
+            "cwd": "packages/auth_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "auth_api (release mode)",
+            "cwd": "packages/auth_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "auth_api_firebase",
+            "cwd": "packages/auth_api_firebase",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "auth_api_firebase (profile mode)",
+            "cwd": "packages/auth_api_firebase",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "auth_api_firebase (release mode)",
+            "cwd": "packages/auth_api_firebase",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "preferences_api",
+            "cwd": "packages/preferences_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "preferences_api (profile mode)",
+            "cwd": "packages/preferences_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "preferences_api (release mode)",
+            "cwd": "packages/preferences_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "shared_constants",
+            "cwd": "packages/shared_constants",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "shared_constants (profile mode)",
+            "cwd": "packages/shared_constants",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "shared_constants (release mode)",
+            "cwd": "packages/shared_constants",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "shared_widgets",
+            "cwd": "packages/shared_widgets",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "shared_widgets (profile mode)",
+            "cwd": "packages/shared_widgets",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "shared_widgets (release mode)",
+            "cwd": "packages/shared_widgets",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
