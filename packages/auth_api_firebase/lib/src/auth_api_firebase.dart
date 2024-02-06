@@ -8,7 +8,6 @@ class AuthApiFirebase implements AuthApi {
   }) : _firebaseAuth = firebaseAuth ??= FirebaseAuth.instance;
 
   late final FirebaseAuth _firebaseAuth;
-
   @override
   Stream<AuthModel?> get authEntity {
     return _firebaseAuth.authStateChanges().map((firebaseUser) {
