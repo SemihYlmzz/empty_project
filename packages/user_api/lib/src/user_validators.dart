@@ -4,32 +4,17 @@ import 'user_exception.dart';
 class UserValidators {
   UserValidators();
 
-  void updateFullNameValidator({
+  void differentNameValidator({
     required String firstName,
     required String lastName,
     required String oldFirstName,
     required String oldLastName,
   }) {
-    final firstNameEmpty = firstName.isEmpty;
-    final lastNameEmpty = lastName.isEmpty;
     final firstNameSame = firstName == oldFirstName;
     final lastNameSame = lastName == oldLastName;
-    final firstNameFilledAndUnique = !firstNameEmpty && !firstNameSame;
-    final lastNameFilledAndUnique = !lastNameEmpty && !lastNameSame;
-    final bothNamesEmpty = firstNameEmpty && lastNameEmpty;
-    final noUniqueName = !(firstNameFilledAndUnique || lastNameFilledAndUnique);
 
-    if (bothNamesEmpty) {
-      throw UserNamesEmpty(); //'You need to enter name.';
-    }
-    if (noUniqueName) {
-      throw UserNamesSame(); //getIt<L10n>().no_changes_detected;
-    }
-    if (!firstNameEmpty) {
-      firstNameValidator(firstName: firstName);
-    }
-    if (!lastNameEmpty) {
-      lastNameValidator(lastName: lastName);
+    if (firstNameSame && lastNameSame) {
+      throw UserNamesSame();
     }
   }
 

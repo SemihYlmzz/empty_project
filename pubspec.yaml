@@ -23,6 +23,10 @@ dependencies:
     path: packages/shared_widgets
   shared_constants:
     path: packages/shared_constants
+  user_api:
+    path: packages/user_api
+  user_api_firestore:
+    path: packages/user_api_firestore
 
   # State Management
   flutter_bloc: ^8.1.3

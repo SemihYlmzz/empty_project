@@ -17,7 +17,9 @@ class UserLoadView extends StatelessWidget {
           switch (state) {
             UserLoadInitial() => const UserLoadingIndicator(),
             UserLoading() => const UserLoadingIndicator(),
-            UserLoadError() => const UserLoadErrorCleaner(),
+            UserLoadError() => UserLoadErrorCleaner(
+                errorMessage: state.errorMessage,
+              ),
             _ => const SizedBox(),
           },
         ],

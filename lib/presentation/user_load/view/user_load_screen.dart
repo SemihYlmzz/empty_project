@@ -2,6 +2,7 @@ import 'package:empty_application/initialize/initialize.dart';
 import 'package:empty_application/repositories/repositories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../presentation.dart';
 
 class UserLoadScreen extends StatelessWidget {
@@ -15,7 +16,15 @@ class UserLoadScreen extends StatelessWidget {
       create: (context) => UserLoadBloc(
         userRepository: getIt<UserRepository>(),
       )..add(const UserLoadEvent.loadUser()),
-      child: const UserLoadView(),
+      child: BlocListener<UserLoadBloc, UserLoadState>(
+        listener: (context, state) {
+          if (state is! UserLoadRegisterNeeded) {
+            return;
+          }
+          context.goNamed(UserRegisterScreen.name);
+        },
+        child: const UserLoadView(),
+      ),
     );
   }
 }

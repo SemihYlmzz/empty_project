@@ -2,24 +2,28 @@ import 'dart:async';
 
 import 'package:auth_api/auth_api.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:user_api/user_api.dart';
 
 import '../common/common.dart';
 
 class UserRepository {
   UserRepository({
     required this.authApi,
+    required this.userApi,
   });
   final AuthApi authApi;
+  final UserApi userApi;
 
-
-
-  FutureEither<AuthModel> initializeUserData() async {
+  FutureEither<UserModel?> initializeUserData() async {
     try {
       final currentAuth = authApi.currentUser();
-      if(currentAuth != null){
-      return const Left(Failure(message: 'Exception'));
+      if (currentAuth == null) {
+        return const Left(Failure(message: 'Need Auth'));
       }
-      return Right(currentAuth!);
+      final readedUserModel = await userApi.readUserWithUid(
+        uid: currentAuth.uid,
+      );
+      return Right(readedUserModel);
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
     }

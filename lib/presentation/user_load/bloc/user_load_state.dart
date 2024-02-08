@@ -6,7 +6,11 @@ class UserLoadState with _$UserLoadState {
 
   const factory UserLoadState.loading() = UserLoading;
 
+  const factory UserLoadState.registerNeeded() = UserLoadRegisterNeeded;
+
   const factory UserLoadState.loaded() = UserLoaded;
 
-  const factory UserLoadState.loadError() = UserLoadError;
+  const factory UserLoadState.loadError({
+    required String errorMessage,
+  }) = UserLoadError;
 }

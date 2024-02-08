@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
 import 'package:preferences_api_shared/preferences_api_shared.dart';
-import 'package:empty_application/repositories/repositories.dart'
-;
+import 'package:empty_application/repositories/repositories.dart';
+import 'package:user_api_firestore/user_api_firestore.dart';
 import 'initialize.dart';
 
 abstract final class AppInitializer {
@@ -33,11 +33,13 @@ abstract final class AppInitializer {
     final authApiFirebase = await AuthApiFirebaseInitializer().initialize();
     final preferencesApiShared =
         await PreferencesApiSharedInitializer().initialize();
+    final userApiFirestore = await UserApiFirestoreInitializer().initialize();
 
     // Inject Repositories
     await InjectionContainer.initializeDependencies(
       userRepository: UserRepository(
         authApi: authApiFirebase,
+        userApi: userApiFirestore,
       ),
       preferencesRepository: PreferencesRepository(
         preferencesApi: preferencesApiShared,

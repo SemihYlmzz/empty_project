@@ -1,4 +1,4 @@
-name: auth_api_firebase
+name: user_api_firestore
 description: A very good flutter package
 version: 0.1.0+1
 publish_to: none
@@ -11,12 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Auth Api
-  auth_api:
-    path: ../auth_api
+  # User Api
+  user_api:
+    path: ../user_api
 
   # Firebase Auth
-  firebase_auth: ^4.17.3
+  cloud_firestore: ^4.15.4
   firebase_core: ^2.25.3
 
 dev_dependencies:

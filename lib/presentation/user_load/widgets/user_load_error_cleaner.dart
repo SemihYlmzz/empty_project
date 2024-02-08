@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import '../../presentation.dart';
 
 class UserLoadErrorCleaner extends StatelessWidget {
-  const UserLoadErrorCleaner({super.key});
-
+  const UserLoadErrorCleaner({super.key, required this.errorMessage});
+  final String errorMessage;
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        Text('Oops, something went wrong.'),
-        RetryLoadUserButton(),
-        SignOutButton(),
+        Text(errorMessage),
+        const RetryLoadUserButton(),
+        const SignOutButton(),
       ],
     );
   }

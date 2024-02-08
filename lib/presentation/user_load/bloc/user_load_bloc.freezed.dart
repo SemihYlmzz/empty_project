@@ -284,24 +284,27 @@ mixin _$UserLoadState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() registerNeeded,
     required TResult Function() loaded,
-    required TResult Function() loadError,
+    required TResult Function(String errorMessage) loadError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? registerNeeded,
     TResult? Function()? loaded,
-    TResult? Function()? loadError,
+    TResult? Function(String errorMessage)? loadError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? registerNeeded,
     TResult Function()? loaded,
-    TResult Function()? loadError,
+    TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -309,6 +312,7 @@ mixin _$UserLoadState {
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
     required TResult Function(UserLoaded value) loaded,
     required TResult Function(UserLoadError value) loadError,
   }) =>
@@ -317,6 +321,7 @@ mixin _$UserLoadState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult? Function(UserLoaded value)? loaded,
     TResult? Function(UserLoadError value)? loadError,
   }) =>
@@ -325,6 +330,7 @@ mixin _$UserLoadState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult Function(UserLoaded value)? loaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
@@ -390,8 +396,9 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() registerNeeded,
     required TResult Function() loaded,
-    required TResult Function() loadError,
+    required TResult Function(String errorMessage) loadError,
   }) {
     return initial();
   }
@@ -401,8 +408,9 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? registerNeeded,
     TResult? Function()? loaded,
-    TResult? Function()? loadError,
+    TResult? Function(String errorMessage)? loadError,
   }) {
     return initial?.call();
   }
@@ -412,8 +420,9 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? registerNeeded,
     TResult Function()? loaded,
-    TResult Function()? loadError,
+    TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -427,6 +436,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
     required TResult Function(UserLoaded value) loaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
@@ -438,6 +448,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult? Function(UserLoaded value)? loaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
@@ -449,6 +460,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult Function(UserLoaded value)? loaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
@@ -504,8 +516,9 @@ class _$UserLoadingImpl implements UserLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() registerNeeded,
     required TResult Function() loaded,
-    required TResult Function() loadError,
+    required TResult Function(String errorMessage) loadError,
   }) {
     return loading();
   }
@@ -515,8 +528,9 @@ class _$UserLoadingImpl implements UserLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? registerNeeded,
     TResult? Function()? loaded,
-    TResult? Function()? loadError,
+    TResult? Function(String errorMessage)? loadError,
   }) {
     return loading?.call();
   }
@@ -526,8 +540,9 @@ class _$UserLoadingImpl implements UserLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? registerNeeded,
     TResult Function()? loaded,
-    TResult Function()? loadError,
+    TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -541,6 +556,7 @@ class _$UserLoadingImpl implements UserLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
     required TResult Function(UserLoaded value) loaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
@@ -552,6 +568,7 @@ class _$UserLoadingImpl implements UserLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult? Function(UserLoaded value)? loaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
@@ -563,6 +580,7 @@ class _$UserLoadingImpl implements UserLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult Function(UserLoaded value)? loaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
@@ -576,6 +594,129 @@ class _$UserLoadingImpl implements UserLoading {
 
 abstract class UserLoading implements UserLoadState {
   const factory UserLoading() = _$UserLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$UserLoadRegisterNeededImplCopyWith<$Res> {
+  factory _$$UserLoadRegisterNeededImplCopyWith(
+          _$UserLoadRegisterNeededImpl value,
+          $Res Function(_$UserLoadRegisterNeededImpl) then) =
+      __$$UserLoadRegisterNeededImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserLoadRegisterNeededImplCopyWithImpl<$Res>
+    extends _$UserLoadStateCopyWithImpl<$Res, _$UserLoadRegisterNeededImpl>
+    implements _$$UserLoadRegisterNeededImplCopyWith<$Res> {
+  __$$UserLoadRegisterNeededImplCopyWithImpl(
+      _$UserLoadRegisterNeededImpl _value,
+      $Res Function(_$UserLoadRegisterNeededImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserLoadRegisterNeededImpl implements UserLoadRegisterNeeded {
+  const _$UserLoadRegisterNeededImpl();
+
+  @override
+  String toString() {
+    return 'UserLoadState.registerNeeded()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserLoadRegisterNeededImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() registerNeeded,
+    required TResult Function() loaded,
+    required TResult Function(String errorMessage) loadError,
+  }) {
+    return registerNeeded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? registerNeeded,
+    TResult? Function()? loaded,
+    TResult? Function(String errorMessage)? loadError,
+  }) {
+    return registerNeeded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? registerNeeded,
+    TResult Function()? loaded,
+    TResult Function(String errorMessage)? loadError,
+    required TResult orElse(),
+  }) {
+    if (registerNeeded != null) {
+      return registerNeeded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserLoadInitial value) initial,
+    required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
+    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoadError value) loadError,
+  }) {
+    return registerNeeded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UserLoadInitial value)? initial,
+    TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
+    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoadError value)? loadError,
+  }) {
+    return registerNeeded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserLoadInitial value)? initial,
+    TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
+    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoadError value)? loadError,
+    required TResult orElse(),
+  }) {
+    if (registerNeeded != null) {
+      return registerNeeded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserLoadRegisterNeeded implements UserLoadState {
+  const factory UserLoadRegisterNeeded() = _$UserLoadRegisterNeededImpl;
 }
 
 /// @nodoc
@@ -618,8 +759,9 @@ class _$UserLoadedImpl implements UserLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() registerNeeded,
     required TResult Function() loaded,
-    required TResult Function() loadError,
+    required TResult Function(String errorMessage) loadError,
   }) {
     return loaded();
   }
@@ -629,8 +771,9 @@ class _$UserLoadedImpl implements UserLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? registerNeeded,
     TResult? Function()? loaded,
-    TResult? Function()? loadError,
+    TResult? Function(String errorMessage)? loadError,
   }) {
     return loaded?.call();
   }
@@ -640,8 +783,9 @@ class _$UserLoadedImpl implements UserLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? registerNeeded,
     TResult Function()? loaded,
-    TResult Function()? loadError,
+    TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -655,6 +799,7 @@ class _$UserLoadedImpl implements UserLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
     required TResult Function(UserLoaded value) loaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
@@ -666,6 +811,7 @@ class _$UserLoadedImpl implements UserLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult? Function(UserLoaded value)? loaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
@@ -677,6 +823,7 @@ class _$UserLoadedImpl implements UserLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult Function(UserLoaded value)? loaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
@@ -697,6 +844,8 @@ abstract class _$$UserLoadErrorImplCopyWith<$Res> {
   factory _$$UserLoadErrorImplCopyWith(
           _$UserLoadErrorImpl value, $Res Function(_$UserLoadErrorImpl) then) =
       __$$UserLoadErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errorMessage});
 }
 
 /// @nodoc
@@ -706,36 +855,62 @@ class __$$UserLoadErrorImplCopyWithImpl<$Res>
   __$$UserLoadErrorImplCopyWithImpl(
       _$UserLoadErrorImpl _value, $Res Function(_$UserLoadErrorImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = null,
+  }) {
+    return _then(_$UserLoadErrorImpl(
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$UserLoadErrorImpl implements UserLoadError {
-  const _$UserLoadErrorImpl();
+  const _$UserLoadErrorImpl({required this.errorMessage});
+
+  @override
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'UserLoadState.loadError()';
+    return 'UserLoadState.loadError(errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserLoadErrorImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$UserLoadErrorImpl &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, errorMessage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserLoadErrorImplCopyWith<_$UserLoadErrorImpl> get copyWith =>
+      __$$UserLoadErrorImplCopyWithImpl<_$UserLoadErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() registerNeeded,
     required TResult Function() loaded,
-    required TResult Function() loadError,
+    required TResult Function(String errorMessage) loadError,
   }) {
-    return loadError();
+    return loadError(errorMessage);
   }
 
   @override
@@ -743,10 +918,11 @@ class _$UserLoadErrorImpl implements UserLoadError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? registerNeeded,
     TResult? Function()? loaded,
-    TResult? Function()? loadError,
+    TResult? Function(String errorMessage)? loadError,
   }) {
-    return loadError?.call();
+    return loadError?.call(errorMessage);
   }
 
   @override
@@ -754,12 +930,13 @@ class _$UserLoadErrorImpl implements UserLoadError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? registerNeeded,
     TResult Function()? loaded,
-    TResult Function()? loadError,
+    TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
     if (loadError != null) {
-      return loadError();
+      return loadError(errorMessage);
     }
     return orElse();
   }
@@ -769,6 +946,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
     required TResult Function(UserLoaded value) loaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
@@ -780,6 +958,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult? Function(UserLoaded value)? loaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
@@ -791,6 +970,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
     TResult Function(UserLoaded value)? loaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
@@ -803,5 +983,11 @@ class _$UserLoadErrorImpl implements UserLoadError {
 }
 
 abstract class UserLoadError implements UserLoadState {
-  const factory UserLoadError() = _$UserLoadErrorImpl;
+  const factory UserLoadError({required final String errorMessage}) =
+      _$UserLoadErrorImpl;
+
+  String get errorMessage;
+  @JsonKey(ignore: true)
+  _$$UserLoadErrorImplCopyWith<_$UserLoadErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -3,7 +3,7 @@ import 'models/models.dart';
 abstract class UserApi {
   UserApi();
 
-  Future<UserModel> readUserWithUid({
+  Future<UserModel?> readUserWithUid({
     required String uid,
   });
 
@@ -12,7 +12,7 @@ abstract class UserApi {
   });
 
   Future<void> updateFullName({
-    required String updatedFirstName,
-    required String updatedLastName,
+    required UserModel currentUserModel,
+    required UserModel updatedUserModel,
   });
 }

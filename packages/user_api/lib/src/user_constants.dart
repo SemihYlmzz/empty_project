@@ -7,4 +7,6 @@ class UserConstants {
   // Last Name
   static const int minLastNameLength = 2;
   static const int maxLastNameLength = 12;
+  // Collection
+  static const String userCollectionName = 'users';
 }
