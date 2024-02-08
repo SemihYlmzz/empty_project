@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_widgets/shared_widgets.dart';
 import '../../presentation.dart';
 
 class UserLoadView extends StatelessWidget {
@@ -7,19 +8,18 @@ class UserLoadView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final state = context.watch<UserLoadBloc>().state;
+    return BaseScaffold(
       appBar: const UserLoadAppBar(),
-      body: Column(
+      body: BaseColumn(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(
-            child: TextButton(
-              onPressed: () {
-                context.read<UserLoadBloc>().add(const UserLoadSignOut());
-              },
-              child: const Text('User Load Button'),
-            ),
-          ),
+          switch (state) {
+            UserLoadInitial() => const UserLoadingIndicator(),
+            UserLoading() => const UserLoadingIndicator(),
+            UserLoadError() => const UserLoadErrorCleaner(),
+            _ => const SizedBox(),
+          },
         ],
       ),
     );

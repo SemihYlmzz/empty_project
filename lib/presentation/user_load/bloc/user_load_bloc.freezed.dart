@@ -19,38 +19,38 @@ mixin _$UserLoadEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
-    required TResult Function() readUser,
+    required TResult Function() loadUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
-    TResult? Function()? readUser,
+    TResult? Function()? loadUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
-    TResult Function()? readUser,
+    TResult Function()? loadUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadSignOut value) signOut,
-    required TResult Function(UserLoadReadUser value) readUser,
+    required TResult Function(UserLoadUser value) loadUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadSignOut value)? signOut,
-    TResult? Function(UserLoadReadUser value)? readUser,
+    TResult? Function(UserLoadUser value)? loadUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadSignOut value)? signOut,
-    TResult Function(UserLoadReadUser value)? readUser,
+    TResult Function(UserLoadUser value)? loadUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$UserLoadSignOutImpl implements UserLoadSignOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
-    required TResult Function() readUser,
+    required TResult Function() loadUser,
   }) {
     return signOut();
   }
@@ -122,7 +122,7 @@ class _$UserLoadSignOutImpl implements UserLoadSignOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
-    TResult? Function()? readUser,
+    TResult? Function()? loadUser,
   }) {
     return signOut?.call();
   }
@@ -131,7 +131,7 @@ class _$UserLoadSignOutImpl implements UserLoadSignOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
-    TResult Function()? readUser,
+    TResult Function()? loadUser,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -144,7 +144,7 @@ class _$UserLoadSignOutImpl implements UserLoadSignOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadSignOut value) signOut,
-    required TResult Function(UserLoadReadUser value) readUser,
+    required TResult Function(UserLoadUser value) loadUser,
   }) {
     return signOut(this);
   }
@@ -153,7 +153,7 @@ class _$UserLoadSignOutImpl implements UserLoadSignOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadSignOut value)? signOut,
-    TResult? Function(UserLoadReadUser value)? readUser,
+    TResult? Function(UserLoadUser value)? loadUser,
   }) {
     return signOut?.call(this);
   }
@@ -162,7 +162,7 @@ class _$UserLoadSignOutImpl implements UserLoadSignOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadSignOut value)? signOut,
-    TResult Function(UserLoadReadUser value)? readUser,
+    TResult Function(UserLoadUser value)? loadUser,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -177,35 +177,35 @@ abstract class UserLoadSignOut implements UserLoadEvent {
 }
 
 /// @nodoc
-abstract class _$$UserLoadReadUserImplCopyWith<$Res> {
-  factory _$$UserLoadReadUserImplCopyWith(_$UserLoadReadUserImpl value,
-          $Res Function(_$UserLoadReadUserImpl) then) =
-      __$$UserLoadReadUserImplCopyWithImpl<$Res>;
+abstract class _$$UserLoadUserImplCopyWith<$Res> {
+  factory _$$UserLoadUserImplCopyWith(
+          _$UserLoadUserImpl value, $Res Function(_$UserLoadUserImpl) then) =
+      __$$UserLoadUserImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UserLoadReadUserImplCopyWithImpl<$Res>
-    extends _$UserLoadEventCopyWithImpl<$Res, _$UserLoadReadUserImpl>
-    implements _$$UserLoadReadUserImplCopyWith<$Res> {
-  __$$UserLoadReadUserImplCopyWithImpl(_$UserLoadReadUserImpl _value,
-      $Res Function(_$UserLoadReadUserImpl) _then)
+class __$$UserLoadUserImplCopyWithImpl<$Res>
+    extends _$UserLoadEventCopyWithImpl<$Res, _$UserLoadUserImpl>
+    implements _$$UserLoadUserImplCopyWith<$Res> {
+  __$$UserLoadUserImplCopyWithImpl(
+      _$UserLoadUserImpl _value, $Res Function(_$UserLoadUserImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UserLoadReadUserImpl implements UserLoadReadUser {
-  const _$UserLoadReadUserImpl();
+class _$UserLoadUserImpl implements UserLoadUser {
+  const _$UserLoadUserImpl();
 
   @override
   String toString() {
-    return 'UserLoadEvent.readUser()';
+    return 'UserLoadEvent.loadUser()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserLoadReadUserImpl);
+        (other.runtimeType == runtimeType && other is _$UserLoadUserImpl);
   }
 
   @override
@@ -215,29 +215,29 @@ class _$UserLoadReadUserImpl implements UserLoadReadUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
-    required TResult Function() readUser,
+    required TResult Function() loadUser,
   }) {
-    return readUser();
+    return loadUser();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
-    TResult? Function()? readUser,
+    TResult? Function()? loadUser,
   }) {
-    return readUser?.call();
+    return loadUser?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
-    TResult Function()? readUser,
+    TResult Function()? loadUser,
     required TResult orElse(),
   }) {
-    if (readUser != null) {
-      return readUser();
+    if (loadUser != null) {
+      return loadUser();
     }
     return orElse();
   }
@@ -246,36 +246,36 @@ class _$UserLoadReadUserImpl implements UserLoadReadUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadSignOut value) signOut,
-    required TResult Function(UserLoadReadUser value) readUser,
+    required TResult Function(UserLoadUser value) loadUser,
   }) {
-    return readUser(this);
+    return loadUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadSignOut value)? signOut,
-    TResult? Function(UserLoadReadUser value)? readUser,
+    TResult? Function(UserLoadUser value)? loadUser,
   }) {
-    return readUser?.call(this);
+    return loadUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadSignOut value)? signOut,
-    TResult Function(UserLoadReadUser value)? readUser,
+    TResult Function(UserLoadUser value)? loadUser,
     required TResult orElse(),
   }) {
-    if (readUser != null) {
-      return readUser(this);
+    if (loadUser != null) {
+      return loadUser(this);
     }
     return orElse();
   }
 }
 
-abstract class UserLoadReadUser implements UserLoadEvent {
-  const factory UserLoadReadUser() = _$UserLoadReadUserImpl;
+abstract class UserLoadUser implements UserLoadEvent {
+  const factory UserLoadUser() = _$UserLoadUserImpl;
 }
 
 /// @nodoc
@@ -285,6 +285,7 @@ mixin _$UserLoadState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loaded,
+    required TResult Function() loadError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -292,6 +293,7 @@ mixin _$UserLoadState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loaded,
+    TResult? Function()? loadError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -299,28 +301,32 @@ mixin _$UserLoadState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? loadError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
-    required TResult Function(UserLoadLoading value) loading,
-    required TResult Function(UserLoadLoaded value) loaded,
+    required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoadError value) loadError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
-    TResult? Function(UserLoadLoading value)? loading,
-    TResult? Function(UserLoadLoaded value)? loaded,
+    TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoadError value)? loadError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
-    TResult Function(UserLoadLoading value)? loading,
-    TResult Function(UserLoadLoaded value)? loaded,
+    TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -385,6 +391,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loaded,
+    required TResult Function() loadError,
   }) {
     return initial();
   }
@@ -395,6 +402,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loaded,
+    TResult? Function()? loadError,
   }) {
     return initial?.call();
   }
@@ -405,6 +413,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? loadError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -417,8 +426,9 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
-    required TResult Function(UserLoadLoading value) loading,
-    required TResult Function(UserLoadLoaded value) loaded,
+    required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoadError value) loadError,
   }) {
     return initial(this);
   }
@@ -427,8 +437,9 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
-    TResult? Function(UserLoadLoading value)? loading,
-    TResult? Function(UserLoadLoaded value)? loaded,
+    TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoadError value)? loadError,
   }) {
     return initial?.call(this);
   }
@@ -437,8 +448,9 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
-    TResult Function(UserLoadLoading value)? loading,
-    TResult Function(UserLoadLoaded value)? loaded,
+    TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -453,25 +465,25 @@ abstract class UserLoadInitial implements UserLoadState {
 }
 
 /// @nodoc
-abstract class _$$UserLoadLoadingImplCopyWith<$Res> {
-  factory _$$UserLoadLoadingImplCopyWith(_$UserLoadLoadingImpl value,
-          $Res Function(_$UserLoadLoadingImpl) then) =
-      __$$UserLoadLoadingImplCopyWithImpl<$Res>;
+abstract class _$$UserLoadingImplCopyWith<$Res> {
+  factory _$$UserLoadingImplCopyWith(
+          _$UserLoadingImpl value, $Res Function(_$UserLoadingImpl) then) =
+      __$$UserLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UserLoadLoadingImplCopyWithImpl<$Res>
-    extends _$UserLoadStateCopyWithImpl<$Res, _$UserLoadLoadingImpl>
-    implements _$$UserLoadLoadingImplCopyWith<$Res> {
-  __$$UserLoadLoadingImplCopyWithImpl(
-      _$UserLoadLoadingImpl _value, $Res Function(_$UserLoadLoadingImpl) _then)
+class __$$UserLoadingImplCopyWithImpl<$Res>
+    extends _$UserLoadStateCopyWithImpl<$Res, _$UserLoadingImpl>
+    implements _$$UserLoadingImplCopyWith<$Res> {
+  __$$UserLoadingImplCopyWithImpl(
+      _$UserLoadingImpl _value, $Res Function(_$UserLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UserLoadLoadingImpl implements UserLoadLoading {
-  const _$UserLoadLoadingImpl();
+class _$UserLoadingImpl implements UserLoading {
+  const _$UserLoadingImpl();
 
   @override
   String toString() {
@@ -481,7 +493,7 @@ class _$UserLoadLoadingImpl implements UserLoadLoading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserLoadLoadingImpl);
+        (other.runtimeType == runtimeType && other is _$UserLoadingImpl);
   }
 
   @override
@@ -493,6 +505,7 @@ class _$UserLoadLoadingImpl implements UserLoadLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loaded,
+    required TResult Function() loadError,
   }) {
     return loading();
   }
@@ -503,6 +516,7 @@ class _$UserLoadLoadingImpl implements UserLoadLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loaded,
+    TResult? Function()? loadError,
   }) {
     return loading?.call();
   }
@@ -513,6 +527,7 @@ class _$UserLoadLoadingImpl implements UserLoadLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? loadError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -525,8 +540,9 @@ class _$UserLoadLoadingImpl implements UserLoadLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
-    required TResult Function(UserLoadLoading value) loading,
-    required TResult Function(UserLoadLoaded value) loaded,
+    required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoadError value) loadError,
   }) {
     return loading(this);
   }
@@ -535,8 +551,9 @@ class _$UserLoadLoadingImpl implements UserLoadLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
-    TResult? Function(UserLoadLoading value)? loading,
-    TResult? Function(UserLoadLoaded value)? loaded,
+    TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoadError value)? loadError,
   }) {
     return loading?.call(this);
   }
@@ -545,8 +562,9 @@ class _$UserLoadLoadingImpl implements UserLoadLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
-    TResult Function(UserLoadLoading value)? loading,
-    TResult Function(UserLoadLoaded value)? loaded,
+    TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -556,30 +574,30 @@ class _$UserLoadLoadingImpl implements UserLoadLoading {
   }
 }
 
-abstract class UserLoadLoading implements UserLoadState {
-  const factory UserLoadLoading() = _$UserLoadLoadingImpl;
+abstract class UserLoading implements UserLoadState {
+  const factory UserLoading() = _$UserLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$UserLoadLoadedImplCopyWith<$Res> {
-  factory _$$UserLoadLoadedImplCopyWith(_$UserLoadLoadedImpl value,
-          $Res Function(_$UserLoadLoadedImpl) then) =
-      __$$UserLoadLoadedImplCopyWithImpl<$Res>;
+abstract class _$$UserLoadedImplCopyWith<$Res> {
+  factory _$$UserLoadedImplCopyWith(
+          _$UserLoadedImpl value, $Res Function(_$UserLoadedImpl) then) =
+      __$$UserLoadedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UserLoadLoadedImplCopyWithImpl<$Res>
-    extends _$UserLoadStateCopyWithImpl<$Res, _$UserLoadLoadedImpl>
-    implements _$$UserLoadLoadedImplCopyWith<$Res> {
-  __$$UserLoadLoadedImplCopyWithImpl(
-      _$UserLoadLoadedImpl _value, $Res Function(_$UserLoadLoadedImpl) _then)
+class __$$UserLoadedImplCopyWithImpl<$Res>
+    extends _$UserLoadStateCopyWithImpl<$Res, _$UserLoadedImpl>
+    implements _$$UserLoadedImplCopyWith<$Res> {
+  __$$UserLoadedImplCopyWithImpl(
+      _$UserLoadedImpl _value, $Res Function(_$UserLoadedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UserLoadLoadedImpl implements UserLoadLoaded {
-  const _$UserLoadLoadedImpl();
+class _$UserLoadedImpl implements UserLoaded {
+  const _$UserLoadedImpl();
 
   @override
   String toString() {
@@ -589,7 +607,7 @@ class _$UserLoadLoadedImpl implements UserLoadLoaded {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserLoadLoadedImpl);
+        (other.runtimeType == runtimeType && other is _$UserLoadedImpl);
   }
 
   @override
@@ -601,6 +619,7 @@ class _$UserLoadLoadedImpl implements UserLoadLoaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loaded,
+    required TResult Function() loadError,
   }) {
     return loaded();
   }
@@ -611,6 +630,7 @@ class _$UserLoadLoadedImpl implements UserLoadLoaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loaded,
+    TResult? Function()? loadError,
   }) {
     return loaded?.call();
   }
@@ -621,6 +641,7 @@ class _$UserLoadLoadedImpl implements UserLoadLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? loadError,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -633,8 +654,9 @@ class _$UserLoadLoadedImpl implements UserLoadLoaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserLoadInitial value) initial,
-    required TResult Function(UserLoadLoading value) loading,
-    required TResult Function(UserLoadLoaded value) loaded,
+    required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoadError value) loadError,
   }) {
     return loaded(this);
   }
@@ -643,8 +665,9 @@ class _$UserLoadLoadedImpl implements UserLoadLoaded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserLoadInitial value)? initial,
-    TResult? Function(UserLoadLoading value)? loading,
-    TResult? Function(UserLoadLoaded value)? loaded,
+    TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoadError value)? loadError,
   }) {
     return loaded?.call(this);
   }
@@ -653,8 +676,9 @@ class _$UserLoadLoadedImpl implements UserLoadLoaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoadInitial value)? initial,
-    TResult Function(UserLoadLoading value)? loading,
-    TResult Function(UserLoadLoaded value)? loaded,
+    TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -664,6 +688,120 @@ class _$UserLoadLoadedImpl implements UserLoadLoaded {
   }
 }
 
-abstract class UserLoadLoaded implements UserLoadState {
-  const factory UserLoadLoaded() = _$UserLoadLoadedImpl;
+abstract class UserLoaded implements UserLoadState {
+  const factory UserLoaded() = _$UserLoadedImpl;
+}
+
+/// @nodoc
+abstract class _$$UserLoadErrorImplCopyWith<$Res> {
+  factory _$$UserLoadErrorImplCopyWith(
+          _$UserLoadErrorImpl value, $Res Function(_$UserLoadErrorImpl) then) =
+      __$$UserLoadErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserLoadErrorImplCopyWithImpl<$Res>
+    extends _$UserLoadStateCopyWithImpl<$Res, _$UserLoadErrorImpl>
+    implements _$$UserLoadErrorImplCopyWith<$Res> {
+  __$$UserLoadErrorImplCopyWithImpl(
+      _$UserLoadErrorImpl _value, $Res Function(_$UserLoadErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserLoadErrorImpl implements UserLoadError {
+  const _$UserLoadErrorImpl();
+
+  @override
+  String toString() {
+    return 'UserLoadState.loadError()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserLoadErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() loadError,
+  }) {
+    return loadError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function()? loadError,
+  }) {
+    return loadError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? loadError,
+    required TResult orElse(),
+  }) {
+    if (loadError != null) {
+      return loadError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserLoadInitial value) initial,
+    required TResult Function(UserLoading value) loading,
+    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoadError value) loadError,
+  }) {
+    return loadError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UserLoadInitial value)? initial,
+    TResult? Function(UserLoading value)? loading,
+    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoadError value)? loadError,
+  }) {
+    return loadError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserLoadInitial value)? initial,
+    TResult Function(UserLoading value)? loading,
+    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoadError value)? loadError,
+    required TResult orElse(),
+  }) {
+    if (loadError != null) {
+      return loadError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserLoadError implements UserLoadState {
+  const factory UserLoadError() = _$UserLoadErrorImpl;
 }

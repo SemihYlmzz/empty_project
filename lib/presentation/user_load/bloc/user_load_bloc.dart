@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_constants/shared_constants.dart';
 
 import '../../../repositories/repositories.dart';
 
@@ -12,24 +13,25 @@ class UserLoadBloc extends Bloc<UserLoadEvent, UserLoadState> {
     required this.userRepository,
   }) : super(const UserLoadState.initial()) {
     on<UserLoadSignOut>(_onUserLoadSignOut);
-    on<UserLoadReadUser>(_onUserLoadReadUser);
+    on<UserLoadUser>(_onUserLoadUser);
   }
 
   final UserRepository userRepository;
-  Future<void> _onUserLoadReadUser(
-    UserLoadReadUser event,
+  Future<void> _onUserLoadUser(
+    UserLoadUser event,
     Emitter<UserLoadState> emit,
   ) async {
-    emit(const UserLoadLoading());
+    emit(const UserLoading());
+    await Future.delayed(SharedDurations.s2);
     await userRepository.initializeUserData();
-    emit(const UserLoadInitial());
+    emit(const UserLoaded());
   }
 
   Future<void> _onUserLoadSignOut(
     UserLoadSignOut event,
     Emitter<UserLoadState> emit,
   ) async {
-    emit(const UserLoadLoading());
+    emit(const UserLoading());
     await userRepository.signOut();
     emit(const UserLoadInitial());
   }

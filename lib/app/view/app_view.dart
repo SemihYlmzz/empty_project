@@ -25,7 +25,7 @@ class _AppViewState extends State<AppView> with RouterMixin {
     final currentLanguageCode = switch (currentPrefModel?.appLanguage) {
       AppLanguages.english => const Locale('en'),
       AppLanguages.turkish => const Locale('tr'),
-      _ =>  Locale(''),
+      _ => const Locale('en'),
     };
 
     return MaterialApp.router(

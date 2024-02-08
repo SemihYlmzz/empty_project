@@ -4,7 +4,9 @@ part of 'user_load_bloc.dart';
 class UserLoadState with _$UserLoadState {
   const factory UserLoadState.initial() = UserLoadInitial;
 
-  const factory UserLoadState.loading() = UserLoadLoading;
+  const factory UserLoadState.loading() = UserLoading;
 
-  const factory UserLoadState.loaded() = UserLoadLoaded;
+  const factory UserLoadState.loaded() = UserLoaded;
+
+  const factory UserLoadState.loadError() = UserLoadError;
 }

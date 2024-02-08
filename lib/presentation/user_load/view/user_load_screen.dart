@@ -14,7 +14,7 @@ class UserLoadScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => UserLoadBloc(
         userRepository: getIt<UserRepository>(),
-      ),
+      )..add(const UserLoadEvent.loadUser()),
       child: const UserLoadView(),
     );
   }
