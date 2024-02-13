@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-class UserRegisterAppBar extends StatelessWidget implements PreferredSizeWidget {
+import '../../presentation.dart';
+
+class UserRegisterAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
   const UserRegisterAppBar({
     super.key,
   });
@@ -9,6 +12,9 @@ class UserRegisterAppBar extends StatelessWidget implements PreferredSizeWidget 
   Widget build(BuildContext context) {
     return AppBar(
       title: const Text('User Register Screen'),
+      actions: const [
+        SignOutIconButton(),
+      ],
     );
   }
 

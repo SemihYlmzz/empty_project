@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_widgets/shared_widgets.dart';
 import '../../presentation.dart';
 
 class UserRegisterView extends StatelessWidget {
@@ -7,19 +7,21 @@ class UserRegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const UserRegisterAppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return const BaseScaffold(
+      safeArea: true,
+      appBar: UserRegisterAppBar(),
+      body: BaseColumn(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Center(
-            child: TextButton(
-              onPressed: () {
-                context.read<UserRegisterBloc>().add(const SignOutRequest());
-              },
-              child: const Text('User Register Button'),
-            ),
+          Column(
+            children: [
+              UserAvatarPicker(),
+              FirstNameTextField(),
+              LastNameTextField(),
+              UserLocationPicker(),
+            ],
           ),
+          UserRegisterButton(),
         ],
       ),
     );

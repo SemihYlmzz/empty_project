@@ -19,32 +19,38 @@ mixin _$UserRegisterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
+    required TResult Function() setAvatar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
+    TResult? Function()? setAvatar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
+    TResult Function()? setAvatar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
+    required TResult Function(SetAvatarRequest value) setAvatar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
+    TResult? Function(SetAvatarRequest value)? setAvatar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
+    TResult Function(SetAvatarRequest value)? setAvatar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
+    required TResult Function() setAvatar,
   }) {
     return signOutRequest();
   }
@@ -115,6 +122,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
+    TResult? Function()? setAvatar,
   }) {
     return signOutRequest?.call();
   }
@@ -123,6 +131,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
+    TResult Function()? setAvatar,
     required TResult orElse(),
   }) {
     if (signOutRequest != null) {
@@ -135,6 +144,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
+    required TResult Function(SetAvatarRequest value) setAvatar,
   }) {
     return signOutRequest(this);
   }
@@ -143,6 +153,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
+    TResult? Function(SetAvatarRequest value)? setAvatar,
   }) {
     return signOutRequest?.call(this);
   }
@@ -151,6 +162,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
+    TResult Function(SetAvatarRequest value)? setAvatar,
     required TResult orElse(),
   }) {
     if (signOutRequest != null) {
@@ -165,26 +177,140 @@ abstract class SignOutRequest implements UserRegisterEvent {
 }
 
 /// @nodoc
+abstract class _$$SetAvatarRequestImplCopyWith<$Res> {
+  factory _$$SetAvatarRequestImplCopyWith(_$SetAvatarRequestImpl value,
+          $Res Function(_$SetAvatarRequestImpl) then) =
+      __$$SetAvatarRequestImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SetAvatarRequestImplCopyWithImpl<$Res>
+    extends _$UserRegisterEventCopyWithImpl<$Res, _$SetAvatarRequestImpl>
+    implements _$$SetAvatarRequestImplCopyWith<$Res> {
+  __$$SetAvatarRequestImplCopyWithImpl(_$SetAvatarRequestImpl _value,
+      $Res Function(_$SetAvatarRequestImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SetAvatarRequestImpl implements SetAvatarRequest {
+  const _$SetAvatarRequestImpl();
+
+  @override
+  String toString() {
+    return 'UserRegisterEvent.setAvatar()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SetAvatarRequestImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signOutRequest,
+    required TResult Function() setAvatar,
+  }) {
+    return setAvatar();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signOutRequest,
+    TResult? Function()? setAvatar,
+  }) {
+    return setAvatar?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signOutRequest,
+    TResult Function()? setAvatar,
+    required TResult orElse(),
+  }) {
+    if (setAvatar != null) {
+      return setAvatar();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignOutRequest value) signOutRequest,
+    required TResult Function(SetAvatarRequest value) setAvatar,
+  }) {
+    return setAvatar(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignOutRequest value)? signOutRequest,
+    TResult? Function(SetAvatarRequest value)? setAvatar,
+  }) {
+    return setAvatar?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignOutRequest value)? signOutRequest,
+    TResult Function(SetAvatarRequest value)? setAvatar,
+    required TResult orElse(),
+  }) {
+    if (setAvatar != null) {
+      return setAvatar(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetAvatarRequest implements UserRegisterEvent {
+  const factory SetAvatarRequest() = _$SetAvatarRequestImpl;
+}
+
+/// @nodoc
 mixin _$UserRegisterState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)
+        initial,
+    required TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)
+        loading,
+    required TResult Function(UserModel userModel) completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        initial,
+    TResult? Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        loading,
+    TResult? Function(UserModel userModel)? completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        initial,
+    TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        loading,
+    TResult Function(UserModel userModel)? completed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -192,21 +318,21 @@ mixin _$UserRegisterState {
   TResult map<TResult extends Object?>({
     required TResult Function(UserRegisterInitial value) initial,
     required TResult Function(UserRegisterLoading value) loading,
-    required TResult Function(UserRegisterLoaded value) loaded,
+    required TResult Function(UserRegisterCompleted value) completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserRegisterInitial value)? initial,
     TResult? Function(UserRegisterLoading value)? loading,
-    TResult? Function(UserRegisterLoaded value)? loaded,
+    TResult? Function(UserRegisterCompleted value)? completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserRegisterInitial value)? initial,
     TResult Function(UserRegisterLoading value)? loading,
-    TResult Function(UserRegisterLoaded value)? loaded,
+    TResult Function(UserRegisterCompleted value)? completed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -235,6 +361,13 @@ abstract class _$$UserRegisterInitialImplCopyWith<$Res> {
   factory _$$UserRegisterInitialImplCopyWith(_$UserRegisterInitialImpl value,
           $Res Function(_$UserRegisterInitialImpl) then) =
       __$$UserRegisterInitialImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {Uint8List? avatarImage,
+      String? firstName,
+      String? lastName,
+      double? latitude,
+      double? longitude});
 }
 
 /// @nodoc
@@ -244,58 +377,142 @@ class __$$UserRegisterInitialImplCopyWithImpl<$Res>
   __$$UserRegisterInitialImplCopyWithImpl(_$UserRegisterInitialImpl _value,
       $Res Function(_$UserRegisterInitialImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? avatarImage = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+  }) {
+    return _then(_$UserRegisterInitialImpl(
+      avatarImage: freezed == avatarImage
+          ? _value.avatarImage
+          : avatarImage // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      firstName: freezed == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: freezed == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      latitude: freezed == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$UserRegisterInitialImpl implements UserRegisterInitial {
-  const _$UserRegisterInitialImpl();
+  const _$UserRegisterInitialImpl(
+      {this.avatarImage,
+      this.firstName,
+      this.lastName,
+      this.latitude,
+      this.longitude});
+
+  @override
+  final Uint8List? avatarImage;
+  @override
+  final String? firstName;
+  @override
+  final String? lastName;
+  @override
+  final double? latitude;
+  @override
+  final double? longitude;
 
   @override
   String toString() {
-    return 'UserRegisterState.initial()';
+    return 'UserRegisterState.initial(avatarImage: $avatarImage, firstName: $firstName, lastName: $lastName, latitude: $latitude, longitude: $longitude)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserRegisterInitialImpl);
+            other is _$UserRegisterInitialImpl &&
+            const DeepCollectionEquality()
+                .equals(other.avatarImage, avatarImage) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(avatarImage),
+      firstName,
+      lastName,
+      latitude,
+      longitude);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserRegisterInitialImplCopyWith<_$UserRegisterInitialImpl> get copyWith =>
+      __$$UserRegisterInitialImplCopyWithImpl<_$UserRegisterInitialImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)
+        initial,
+    required TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)
+        loading,
+    required TResult Function(UserModel userModel) completed,
   }) {
-    return initial();
+    return initial(avatarImage, firstName, lastName, latitude, longitude);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        initial,
+    TResult? Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        loading,
+    TResult? Function(UserModel userModel)? completed,
   }) {
-    return initial?.call();
+    return initial?.call(avatarImage, firstName, lastName, latitude, longitude);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        initial,
+    TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        loading,
+    TResult Function(UserModel userModel)? completed,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(avatarImage, firstName, lastName, latitude, longitude);
     }
     return orElse();
   }
@@ -305,7 +522,7 @@ class _$UserRegisterInitialImpl implements UserRegisterInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(UserRegisterInitial value) initial,
     required TResult Function(UserRegisterLoading value) loading,
-    required TResult Function(UserRegisterLoaded value) loaded,
+    required TResult Function(UserRegisterCompleted value) completed,
   }) {
     return initial(this);
   }
@@ -315,7 +532,7 @@ class _$UserRegisterInitialImpl implements UserRegisterInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserRegisterInitial value)? initial,
     TResult? Function(UserRegisterLoading value)? loading,
-    TResult? Function(UserRegisterLoaded value)? loaded,
+    TResult? Function(UserRegisterCompleted value)? completed,
   }) {
     return initial?.call(this);
   }
@@ -325,7 +542,7 @@ class _$UserRegisterInitialImpl implements UserRegisterInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserRegisterInitial value)? initial,
     TResult Function(UserRegisterLoading value)? loading,
-    TResult Function(UserRegisterLoaded value)? loaded,
+    TResult Function(UserRegisterCompleted value)? completed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -336,7 +553,21 @@ class _$UserRegisterInitialImpl implements UserRegisterInitial {
 }
 
 abstract class UserRegisterInitial implements UserRegisterState {
-  const factory UserRegisterInitial() = _$UserRegisterInitialImpl;
+  const factory UserRegisterInitial(
+      {final Uint8List? avatarImage,
+      final String? firstName,
+      final String? lastName,
+      final double? latitude,
+      final double? longitude}) = _$UserRegisterInitialImpl;
+
+  Uint8List? get avatarImage;
+  String? get firstName;
+  String? get lastName;
+  double? get latitude;
+  double? get longitude;
+  @JsonKey(ignore: true)
+  _$$UserRegisterInitialImplCopyWith<_$UserRegisterInitialImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -344,6 +575,13 @@ abstract class _$$UserRegisterLoadingImplCopyWith<$Res> {
   factory _$$UserRegisterLoadingImplCopyWith(_$UserRegisterLoadingImpl value,
           $Res Function(_$UserRegisterLoadingImpl) then) =
       __$$UserRegisterLoadingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {Uint8List? avatarImage,
+      String? firstName,
+      String? lastName,
+      double? latitude,
+      double? longitude});
 }
 
 /// @nodoc
@@ -353,58 +591,142 @@ class __$$UserRegisterLoadingImplCopyWithImpl<$Res>
   __$$UserRegisterLoadingImplCopyWithImpl(_$UserRegisterLoadingImpl _value,
       $Res Function(_$UserRegisterLoadingImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? avatarImage = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+  }) {
+    return _then(_$UserRegisterLoadingImpl(
+      avatarImage: freezed == avatarImage
+          ? _value.avatarImage
+          : avatarImage // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      firstName: freezed == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: freezed == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      latitude: freezed == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$UserRegisterLoadingImpl implements UserRegisterLoading {
-  const _$UserRegisterLoadingImpl();
+  const _$UserRegisterLoadingImpl(
+      {this.avatarImage,
+      this.firstName,
+      this.lastName,
+      this.latitude,
+      this.longitude});
+
+  @override
+  final Uint8List? avatarImage;
+  @override
+  final String? firstName;
+  @override
+  final String? lastName;
+  @override
+  final double? latitude;
+  @override
+  final double? longitude;
 
   @override
   String toString() {
-    return 'UserRegisterState.loading()';
+    return 'UserRegisterState.loading(avatarImage: $avatarImage, firstName: $firstName, lastName: $lastName, latitude: $latitude, longitude: $longitude)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserRegisterLoadingImpl);
+            other is _$UserRegisterLoadingImpl &&
+            const DeepCollectionEquality()
+                .equals(other.avatarImage, avatarImage) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(avatarImage),
+      firstName,
+      lastName,
+      latitude,
+      longitude);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserRegisterLoadingImplCopyWith<_$UserRegisterLoadingImpl> get copyWith =>
+      __$$UserRegisterLoadingImplCopyWithImpl<_$UserRegisterLoadingImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)
+        initial,
+    required TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)
+        loading,
+    required TResult Function(UserModel userModel) completed,
   }) {
-    return loading();
+    return loading(avatarImage, firstName, lastName, latitude, longitude);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        initial,
+    TResult? Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        loading,
+    TResult? Function(UserModel userModel)? completed,
   }) {
-    return loading?.call();
+    return loading?.call(avatarImage, firstName, lastName, latitude, longitude);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        initial,
+    TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        loading,
+    TResult Function(UserModel userModel)? completed,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading();
+      return loading(avatarImage, firstName, lastName, latitude, longitude);
     }
     return orElse();
   }
@@ -414,7 +736,7 @@ class _$UserRegisterLoadingImpl implements UserRegisterLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(UserRegisterInitial value) initial,
     required TResult Function(UserRegisterLoading value) loading,
-    required TResult Function(UserRegisterLoaded value) loaded,
+    required TResult Function(UserRegisterCompleted value) completed,
   }) {
     return loading(this);
   }
@@ -424,7 +746,7 @@ class _$UserRegisterLoadingImpl implements UserRegisterLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserRegisterInitial value)? initial,
     TResult? Function(UserRegisterLoading value)? loading,
-    TResult? Function(UserRegisterLoaded value)? loaded,
+    TResult? Function(UserRegisterCompleted value)? completed,
   }) {
     return loading?.call(this);
   }
@@ -434,7 +756,7 @@ class _$UserRegisterLoadingImpl implements UserRegisterLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserRegisterInitial value)? initial,
     TResult Function(UserRegisterLoading value)? loading,
-    TResult Function(UserRegisterLoaded value)? loaded,
+    TResult Function(UserRegisterCompleted value)? completed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -445,74 +767,139 @@ class _$UserRegisterLoadingImpl implements UserRegisterLoading {
 }
 
 abstract class UserRegisterLoading implements UserRegisterState {
-  const factory UserRegisterLoading() = _$UserRegisterLoadingImpl;
+  const factory UserRegisterLoading(
+      {final Uint8List? avatarImage,
+      final String? firstName,
+      final String? lastName,
+      final double? latitude,
+      final double? longitude}) = _$UserRegisterLoadingImpl;
+
+  Uint8List? get avatarImage;
+  String? get firstName;
+  String? get lastName;
+  double? get latitude;
+  double? get longitude;
+  @JsonKey(ignore: true)
+  _$$UserRegisterLoadingImplCopyWith<_$UserRegisterLoadingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UserRegisterLoadedImplCopyWith<$Res> {
-  factory _$$UserRegisterLoadedImplCopyWith(_$UserRegisterLoadedImpl value,
-          $Res Function(_$UserRegisterLoadedImpl) then) =
-      __$$UserRegisterLoadedImplCopyWithImpl<$Res>;
+abstract class _$$UserRegisterCompletedImplCopyWith<$Res> {
+  factory _$$UserRegisterCompletedImplCopyWith(
+          _$UserRegisterCompletedImpl value,
+          $Res Function(_$UserRegisterCompletedImpl) then) =
+      __$$UserRegisterCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel userModel});
+
+  $UserModelCopyWith<$Res> get userModel;
 }
 
 /// @nodoc
-class __$$UserRegisterLoadedImplCopyWithImpl<$Res>
-    extends _$UserRegisterStateCopyWithImpl<$Res, _$UserRegisterLoadedImpl>
-    implements _$$UserRegisterLoadedImplCopyWith<$Res> {
-  __$$UserRegisterLoadedImplCopyWithImpl(_$UserRegisterLoadedImpl _value,
-      $Res Function(_$UserRegisterLoadedImpl) _then)
+class __$$UserRegisterCompletedImplCopyWithImpl<$Res>
+    extends _$UserRegisterStateCopyWithImpl<$Res, _$UserRegisterCompletedImpl>
+    implements _$$UserRegisterCompletedImplCopyWith<$Res> {
+  __$$UserRegisterCompletedImplCopyWithImpl(_$UserRegisterCompletedImpl _value,
+      $Res Function(_$UserRegisterCompletedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userModel = null,
+  }) {
+    return _then(_$UserRegisterCompletedImpl(
+      userModel: null == userModel
+          ? _value.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get userModel {
+    return $UserModelCopyWith<$Res>(_value.userModel, (value) {
+      return _then(_value.copyWith(userModel: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$UserRegisterLoadedImpl implements UserRegisterLoaded {
-  const _$UserRegisterLoadedImpl();
+class _$UserRegisterCompletedImpl implements UserRegisterCompleted {
+  const _$UserRegisterCompletedImpl({required this.userModel});
+
+  @override
+  final UserModel userModel;
 
   @override
   String toString() {
-    return 'UserRegisterState.loaded()';
+    return 'UserRegisterState.completed(userModel: $userModel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserRegisterLoadedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$UserRegisterCompletedImpl &&
+            (identical(other.userModel, userModel) ||
+                other.userModel == userModel));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserRegisterCompletedImplCopyWith<_$UserRegisterCompletedImpl>
+      get copyWith => __$$UserRegisterCompletedImplCopyWithImpl<
+          _$UserRegisterCompletedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)
+        initial,
+    required TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)
+        loading,
+    required TResult Function(UserModel userModel) completed,
   }) {
-    return loaded();
+    return completed(userModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        initial,
+    TResult? Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        loading,
+    TResult? Function(UserModel userModel)? completed,
   }) {
-    return loaded?.call();
+    return completed?.call(userModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        initial,
+    TResult Function(Uint8List? avatarImage, String? firstName,
+            String? lastName, double? latitude, double? longitude)?
+        loading,
+    TResult Function(UserModel userModel)? completed,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded();
+    if (completed != null) {
+      return completed(userModel);
     }
     return orElse();
   }
@@ -522,9 +909,9 @@ class _$UserRegisterLoadedImpl implements UserRegisterLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(UserRegisterInitial value) initial,
     required TResult Function(UserRegisterLoading value) loading,
-    required TResult Function(UserRegisterLoaded value) loaded,
+    required TResult Function(UserRegisterCompleted value) completed,
   }) {
-    return loaded(this);
+    return completed(this);
   }
 
   @override
@@ -532,9 +919,9 @@ class _$UserRegisterLoadedImpl implements UserRegisterLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserRegisterInitial value)? initial,
     TResult? Function(UserRegisterLoading value)? loading,
-    TResult? Function(UserRegisterLoaded value)? loaded,
+    TResult? Function(UserRegisterCompleted value)? completed,
   }) {
-    return loaded?.call(this);
+    return completed?.call(this);
   }
 
   @override
@@ -542,16 +929,22 @@ class _$UserRegisterLoadedImpl implements UserRegisterLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserRegisterInitial value)? initial,
     TResult Function(UserRegisterLoading value)? loading,
-    TResult Function(UserRegisterLoaded value)? loaded,
+    TResult Function(UserRegisterCompleted value)? completed,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (completed != null) {
+      return completed(this);
     }
     return orElse();
   }
 }
 
-abstract class UserRegisterLoaded implements UserRegisterState {
-  const factory UserRegisterLoaded() = _$UserRegisterLoadedImpl;
+abstract class UserRegisterCompleted implements UserRegisterState {
+  const factory UserRegisterCompleted({required final UserModel userModel}) =
+      _$UserRegisterCompletedImpl;
+
+  UserModel get userModel;
+  @JsonKey(ignore: true)
+  _$$UserRegisterCompletedImplCopyWith<_$UserRegisterCompletedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
