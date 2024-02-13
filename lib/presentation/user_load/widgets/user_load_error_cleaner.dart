@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../presentation.dart';
 
 class UserLoadErrorCleaner extends StatelessWidget {
-  const UserLoadErrorCleaner({super.key, required this.errorMessage});
+  const UserLoadErrorCleaner({required this.errorMessage, super.key});
   final String errorMessage;
   @override
   Widget build(BuildContext context) {

@@ -9,11 +9,11 @@ class VerifyEmailBloc extends Bloc<VerifyEmailEvent, VerifyEmailState> {
   VerifyEmailBloc() : super(const VerifyEmailState.initial()) {
     on<VerifyEmailFetch>(_onVerifyEmailFetch);
   }
-  
+
   Future<void> _onVerifyEmailFetch(
     VerifyEmailFetch event,
     Emitter<VerifyEmailState> emit,
-    ) async {
+  ) async {
     emit(const VerifyEmailLoading());
   }
 }

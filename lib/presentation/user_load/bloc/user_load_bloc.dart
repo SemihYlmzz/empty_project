@@ -22,7 +22,7 @@ class UserLoadBloc extends Bloc<UserLoadEvent, UserLoadState> {
     Emitter<UserLoadState> emit,
   ) async {
     emit(const UserLoading());
-    await Future.delayed(SharedDurations.s2);
+    await Future<void>.delayed(SharedDurations.s2);
     final tryInit = await userRepository.initializeUserData();
     tryInit.fold(
       (failure) => emit(UserLoadState.loadError(errorMessage: failure.message)),

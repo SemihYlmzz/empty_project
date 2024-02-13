@@ -14,7 +14,7 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     required this.userRepository,
   }) : super(const UserRegisterState.initial()) {
     on<SignOutRequest>(_onSignOutRequest);
-    on<SetAvatarRequest>(_onSetAvatarRequest);
+    on<SetAvatar>(_onSetAvatarRequest);
     // on<UpdateFirstNameRequest>(_onUpdateFirstNameRequest);
     // on<UpdateLastNameRequest>(_onUpdateLastNameRequest);
     // on<SetLocationRequest>(_onSetLocationRequest);
@@ -28,23 +28,14 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     Emitter<UserRegisterState> emit,
   ) async {
     emit(const UserRegisterState.loading());
-    userRepository.signOut();
+    await userRepository.signOut();
     emit(const UserRegisterState.initial());
   }
 
-   Future<void> _onSetAvatarRequest(
-     SetAvatarRequest event,
-     Emitter<UserRegisterState> emit,
-   ) async {
-    //  if (!await permissionService.ensureHasGalleryService()) {
-    //    return;
-    //  }
-    //  final tryPick = await imageService.pickSingleImageFromGallery();
-    //  tryPick.fold(
-    //    (failure) => emit(
-    //      UserRegisterState.error(errorMessage: failure.message),
-    //    ),
-    //    (s) => emit(state.copyWith(avatar)),
-    //  );
-   }
+  Future<void> _onSetAvatarRequest(
+    SetAvatar event,
+    Emitter<UserRegisterState> emit,
+  ) async {
+
+  }
 }

@@ -15,7 +15,7 @@ class UserLocationPicker extends StatelessWidget {
         ),
         const Expanded(
           child: Text(
-            '''We need your current location'''
+            '''We need your current location '''
             '''to show you the nearest toys.''',
           ),
         ),

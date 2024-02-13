@@ -38,19 +38,19 @@ mixin _$UserRegisterEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarRequest value) setAvatar,
+    required TResult Function(SetAvatar value) setAvatar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarRequest value)? setAvatar,
+    TResult? Function(SetAvatar value)? setAvatar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarRequest value)? setAvatar,
+    TResult Function(SetAvatar value)? setAvatar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,7 +144,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarRequest value) setAvatar,
+    required TResult Function(SetAvatar value) setAvatar,
   }) {
     return signOutRequest(this);
   }
@@ -153,7 +153,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarRequest value)? setAvatar,
+    TResult? Function(SetAvatar value)? setAvatar,
   }) {
     return signOutRequest?.call(this);
   }
@@ -162,7 +162,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarRequest value)? setAvatar,
+    TResult Function(SetAvatar value)? setAvatar,
     required TResult orElse(),
   }) {
     if (signOutRequest != null) {
@@ -177,25 +177,25 @@ abstract class SignOutRequest implements UserRegisterEvent {
 }
 
 /// @nodoc
-abstract class _$$SetAvatarRequestImplCopyWith<$Res> {
-  factory _$$SetAvatarRequestImplCopyWith(_$SetAvatarRequestImpl value,
-          $Res Function(_$SetAvatarRequestImpl) then) =
-      __$$SetAvatarRequestImplCopyWithImpl<$Res>;
+abstract class _$$SetAvatarImplCopyWith<$Res> {
+  factory _$$SetAvatarImplCopyWith(
+          _$SetAvatarImpl value, $Res Function(_$SetAvatarImpl) then) =
+      __$$SetAvatarImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SetAvatarRequestImplCopyWithImpl<$Res>
-    extends _$UserRegisterEventCopyWithImpl<$Res, _$SetAvatarRequestImpl>
-    implements _$$SetAvatarRequestImplCopyWith<$Res> {
-  __$$SetAvatarRequestImplCopyWithImpl(_$SetAvatarRequestImpl _value,
-      $Res Function(_$SetAvatarRequestImpl) _then)
+class __$$SetAvatarImplCopyWithImpl<$Res>
+    extends _$UserRegisterEventCopyWithImpl<$Res, _$SetAvatarImpl>
+    implements _$$SetAvatarImplCopyWith<$Res> {
+  __$$SetAvatarImplCopyWithImpl(
+      _$SetAvatarImpl _value, $Res Function(_$SetAvatarImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$SetAvatarRequestImpl implements SetAvatarRequest {
-  const _$SetAvatarRequestImpl();
+class _$SetAvatarImpl implements SetAvatar {
+  const _$SetAvatarImpl();
 
   @override
   String toString() {
@@ -205,7 +205,7 @@ class _$SetAvatarRequestImpl implements SetAvatarRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SetAvatarRequestImpl);
+        (other.runtimeType == runtimeType && other is _$SetAvatarImpl);
   }
 
   @override
@@ -246,7 +246,7 @@ class _$SetAvatarRequestImpl implements SetAvatarRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarRequest value) setAvatar,
+    required TResult Function(SetAvatar value) setAvatar,
   }) {
     return setAvatar(this);
   }
@@ -255,7 +255,7 @@ class _$SetAvatarRequestImpl implements SetAvatarRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarRequest value)? setAvatar,
+    TResult? Function(SetAvatar value)? setAvatar,
   }) {
     return setAvatar?.call(this);
   }
@@ -264,7 +264,7 @@ class _$SetAvatarRequestImpl implements SetAvatarRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarRequest value)? setAvatar,
+    TResult Function(SetAvatar value)? setAvatar,
     required TResult orElse(),
   }) {
     if (setAvatar != null) {
@@ -274,8 +274,8 @@ class _$SetAvatarRequestImpl implements SetAvatarRequest {
   }
 }
 
-abstract class SetAvatarRequest implements UserRegisterEvent {
-  const factory SetAvatarRequest() = _$SetAvatarRequestImpl;
+abstract class SetAvatar implements UserRegisterEvent {
+  const factory SetAvatar() = _$SetAvatarImpl;
 }
 
 /// @nodoc

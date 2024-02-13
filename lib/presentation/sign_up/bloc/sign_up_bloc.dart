@@ -22,23 +22,27 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     SignUpRequested event,
     Emitter<SignUpState> emit,
   ) async {
-    emit(SignUpLoading(
-      email: state.email,
-      password: state.password,
-      confirmPassword: state.confirmPassword,
-    ));
+    emit(
+      SignUpLoading(
+        email: state.email,
+        password: state.password,
+        confirmPassword: state.confirmPassword,
+      ),
+    );
     final trySignUp = await userRepository.createAuthWithEmailAndPassword(
       email: state.email,
       password: state.password,
       confirmPassword: state.confirmPassword,
     );
     trySignUp.fold(
-      (failure) => emit(SignUpState.hasError(
-        email: state.email,
-        password: state.password,
-        confirmPassword: state.confirmPassword,
-        errorMessage: failure.message,
-      )),
+      (failure) => emit(
+        SignUpState.hasError(
+          email: state.email,
+          password: state.password,
+          confirmPassword: state.confirmPassword,
+          errorMessage: failure.message,
+        ),
+      ),
       (authModel) => emit(const SignUpReadyToSignUp()),
     );
   }
@@ -68,10 +72,12 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     SignUpClearState event,
     Emitter<SignUpState> emit,
   ) async {
-    emit(SignUpReadyToSignUp(
-      email: state.email,
-      password: state.password,
-      confirmPassword: state.confirmPassword,
-    ));
+    emit(
+      SignUpReadyToSignUp(
+        email: state.email,
+        password: state.password,
+        confirmPassword: state.confirmPassword,
+      ),
+    );
   }
 }

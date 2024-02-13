@@ -1,11 +1,12 @@
 import 'package:auth_api_firebase/auth_api_firebase.dart';
+import 'package:empty_application/repositories/repositories.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
 import 'package:preferences_api_shared/preferences_api_shared.dart';
-import 'package:empty_application/repositories/repositories.dart';
 import 'package:user_api_firestore/user_api_firestore.dart';
+
 import 'initialize.dart';
 
 abstract final class AppInitializer {

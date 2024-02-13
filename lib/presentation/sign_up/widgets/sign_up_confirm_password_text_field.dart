@@ -15,9 +15,11 @@ class SignUpConfirmPasswordTextField extends StatelessWidget {
         prefixIcon: Icon(Icons.lock),
       ),
       onChanged: (value) {
-        context.read<SignUpBloc>().add(SignUpConfirmPasswordChange(
-              confirmPassword: value,
-            ));
+        context.read<SignUpBloc>().add(
+              SignUpConfirmPasswordChange(
+                confirmPassword: value,
+              ),
+            );
       },
     );
   }

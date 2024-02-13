@@ -16,7 +16,7 @@ class _AppViewState extends State<AppView> with RouterMixin {
   Widget build(BuildContext context) {
     final currentPrefModel = context.watch<AppBloc>().state.preferencesModel;
 
-    var appTheme = switch (currentPrefModel?.appTheme) {
+    final appTheme = switch (currentPrefModel?.appTheme) {
       AppThemes.lightTheme => ThemeData.light(),
       AppThemes.darkTheme => ThemeData.dark(),
       _ => _getDeviceTheme(),

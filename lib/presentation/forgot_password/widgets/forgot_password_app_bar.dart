@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ForgotPasswordAppBar extends StatelessWidget implements PreferredSizeWidget {
+class ForgotPasswordAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
   const ForgotPasswordAppBar({
     super.key,
   });

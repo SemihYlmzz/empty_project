@@ -19,6 +19,6 @@ class UserRegisterState with _$UserRegisterState {
   }) = UserRegisterLoading;
 
   const factory UserRegisterState.completed({
-    required UserModel userModel
+    required UserModel userModel,
   }) = UserRegisterCompleted;
 }

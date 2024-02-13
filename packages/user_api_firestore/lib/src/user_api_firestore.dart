@@ -41,8 +41,6 @@ class UserApiFirestore implements UserApi {
 
       return UserModel.fromJson(docData);
     } catch (exception) {
-      print(exception);
-      print(exception.runtimeType);
       if (exception is FirebaseException) {
         throw _firebaseExceptionToUserException(exception);
       }

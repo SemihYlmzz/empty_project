@@ -22,17 +22,19 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     Emitter<SignInState> emit,
   ) async {
     emit(SignInLoading(email: state.email, password: state.password));
-    await Future.delayed(const Duration(seconds: 3));
+    await Future<void>.delayed(const Duration(seconds: 3));
     final trySignIn = await userRepository.signInWithEmailAndPassword(
       email: state.email,
       password: state.password,
     );
     trySignIn.fold(
-      (failure) => emit(SignInState.hasError(
-        email: state.email,
-        password: state.password,
-        errorMessage: failure.message,
-      )),
+      (failure) => emit(
+        SignInState.hasError(
+          email: state.email,
+          password: state.password,
+          errorMessage: failure.message,
+        ),
+      ),
       (authModel) => emit(const SignInReadyToSignIn()),
     );
   }
