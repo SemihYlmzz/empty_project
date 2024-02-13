@@ -1,5 +1,6 @@
 import 'package:empty_application/initialize/initialize.dart';
 import 'package:empty_application/repositories/repositories.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,6 +11,10 @@ class AppScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (kDebugMode) {
+      debugInvertOversizedImages = true;
+    }
+
     return BlocProvider(
       create: (context) => AppBloc(
         preferencesRepository: getIt<PreferencesRepository>(),

@@ -1,4 +1,4 @@
-name: image_api
+name: image_service_api
 description: description
 version: 0.1.0+1
 publish_to: none

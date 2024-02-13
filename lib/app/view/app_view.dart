@@ -14,6 +14,7 @@ class AppView extends StatefulWidget {
 class _AppViewState extends State<AppView> with RouterMixin {
   @override
   Widget build(BuildContext context) {
+    
     final currentPrefModel = context.watch<AppBloc>().state.preferencesModel;
 
     final appTheme = switch (currentPrefModel?.appTheme) {
