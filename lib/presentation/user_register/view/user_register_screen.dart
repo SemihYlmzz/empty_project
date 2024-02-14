@@ -1,4 +1,6 @@
 import 'package:empty_application/common/common.dart';
+import 'package:empty_application/presentation/user_register/bloc_listeners/error_message_listener.dart';
+import 'package:empty_application/presentation/user_register/bloc_listeners/permission_denied_listener.dart';
 import 'package:empty_application/repositories/repositories.dart';
 import 'package:empty_application/services/services.dart';
 import 'package:flutter/material.dart';
@@ -19,20 +21,11 @@ class UserRegisterScreen extends StatelessWidget {
         permissionService: getIt<PermissionService>(),
         imageService: getIt<ImageService>(),
       ),
-      child: BlocListener<UserRegisterBloc, UserRegisterState>(
-        listener: (context, state) async {
-          if (state.isPhotosPermissionPermanentlyDenied) {
-            final openAppSettings = await PermissionsActionsSheets()
-                .showPhotosPermissionRequired(context);
-            if (openAppSettings != null && openAppSettings) {
-              await getIt<PermissionService>().openAppSettings();
-            }
-          }
-          if (!context.mounted) {
-            return;
-          }
-          context.read<UserRegisterBloc>().add(const ClearUserRegisterState());
-        },
+      child: MultiBlocListener(
+        listeners: [
+          errorMessageListener(),
+          permissionDeniedListener(),
+        ],
         child: const UserRegisterView(),
       ),
     );

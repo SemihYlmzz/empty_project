@@ -2,3 +2,4 @@
 library image_service_api;
 
 export 'src/image_service_api.dart';
+export 'src/image_service_exception.dart';

@@ -23,6 +23,7 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     on<SetAvatar>(_onSetAvatarRequest);
     on<UpdateFirstName>(_onUpdateFirstName);
   }
+  
   final UserRepository userRepository;
   final PermissionService permissionService;
   final ImageService imageService;

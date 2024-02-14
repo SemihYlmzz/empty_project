@@ -14,11 +14,10 @@ class ImageService {
     try {
       return Right(await imageApi.takeSingleImageWithCamera());
     } catch (exception) {
-      // if (exception is ImageException) {
-      //   return Left(_imageExceptionTranslatedToUser(exception));
-      // }
-      // return Left(_imageExceptionTranslatedToUser(ImageUnknown()));
-      return const Left(Failure(message: 'Error occured'));
+      if (exception is ImageServiceException) {
+        return Left(Failure(message: exception.runtimeType.toString()));
+      }
+      return const Left(Failure(message: 'UNKNOWN ERROR'));
     }
   }
 
@@ -26,11 +25,10 @@ class ImageService {
     try {
       return Right(await imageApi.selectSingleImageFromPhotos());
     } catch (exception) {
-      // if (exception is ImageException) {
-      //   return Left(_imageExceptionTranslatedToUser(exception));
-      // }
-      // return Left(_imageExceptionTranslatedToUser(ImageUnknown()));
-      return const Left(Failure(message: 'Error occured'));
+      if (exception is ImageServiceException) {
+        return Left(Failure(message: exception.runtimeType.toString()));
+      }
+      return const Left(Failure(message: 'UNKNOWN ERROR'));
     }
   }
 }

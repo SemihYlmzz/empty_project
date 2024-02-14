@@ -11,11 +11,11 @@ class ImageServiceApiPicker implements ImageServiceApi {
     try {
       final image = await _imagePicker.pickImage(source: ImageSource.gallery);
       if (image == null) {
-        throw Exception();
+        throw ImageServiceUnknown();
       }
       return image.readAsBytes();
     } catch (exception) {
-      throw Exception();
+      throw ImageServiceUnknown();
     }
   }
 
@@ -24,11 +24,11 @@ class ImageServiceApiPicker implements ImageServiceApi {
     try {
       final image = await _imagePicker.pickImage(source: ImageSource.camera);
       if (image == null) {
-        throw Exception();
+        throw ImageServiceUnknown();
       }
       return image.readAsBytes();
     } catch (exception) {
-      throw Exception();
+      throw ImageServiceUnknown();
     }
   }
 }
