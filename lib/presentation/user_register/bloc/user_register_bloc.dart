@@ -1,7 +1,6 @@
-import 'dart:typed_data';
-
 import 'package:bloc/bloc.dart';
 import 'package:empty_application/repositories/repositories.dart';
+import 'package:empty_application/services/location_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -16,6 +15,7 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     required this.userRepository,
     required this.permissionService,
     required this.imageService,
+    required this.locationService,
   }) : super(const UserRegisterState()) {
     on<ClearUserRegisterState>(_onClearUserRegisterState);
     on<SignOutRequest>(_onSignOutRequest);
@@ -29,6 +29,7 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
   final UserRepository userRepository;
   final PermissionService permissionService;
   final ImageService imageService;
+  final LocationService locationService;
 
   Future<void> _onClearUserRegisterState(
     ClearUserRegisterState event,
@@ -127,16 +128,27 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     UpdateLocation event,
     Emitter<UserRegisterState> emit,
   ) async {
+    var hasPermission = false;
     final tryEnsure = await permissionService.ensureHasLocationPermission();
 
     tryEnsure.fold(
       (failure) => emit(state.copyWith(errorMessage: failure.message)),
-      (hasPermission) {
-        if (!hasPermission) {
-          emit(state.copyWith(isLocationPermissionPermanentlyDenied: true));
-          return;
-        }
-      },
+      (value) => hasPermission = value,
+    );
+
+    if (!hasPermission) {
+      emit(state.copyWith(isLocationPermissionPermanentlyDenied: true));
+      return;
+    }
+    final tryGetLocation = await locationService.getCurrentLocation();
+    tryGetLocation.fold(
+      (failure) => emit(state.copyWith(errorMessage: failure.message)),
+      (locationData) => emit(
+        state.copyWith(
+          latitude: locationData.latitude,
+          longitude: locationData.longitude,
+        ),
+      ),
     );
   }
 }

@@ -7,11 +7,16 @@ class UserLocationPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state = context.watch<UserRegisterBloc>().state;
     return Row(
       children: [
         Checkbox(
-          value: false,
+          value: state.longitude != null && state.latitude != null,
           onChanged: (value) {
+            if (value == null || !value) {
+              // context.read<UserRegisterBloc>().add(const DeleteLocation());
+              return;
+            }
             context.read<UserRegisterBloc>().add(const UpdateLocation());
           },
         ),

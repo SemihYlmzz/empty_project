@@ -1,10 +1,12 @@
 import 'package:auth_api_firebase/auth_api_firebase.dart';
 import 'package:empty_application/repositories/repositories.dart';
+import 'package:empty_application/services/location_service.dart';
 import 'package:empty_application/services/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_service_api_picker/image_service_api_picker.dart';
+import 'package:location_service_api_geolocator/location_service_api_geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:permission_service_api_handler/permission_service_api_handler.dart';
 import 'package:preferences_api_shared/preferences_api_shared.dart';
@@ -40,6 +42,7 @@ abstract final class AppInitializer {
     final userApiFirestore = await UserApiFirestoreInitializer().initialize();
     final permissionServiceApiHandler = PermissionServiceApiHandler();
     final imageServiceApiPicker = ImageServiceApiPicker();
+    final locationServiceApiGeolocator = LocationServiceApiGeolocator();
 
     // Inject Repositories
     await InjectionContainer.initializeDependencies(
@@ -54,6 +57,9 @@ abstract final class AppInitializer {
         permissionServiceApi: permissionServiceApiHandler,
       ),
       imageService: ImageService(imageApi: imageServiceApiPicker),
+      locationService: LocationService(
+        locationServiceApi: locationServiceApiGeolocator,
+      ),
     );
   }
 }

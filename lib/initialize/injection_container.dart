@@ -1,3 +1,4 @@
+import 'package:empty_application/services/location_service.dart';
 import 'package:empty_application/services/services.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,6 +12,7 @@ class InjectionContainer {
     required PreferencesRepository preferencesRepository,
     required PermissionService permissionService,
     required ImageService imageService,
+    required LocationService locationService,
   }) async {
     getIt
       ..registerLazySingleton<UserRepository>(() => userRepository)
@@ -18,6 +20,8 @@ class InjectionContainer {
         () => preferencesRepository,
       )
       ..registerLazySingleton<PermissionService>(() => permissionService)
-      ..registerLazySingleton<ImageService>(() => imageService);
+      ..registerLazySingleton<ImageService>(() => imageService)
+      ..registerLazySingleton<LocationService>(() => locationService)
+       ;
   }
 }

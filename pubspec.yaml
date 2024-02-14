@@ -35,7 +35,11 @@ dependencies:
     path: packages/image_service_api
   image_service_api_picker:
     path: packages/image_service_api_picker
-    
+  location_service_api:
+    path: packages/location_service_api
+  location_service_api_geolocator:
+    path: packages/location_service_api_geolocator
+
   # State Management
   flutter_bloc: ^8.1.3
   bloc: ^8.1.2

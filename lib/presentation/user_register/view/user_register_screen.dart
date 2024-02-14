@@ -1,6 +1,7 @@
 import 'package:empty_application/presentation/user_register/bloc_listeners/error_message_listener.dart';
 import 'package:empty_application/presentation/user_register/bloc_listeners/permission_denied_listener.dart';
 import 'package:empty_application/repositories/repositories.dart';
+import 'package:empty_application/services/location_service.dart';
 import 'package:empty_application/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +20,7 @@ class UserRegisterScreen extends StatelessWidget {
         userRepository: getIt<UserRepository>(),
         permissionService: getIt<PermissionService>(),
         imageService: getIt<ImageService>(),
+        locationService: getIt<LocationService>(),
       ),
       child: MultiBlocListener(
         listeners: [
