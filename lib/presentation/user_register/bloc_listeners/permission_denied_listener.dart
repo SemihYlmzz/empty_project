@@ -8,16 +8,18 @@ import '../../../services/services.dart';
 BlocListener<UserRegisterBloc, UserRegisterState> permissionDeniedListener() {
   return BlocListener<UserRegisterBloc, UserRegisterState>(
     listener: (context, userRegisterState) async {
-      if (userRegisterState.errorMessage == null) {
+      if (!userRegisterState.isPhotosPermissionPermanentlyDenied &&
+          !userRegisterState.isCameraPermissionPermanentlyDenied &&
+          !userRegisterState.isLocationPermissionPermanentlyDenied) {
         return;
       }
-      if (userRegisterState.isPhotosPermissionPermanentlyDenied) {
-        final openAppSettings = await PermissionsActionsSheets()
-            .showPhotosPermissionRequired(context);
-        if (openAppSettings != null && openAppSettings) {
-          await getIt<PermissionService>().openAppSettings();
-        }
+
+      final openAppSettings = await PermissionsActionsSheets()
+          .showPhotosPermissionRequired(context);
+      if (openAppSettings != null && openAppSettings) {
+        await getIt<PermissionService>().openAppSettings();
       }
+
       if (!context.mounted) {
         return;
       }

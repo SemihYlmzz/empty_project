@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:empty_application/repositories/repositories.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../services/services.dart';
@@ -22,6 +23,7 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     on<SetAvatarViaCamera>(_onSetAvatarViaCamera);
     on<UpdateFirstName>(_onUpdateFirstName);
     on<UpdateLastName>(_onUpdateLastName);
+    on<UpdateLocation>(_onUpdateLocation);
   }
 
   final UserRepository userRepository;
@@ -37,6 +39,8 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
         errorMessage: null,
         isLoading: false,
         isPhotosPermissionPermanentlyDenied: false,
+        isCameraPermissionPermanentlyDenied: false,
+        isLocationPermissionPermanentlyDenied: false,
       ),
     );
   }
@@ -115,6 +119,23 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
           return;
         }
         emit(state.copyWith(avatarImage: nullableImage));
+      },
+    );
+  }
+
+  Future<void> _onUpdateLocation(
+    UpdateLocation event,
+    Emitter<UserRegisterState> emit,
+  ) async {
+    final tryEnsure = await permissionService.ensureHasLocationPermission();
+
+    tryEnsure.fold(
+      (failure) => emit(state.copyWith(errorMessage: failure.message)),
+      (hasPermission) {
+        if (!hasPermission) {
+          emit(state.copyWith(isLocationPermissionPermanentlyDenied: true));
+          return;
+        }
       },
     );
   }

@@ -23,7 +23,7 @@ mixin _$UserRegisterEvent {
     required TResult Function() setAvatarViaCamera,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function(String updatedLocation) updateLocation,
+    required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,7 +34,7 @@ mixin _$UserRegisterEvent {
     TResult? Function()? setAvatarViaCamera,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function(String updatedLocation)? updateLocation,
+    TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
   }) =>
       throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ mixin _$UserRegisterEvent {
     TResult Function()? setAvatarViaCamera,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
-    TResult Function(String updatedLocation)? updateLocation,
+    TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
     required TResult orElse(),
   }) =>
@@ -123,12 +123,21 @@ class __$$SignOutRequestImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignOutRequestImpl implements SignOutRequest {
+class _$SignOutRequestImpl
+    with DiagnosticableTreeMixin
+    implements SignOutRequest {
   const _$SignOutRequestImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UserRegisterEvent.signOutRequest()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'UserRegisterEvent.signOutRequest'));
   }
 
   @override
@@ -148,7 +157,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
     required TResult Function() setAvatarViaCamera,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function(String updatedLocation) updateLocation,
+    required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
   }) {
     return signOutRequest();
@@ -162,7 +171,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
     TResult? Function()? setAvatarViaCamera,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function(String updatedLocation)? updateLocation,
+    TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
   }) {
     return signOutRequest?.call();
@@ -176,7 +185,7 @@ class _$SignOutRequestImpl implements SignOutRequest {
     TResult Function()? setAvatarViaCamera,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
-    TResult Function(String updatedLocation)? updateLocation,
+    TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
     required TResult orElse(),
   }) {
@@ -256,12 +265,21 @@ class __$$SetAvatarViaPhotosImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetAvatarViaPhotosImpl implements SetAvatarViaPhotos {
+class _$SetAvatarViaPhotosImpl
+    with DiagnosticableTreeMixin
+    implements SetAvatarViaPhotos {
   const _$SetAvatarViaPhotosImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UserRegisterEvent.setAvatarViaPhotos()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'UserRegisterEvent.setAvatarViaPhotos'));
   }
 
   @override
@@ -281,7 +299,7 @@ class _$SetAvatarViaPhotosImpl implements SetAvatarViaPhotos {
     required TResult Function() setAvatarViaCamera,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function(String updatedLocation) updateLocation,
+    required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
   }) {
     return setAvatarViaPhotos();
@@ -295,7 +313,7 @@ class _$SetAvatarViaPhotosImpl implements SetAvatarViaPhotos {
     TResult? Function()? setAvatarViaCamera,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function(String updatedLocation)? updateLocation,
+    TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
   }) {
     return setAvatarViaPhotos?.call();
@@ -309,7 +327,7 @@ class _$SetAvatarViaPhotosImpl implements SetAvatarViaPhotos {
     TResult Function()? setAvatarViaCamera,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
-    TResult Function(String updatedLocation)? updateLocation,
+    TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
     required TResult orElse(),
   }) {
@@ -389,12 +407,21 @@ class __$$SetAvatarViaCameraImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetAvatarViaCameraImpl implements SetAvatarViaCamera {
+class _$SetAvatarViaCameraImpl
+    with DiagnosticableTreeMixin
+    implements SetAvatarViaCamera {
   const _$SetAvatarViaCameraImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UserRegisterEvent.setAvatarViaCamera()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'UserRegisterEvent.setAvatarViaCamera'));
   }
 
   @override
@@ -414,7 +441,7 @@ class _$SetAvatarViaCameraImpl implements SetAvatarViaCamera {
     required TResult Function() setAvatarViaCamera,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function(String updatedLocation) updateLocation,
+    required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
   }) {
     return setAvatarViaCamera();
@@ -428,7 +455,7 @@ class _$SetAvatarViaCameraImpl implements SetAvatarViaCamera {
     TResult? Function()? setAvatarViaCamera,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function(String updatedLocation)? updateLocation,
+    TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
   }) {
     return setAvatarViaCamera?.call();
@@ -442,7 +469,7 @@ class _$SetAvatarViaCameraImpl implements SetAvatarViaCamera {
     TResult Function()? setAvatarViaCamera,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
-    TResult Function(String updatedLocation)? updateLocation,
+    TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
     required TResult orElse(),
   }) {
@@ -537,15 +564,25 @@ class __$$UpdateFirstNameImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateFirstNameImpl implements UpdateFirstName {
+class _$UpdateFirstNameImpl
+    with DiagnosticableTreeMixin
+    implements UpdateFirstName {
   const _$UpdateFirstNameImpl({required this.updatedFirstName});
 
   @override
   final String updatedFirstName;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UserRegisterEvent.updateFirstName(updatedFirstName: $updatedFirstName)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UserRegisterEvent.updateFirstName'))
+      ..add(DiagnosticsProperty('updatedFirstName', updatedFirstName));
   }
 
   @override
@@ -575,7 +612,7 @@ class _$UpdateFirstNameImpl implements UpdateFirstName {
     required TResult Function() setAvatarViaCamera,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function(String updatedLocation) updateLocation,
+    required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
   }) {
     return updateFirstName(updatedFirstName);
@@ -589,7 +626,7 @@ class _$UpdateFirstNameImpl implements UpdateFirstName {
     TResult? Function()? setAvatarViaCamera,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function(String updatedLocation)? updateLocation,
+    TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
   }) {
     return updateFirstName?.call(updatedFirstName);
@@ -603,7 +640,7 @@ class _$UpdateFirstNameImpl implements UpdateFirstName {
     TResult Function()? setAvatarViaCamera,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
-    TResult Function(String updatedLocation)? updateLocation,
+    TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
     required TResult orElse(),
   }) {
@@ -704,15 +741,25 @@ class __$$UpdateLastNameImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateLastNameImpl implements UpdateLastName {
+class _$UpdateLastNameImpl
+    with DiagnosticableTreeMixin
+    implements UpdateLastName {
   const _$UpdateLastNameImpl({required this.updatedLastName});
 
   @override
   final String updatedLastName;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UserRegisterEvent.updateLastName(updatedLastName: $updatedLastName)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UserRegisterEvent.updateLastName'))
+      ..add(DiagnosticsProperty('updatedLastName', updatedLastName));
   }
 
   @override
@@ -742,7 +789,7 @@ class _$UpdateLastNameImpl implements UpdateLastName {
     required TResult Function() setAvatarViaCamera,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function(String updatedLocation) updateLocation,
+    required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
   }) {
     return updateLastName(updatedLastName);
@@ -756,7 +803,7 @@ class _$UpdateLastNameImpl implements UpdateLastName {
     TResult? Function()? setAvatarViaCamera,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function(String updatedLocation)? updateLocation,
+    TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
   }) {
     return updateLastName?.call(updatedLastName);
@@ -770,7 +817,7 @@ class _$UpdateLastNameImpl implements UpdateLastName {
     TResult Function()? setAvatarViaCamera,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
-    TResult Function(String updatedLocation)? updateLocation,
+    TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
     required TResult orElse(),
   }) {
@@ -843,8 +890,6 @@ abstract class _$$UpdateLocationImplCopyWith<$Res> {
   factory _$$UpdateLocationImplCopyWith(_$UpdateLocationImpl value,
           $Res Function(_$UpdateLocationImpl) then) =
       __$$UpdateLocationImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String updatedLocation});
 }
 
 /// @nodoc
@@ -854,52 +899,35 @@ class __$$UpdateLocationImplCopyWithImpl<$Res>
   __$$UpdateLocationImplCopyWithImpl(
       _$UpdateLocationImpl _value, $Res Function(_$UpdateLocationImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? updatedLocation = null,
-  }) {
-    return _then(_$UpdateLocationImpl(
-      updatedLocation: null == updatedLocation
-          ? _value.updatedLocation
-          : updatedLocation // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$UpdateLocationImpl implements UpdateLocation {
-  const _$UpdateLocationImpl({required this.updatedLocation});
+class _$UpdateLocationImpl
+    with DiagnosticableTreeMixin
+    implements UpdateLocation {
+  const _$UpdateLocationImpl();
 
   @override
-  final String updatedLocation;
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UserRegisterEvent.updateLocation()';
+  }
 
   @override
-  String toString() {
-    return 'UserRegisterEvent.updateLocation(updatedLocation: $updatedLocation)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'UserRegisterEvent.updateLocation'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateLocationImpl &&
-            (identical(other.updatedLocation, updatedLocation) ||
-                other.updatedLocation == updatedLocation));
+        (other.runtimeType == runtimeType && other is _$UpdateLocationImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, updatedLocation);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateLocationImplCopyWith<_$UpdateLocationImpl> get copyWith =>
-      __$$UpdateLocationImplCopyWithImpl<_$UpdateLocationImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -909,10 +937,10 @@ class _$UpdateLocationImpl implements UpdateLocation {
     required TResult Function() setAvatarViaCamera,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function(String updatedLocation) updateLocation,
+    required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
   }) {
-    return updateLocation(updatedLocation);
+    return updateLocation();
   }
 
   @override
@@ -923,10 +951,10 @@ class _$UpdateLocationImpl implements UpdateLocation {
     TResult? Function()? setAvatarViaCamera,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function(String updatedLocation)? updateLocation,
+    TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
   }) {
-    return updateLocation?.call(updatedLocation);
+    return updateLocation?.call();
   }
 
   @override
@@ -937,12 +965,12 @@ class _$UpdateLocationImpl implements UpdateLocation {
     TResult Function()? setAvatarViaCamera,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
-    TResult Function(String updatedLocation)? updateLocation,
+    TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
     required TResult orElse(),
   }) {
     if (updateLocation != null) {
-      return updateLocation(updatedLocation);
+      return updateLocation();
     }
     return orElse();
   }
@@ -996,13 +1024,7 @@ class _$UpdateLocationImpl implements UpdateLocation {
 }
 
 abstract class UpdateLocation implements UserRegisterEvent {
-  const factory UpdateLocation({required final String updatedLocation}) =
-      _$UpdateLocationImpl;
-
-  String get updatedLocation;
-  @JsonKey(ignore: true)
-  _$$UpdateLocationImplCopyWith<_$UpdateLocationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory UpdateLocation() = _$UpdateLocationImpl;
 }
 
 /// @nodoc
@@ -1025,12 +1047,21 @@ class __$$ClearUserRegisterStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ClearUserRegisterStateImpl implements ClearUserRegisterState {
+class _$ClearUserRegisterStateImpl
+    with DiagnosticableTreeMixin
+    implements ClearUserRegisterState {
   const _$ClearUserRegisterStateImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UserRegisterEvent.clearUserRegisterState()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'UserRegisterEvent.clearUserRegisterState'));
   }
 
   @override
@@ -1051,7 +1082,7 @@ class _$ClearUserRegisterStateImpl implements ClearUserRegisterState {
     required TResult Function() setAvatarViaCamera,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function(String updatedLocation) updateLocation,
+    required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
   }) {
     return clearUserRegisterState();
@@ -1065,7 +1096,7 @@ class _$ClearUserRegisterStateImpl implements ClearUserRegisterState {
     TResult? Function()? setAvatarViaCamera,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function(String updatedLocation)? updateLocation,
+    TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
   }) {
     return clearUserRegisterState?.call();
@@ -1079,7 +1110,7 @@ class _$ClearUserRegisterStateImpl implements ClearUserRegisterState {
     TResult Function()? setAvatarViaCamera,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
-    TResult Function(String updatedLocation)? updateLocation,
+    TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
     required TResult orElse(),
   }) {
@@ -1149,6 +1180,8 @@ mixin _$UserRegisterState {
       throw _privateConstructorUsedError;
   bool get isCameraPermissionPermanentlyDenied =>
       throw _privateConstructorUsedError;
+  bool get isLocationPermissionPermanentlyDenied =>
+      throw _privateConstructorUsedError;
   Uint8List? get avatarImage => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
@@ -1171,6 +1204,7 @@ abstract class $UserRegisterStateCopyWith<$Res> {
       String? errorMessage,
       bool isPhotosPermissionPermanentlyDenied,
       bool isCameraPermissionPermanentlyDenied,
+      bool isLocationPermissionPermanentlyDenied,
       Uint8List? avatarImage,
       String? firstName,
       String? lastName,
@@ -1195,6 +1229,7 @@ class _$UserRegisterStateCopyWithImpl<$Res, $Val extends UserRegisterState>
     Object? errorMessage = freezed,
     Object? isPhotosPermissionPermanentlyDenied = null,
     Object? isCameraPermissionPermanentlyDenied = null,
+    Object? isLocationPermissionPermanentlyDenied = null,
     Object? avatarImage = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
@@ -1219,6 +1254,11 @@ class _$UserRegisterStateCopyWithImpl<$Res, $Val extends UserRegisterState>
               isCameraPermissionPermanentlyDenied
           ? _value.isCameraPermissionPermanentlyDenied
           : isCameraPermissionPermanentlyDenied // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLocationPermissionPermanentlyDenied: null ==
+              isLocationPermissionPermanentlyDenied
+          ? _value.isLocationPermissionPermanentlyDenied
+          : isLocationPermissionPermanentlyDenied // ignore: cast_nullable_to_non_nullable
               as bool,
       avatarImage: freezed == avatarImage
           ? _value.avatarImage
@@ -1257,6 +1297,7 @@ abstract class _$$UserRegisterStateImplCopyWith<$Res>
       String? errorMessage,
       bool isPhotosPermissionPermanentlyDenied,
       bool isCameraPermissionPermanentlyDenied,
+      bool isLocationPermissionPermanentlyDenied,
       Uint8List? avatarImage,
       String? firstName,
       String? lastName,
@@ -1279,6 +1320,7 @@ class __$$UserRegisterStateImplCopyWithImpl<$Res>
     Object? errorMessage = freezed,
     Object? isPhotosPermissionPermanentlyDenied = null,
     Object? isCameraPermissionPermanentlyDenied = null,
+    Object? isLocationPermissionPermanentlyDenied = null,
     Object? avatarImage = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
@@ -1303,6 +1345,11 @@ class __$$UserRegisterStateImplCopyWithImpl<$Res>
               isCameraPermissionPermanentlyDenied
           ? _value.isCameraPermissionPermanentlyDenied
           : isCameraPermissionPermanentlyDenied // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLocationPermissionPermanentlyDenied: null ==
+              isLocationPermissionPermanentlyDenied
+          ? _value.isLocationPermissionPermanentlyDenied
+          : isLocationPermissionPermanentlyDenied // ignore: cast_nullable_to_non_nullable
               as bool,
       avatarImage: freezed == avatarImage
           ? _value.avatarImage
@@ -1330,12 +1377,15 @@ class __$$UserRegisterStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserRegisterStateImpl implements _UserRegisterState {
+class _$UserRegisterStateImpl
+    with DiagnosticableTreeMixin
+    implements _UserRegisterState {
   const _$UserRegisterStateImpl(
       {this.isLoading = false,
       this.errorMessage = null,
       this.isPhotosPermissionPermanentlyDenied = false,
       this.isCameraPermissionPermanentlyDenied = false,
+      this.isLocationPermissionPermanentlyDenied = false,
       this.avatarImage,
       this.firstName,
       this.lastName,
@@ -1355,6 +1405,9 @@ class _$UserRegisterStateImpl implements _UserRegisterState {
   @JsonKey()
   final bool isCameraPermissionPermanentlyDenied;
   @override
+  @JsonKey()
+  final bool isLocationPermissionPermanentlyDenied;
+  @override
   final Uint8List? avatarImage;
   @override
   final String? firstName;
@@ -1366,8 +1419,28 @@ class _$UserRegisterStateImpl implements _UserRegisterState {
   final double? longitude;
 
   @override
-  String toString() {
-    return 'UserRegisterState(isLoading: $isLoading, errorMessage: $errorMessage, isPhotosPermissionPermanentlyDenied: $isPhotosPermissionPermanentlyDenied, isCameraPermissionPermanentlyDenied: $isCameraPermissionPermanentlyDenied, avatarImage: $avatarImage, firstName: $firstName, lastName: $lastName, latitude: $latitude, longitude: $longitude)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UserRegisterState(isLoading: $isLoading, errorMessage: $errorMessage, isPhotosPermissionPermanentlyDenied: $isPhotosPermissionPermanentlyDenied, isCameraPermissionPermanentlyDenied: $isCameraPermissionPermanentlyDenied, isLocationPermissionPermanentlyDenied: $isLocationPermissionPermanentlyDenied, avatarImage: $avatarImage, firstName: $firstName, lastName: $lastName, latitude: $latitude, longitude: $longitude)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UserRegisterState'))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('errorMessage', errorMessage))
+      ..add(DiagnosticsProperty('isPhotosPermissionPermanentlyDenied',
+          isPhotosPermissionPermanentlyDenied))
+      ..add(DiagnosticsProperty('isCameraPermissionPermanentlyDenied',
+          isCameraPermissionPermanentlyDenied))
+      ..add(DiagnosticsProperty('isLocationPermissionPermanentlyDenied',
+          isLocationPermissionPermanentlyDenied))
+      ..add(DiagnosticsProperty('avatarImage', avatarImage))
+      ..add(DiagnosticsProperty('firstName', firstName))
+      ..add(DiagnosticsProperty('lastName', lastName))
+      ..add(DiagnosticsProperty('latitude', latitude))
+      ..add(DiagnosticsProperty('longitude', longitude));
   }
 
   @override
@@ -1387,6 +1460,10 @@ class _$UserRegisterStateImpl implements _UserRegisterState {
                     isCameraPermissionPermanentlyDenied) ||
                 other.isCameraPermissionPermanentlyDenied ==
                     isCameraPermissionPermanentlyDenied) &&
+            (identical(other.isLocationPermissionPermanentlyDenied,
+                    isLocationPermissionPermanentlyDenied) ||
+                other.isLocationPermissionPermanentlyDenied ==
+                    isLocationPermissionPermanentlyDenied) &&
             const DeepCollectionEquality()
                 .equals(other.avatarImage, avatarImage) &&
             (identical(other.firstName, firstName) ||
@@ -1406,6 +1483,7 @@ class _$UserRegisterStateImpl implements _UserRegisterState {
       errorMessage,
       isPhotosPermissionPermanentlyDenied,
       isCameraPermissionPermanentlyDenied,
+      isLocationPermissionPermanentlyDenied,
       const DeepCollectionEquality().hash(avatarImage),
       firstName,
       lastName,
@@ -1426,6 +1504,7 @@ abstract class _UserRegisterState implements UserRegisterState {
       final String? errorMessage,
       final bool isPhotosPermissionPermanentlyDenied,
       final bool isCameraPermissionPermanentlyDenied,
+      final bool isLocationPermissionPermanentlyDenied,
       final Uint8List? avatarImage,
       final String? firstName,
       final String? lastName,
@@ -1440,6 +1519,8 @@ abstract class _UserRegisterState implements UserRegisterState {
   bool get isPhotosPermissionPermanentlyDenied;
   @override
   bool get isCameraPermissionPermanentlyDenied;
+  @override
+  bool get isLocationPermissionPermanentlyDenied;
   @override
   Uint8List? get avatarImage;
   @override

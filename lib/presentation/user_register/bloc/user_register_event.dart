@@ -11,9 +11,7 @@ class UserRegisterEvent with _$UserRegisterEvent {
   const factory UserRegisterEvent.updateLastName({
     required String updatedLastName,
   }) = UpdateLastName;
-  const factory UserRegisterEvent.updateLocation({
-    required String updatedLocation,
-  }) = UpdateLocation;
+  const factory UserRegisterEvent.updateLocation() = UpdateLocation;
   const factory UserRegisterEvent.clearUserRegisterState() =
       ClearUserRegisterState;
 }

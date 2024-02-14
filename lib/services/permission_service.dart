@@ -51,4 +51,23 @@ class PermissionService {
       return Left(Failure(message: exception.runtimeType.toString()));
     }
   }
+ 
+  FutureEither<bool> ensureHasLocationPermission() async {
+    try {
+      final locationPermissionType =
+          await permissionServiceApi.hasLocationPermission();
+
+      switch (locationPermissionType) {
+        case PermissionTypes.accepted:
+          return const Right(true);
+        case PermissionTypes.permanentlyDenied:
+          return const Right(false);
+        case PermissionTypes.requestable:
+          return Right(await permissionServiceApi.requestLocationPermission());
+      }
+    } catch (exception) {
+      return Left(Failure(message: exception.runtimeType.toString()));
+    }
+  }
+
 }

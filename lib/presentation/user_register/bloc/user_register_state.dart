@@ -7,6 +7,7 @@ class UserRegisterState with _$UserRegisterState {
     @Default(null) String? errorMessage,
     @Default(false) bool isPhotosPermissionPermanentlyDenied,
     @Default(false) bool isCameraPermissionPermanentlyDenied,
+    @Default(false) bool isLocationPermissionPermanentlyDenied,
     Uint8List? avatarImage,
     String? firstName,
     String? lastName,

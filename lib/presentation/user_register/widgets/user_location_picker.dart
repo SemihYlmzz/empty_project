@@ -1,4 +1,6 @@
+import 'package:empty_application/presentation/presentation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserLocationPicker extends StatelessWidget {
   const UserLocationPicker({super.key});
@@ -10,7 +12,7 @@ class UserLocationPicker extends StatelessWidget {
         Checkbox(
           value: false,
           onChanged: (value) {
-            // DO SOMETHING
+            context.read<UserRegisterBloc>().add(const UpdateLocation());
           },
         ),
         const Expanded(
