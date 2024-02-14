@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:empty_application/common/action_sheets/image_action_sheets.dart';
+import 'package:empty_application/common/common.dart';
 import 'package:empty_application/presentation/user_register/bloc/user_register_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,11 +22,12 @@ class UserAvatarPicker extends StatelessWidget {
         if (imageSource == null || !context.mounted) {
           return;
         }
-        context.read<UserRegisterBloc>().add(
-              SetAvatar(
-                imageSource: imageSource,
-              ),
-            );
+        if (imageSource == ImageSources.gallery) {
+          context.read<UserRegisterBloc>().add(const SetAvatarViaPhotos());
+        }
+        if (imageSource == ImageSources.camera) {
+          context.read<UserRegisterBloc>().add(const SetAvatarViaCamera());
+        }
       },
       child: CircleAvatar(
         radius: 60,

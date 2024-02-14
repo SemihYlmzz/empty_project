@@ -10,7 +10,7 @@ class ImageService {
   });
   final ImageServiceApi imageApi;
 
-  FutureEither<Uint8List> takeSingleImageWithCamera() async {
+  FutureEither<Uint8List?> takeSingleImageWithCamera() async {
     try {
       return Right(await imageApi.takeSingleImageWithCamera());
     } catch (exception) {
@@ -21,7 +21,7 @@ class ImageService {
     }
   }
 
-  FutureEither<Uint8List> selectSingleImageFromPhotos() async {
+  FutureEither<Uint8List?> selectSingleImageFromPhotos() async {
     try {
       return Right(await imageApi.selectSingleImageFromPhotos());
     } catch (exception) {

@@ -7,11 +7,11 @@ class ImageServiceApiPicker implements ImageServiceApi {
   ImageServiceApiPicker();
   final ImagePicker _imagePicker = ImagePicker();
   @override
-  Future<Uint8List> selectSingleImageFromPhotos() async {
+  Future<Uint8List?> selectSingleImageFromPhotos() async {
     try {
       final image = await _imagePicker.pickImage(source: ImageSource.gallery);
       if (image == null) {
-        throw ImageServiceUnknown();
+        return null;
       }
       return image.readAsBytes();
     } catch (exception) {
@@ -20,11 +20,11 @@ class ImageServiceApiPicker implements ImageServiceApi {
   }
 
   @override
-  Future<Uint8List> takeSingleImageWithCamera() async {
+  Future<Uint8List?> takeSingleImageWithCamera() async {
     try {
       final image = await _imagePicker.pickImage(source: ImageSource.camera);
       if (image == null) {
-        throw ImageServiceUnknown();
+        return null;
       }
       return image.readAsBytes();
     } catch (exception) {

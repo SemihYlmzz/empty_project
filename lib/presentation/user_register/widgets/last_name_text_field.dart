@@ -1,4 +1,6 @@
+import 'package:empty_application/presentation/presentation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LastNameTextField extends StatelessWidget {
   const LastNameTextField({super.key});
@@ -11,7 +13,9 @@ class LastNameTextField extends StatelessWidget {
         prefixIcon: Icon(Icons.badge),
       ),
       onChanged: (value) {
-        // DO SOMETHING
+        context
+            .read<UserRegisterBloc>()
+            .add(UpdateLastName(updatedLastName: value));
       },
     );
   }

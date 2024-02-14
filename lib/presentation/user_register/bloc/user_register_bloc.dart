@@ -1,9 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
-import 'package:empty_application/common/common.dart';
 import 'package:empty_application/repositories/repositories.dart';
-import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../services/services.dart';
@@ -20,10 +18,12 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
   }) : super(const UserRegisterState()) {
     on<ClearUserRegisterState>(_onClearUserRegisterState);
     on<SignOutRequest>(_onSignOutRequest);
-    on<SetAvatar>(_onSetAvatarRequest);
+    on<SetAvatarViaPhotos>(_onSetAvatarViaPhotos);
+    on<SetAvatarViaCamera>(_onSetAvatarViaCamera);
     on<UpdateFirstName>(_onUpdateFirstName);
+    on<UpdateLastName>(_onUpdateLastName);
   }
-  
+
   final UserRepository userRepository;
   final PermissionService permissionService;
   final ImageService imageService;
@@ -48,6 +48,13 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     emit(state.copyWith(firstName: event.updatedFirstName));
   }
 
+  Future<void> _onUpdateLastName(
+    UpdateLastName event,
+    Emitter<UserRegisterState> emit,
+  ) async {
+    emit(state.copyWith(lastName: event.updatedLastName));
+  }
+
   Future<void> _onSignOutRequest(
     SignOutRequest event,
     Emitter<UserRegisterState> emit,
@@ -57,29 +64,58 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     emit(state.copyWith(isLoading: false));
   }
 
-  Future<void> _onSetAvatarRequest(
-    SetAvatar event,
+  Future<void> _onSetAvatarViaPhotos(
+    SetAvatarViaPhotos event,
     Emitter<UserRegisterState> emit,
   ) async {
-    Either<Failure, Uint8List> trySelect;
+    var hasPhotosPermission = false;
 
-    switch (event.imageSource) {
-      case ImageSources.camera:
-        if (!await permissionService.ensureHasCameraPermission()) {
-          emit(state.copyWith(isCameraPermissionPermanentlyDenied: true));
-          return;
-        }
-        trySelect = await imageService.takeSingleImageWithCamera();
-      case ImageSources.gallery:
-        if (!await permissionService.ensureHasPhotosPermission()) {
-          emit(state.copyWith(isPhotosPermissionPermanentlyDenied: true));
-          return;
-        }
-        trySelect = await imageService.selectSingleImageFromPhotos();
+    final hasPermission = await permissionService.ensureHasPhotosPermission();
+    hasPermission.fold(
+      (failure) => emit(state.copyWith(errorMessage: failure.message)),
+      (value) => hasPhotosPermission = value,
+    );
+
+    if (!hasPhotosPermission) {
+      emit(state.copyWith(isPhotosPermissionPermanentlyDenied: true));
+      return;
     }
+    final trySelect = await imageService.selectSingleImageFromPhotos();
     trySelect.fold(
       (failure) => emit(state.copyWith(errorMessage: failure.message)),
-      (image) => emit(state.copyWith(avatarImage: image)),
+      (nullableImage) {
+        if (nullableImage == null) {
+          return;
+        }
+        emit(state.copyWith(avatarImage: nullableImage));
+      },
+    );
+  }
+
+  Future<void> _onSetAvatarViaCamera(
+    SetAvatarViaCamera event,
+    Emitter<UserRegisterState> emit,
+  ) async {
+    var hasCameraPermission = false;
+    final hasPermission = await permissionService.ensureHasCameraPermission();
+    hasPermission.fold(
+      (failure) => emit(state.copyWith(errorMessage: failure.message)),
+      (value) => hasCameraPermission = value,
+    );
+
+    if (!hasCameraPermission) {
+      emit(state.copyWith(isCameraPermissionPermanentlyDenied: true));
+      return;
+    }
+    final trySelect = await imageService.takeSingleImageWithCamera();
+    trySelect.fold(
+      (failure) => emit(state.copyWith(errorMessage: failure.message)),
+      (nullableImage) {
+        if (nullableImage == null) {
+          return;
+        }
+        emit(state.copyWith(avatarImage: nullableImage));
+      },
     );
   }
 }

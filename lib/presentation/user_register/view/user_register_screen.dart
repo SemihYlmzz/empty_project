@@ -1,4 +1,3 @@
-import 'package:empty_application/common/common.dart';
 import 'package:empty_application/presentation/user_register/bloc_listeners/error_message_listener.dart';
 import 'package:empty_application/presentation/user_register/bloc_listeners/permission_denied_listener.dart';
 import 'package:empty_application/repositories/repositories.dart';

@@ -5,40 +5,68 @@ class PermissionServiceApiHandler implements PermissionServiceApi {
   PermissionServiceApiHandler();
   @override
   Future<void> navigateToSettings() async {
-    await openAppSettings();
+    try {
+      await openAppSettings();
+    } catch (exception) {
+      throw PermissionServiceUnknown();
+    }
   }
 
   @override
   Future<PermissionTypes> hasCameraPermission() async {
-    return _permissionTypeFromStatus(await Permission.camera.status);
+    try {
+      return _permissionTypeFromStatus(await Permission.camera.status);
+    } catch (exception) {
+      throw PermissionServiceUnknown();
+    }
   }
 
   @override
   Future<PermissionTypes> hasLocationPermission() async {
-    return _permissionTypeFromStatus(await Permission.location.status);
+    try {
+      return _permissionTypeFromStatus(await Permission.location.status);
+    } catch (exception) {
+      throw PermissionServiceUnknown();
+    }
   }
 
   @override
   Future<PermissionTypes> hasPhotosPermission() async {
-    return _permissionTypeFromStatus(await Permission.photos.status);
+    try {
+      return _permissionTypeFromStatus(await Permission.photos.status);
+    } catch (exception) {
+      throw PermissionServiceUnknown();
+    }
   }
 
   @override
   Future<bool> requestCameraPermission() async {
-    final status = await Permission.camera.request();
-    return _permissionStatusToHasPermission(status);
+    try {
+      final status = await Permission.camera.request();
+      return _permissionStatusToHasPermission(status);
+    } catch (exception) {
+      throw PermissionServiceUnknown();
+    }
   }
 
   @override
   Future<bool> requestLocationPermission() async {
-    final status = await Permission.location.request();
-    return _permissionStatusToHasPermission(status);
+    try {
+      final status = await Permission.location.request();
+      return _permissionStatusToHasPermission(status);
+    } catch (exception) {
+      throw PermissionServiceUnknown();
+    }
   }
 
   @override
   Future<bool> requestPhotosPermission() async {
-    final status = await Permission.photos.request();
-    return _permissionStatusToHasPermission(status);
+    try {
+      final status = await Permission.photos.request();
+      return _permissionStatusToHasPermission(status);
+    } catch (exception) {
+      throw PermissionServiceUnknown();
+    }
   }
 
   // Permission handler specific functions
