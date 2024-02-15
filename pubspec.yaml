@@ -11,10 +11,6 @@ dependencies:
     sdk: flutter
 
 
-  auth_api:
-    path: packages/auth_api
-  auth_api_firebase:
-    path: packages/auth_api_firebase
   preferences_api:
     path: packages/preferences_api
   preferences_api_shared:
@@ -25,8 +21,8 @@ dependencies:
     path: packages/shared_constants
   user_api:
     path: packages/user_api
-  user_api_firestore:
-    path: packages/user_api_firestore
+  user_api_firebase:
+    path: packages/user_api_firebase
   permission_service_api:
     path: packages/permission_service_api
   permission_service_api_handler:

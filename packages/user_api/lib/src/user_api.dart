@@ -1,18 +1,10 @@
-import 'models/models.dart';
+import 'package:user_api/user_api.dart';
 
-abstract class UserApi {
-  UserApi();
-
-  Future<UserModel?> readUserWithUid({
-    required String uid,
+class UserApi {
+  const UserApi({
+    required this.auth,
+    required this.database,
   });
-
-  Future<void> createUser({
-    required UserModel userModel,
-  });
-
-  Future<void> updateFullName({
-    required UserModel currentUserModel,
-    required UserModel updatedUserModel,
-  });
+  final UserAuth auth;
+  final UserDatabase database;
 }

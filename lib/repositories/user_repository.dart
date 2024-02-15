@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:auth_api/auth_api.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:user_api/user_api.dart';
 
@@ -8,19 +7,17 @@ import '../common/common.dart';
 
 class UserRepository {
   UserRepository({
-    required this.authApi,
     required this.userApi,
   });
-  final AuthApi authApi;
   final UserApi userApi;
 
-  FutureEither<UserModel?> initializeUserData() async {
+  FutureEither<UserDatabaseModel?> initializeUserData() async {
     try {
-      final currentAuth = authApi.currentUser();
+      final currentAuth = userApi.auth.currentUser();
       if (currentAuth == null) {
         return const Left(Failure(message: 'Need Auth'));
       }
-      final readedUserModel = await userApi.readUserWithUid(
+      final readedUserModel = await userApi.database.readUserWithUid(
         uid: currentAuth.uid,
       );
       return Right(readedUserModel);
@@ -29,12 +26,12 @@ class UserRepository {
     }
   }
 
-  FutureEither<AuthModel> signInWithEmailAndPassword({
+  FutureEither<UserAuthModel> signInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
     try {
-      final authModel = await authApi.signInWithEmailAndPassword(
+      final authModel = await userApi.auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -44,13 +41,13 @@ class UserRepository {
     }
   }
 
-  FutureEither<AuthModel> createAuthWithEmailAndPassword({
+  FutureEither<UserAuthModel> createAuthWithEmailAndPassword({
     required String email,
     required String password,
     required String confirmPassword,
   }) async {
     try {
-      final authModel = await authApi.createUserWithEmailAndPassword(
+      final authModel = await userApi.auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
         confirmPassword: confirmPassword,
@@ -62,9 +59,10 @@ class UserRepository {
   }
 
   Future<void> signOut() async {
-    await authApi.signOut();
+    await userApi.auth.signOut();
   }
 
-  Stream<AuthModel?> get authEntity => authApi.authEntity;
-  AuthModel? get currentUser => authApi.currentUser();
+  Stream<UserAuthModel?> get authEntity => userApi.auth.authEntity;
+
+  UserAuthModel? get currentUser => userApi.auth.currentUser();
 }

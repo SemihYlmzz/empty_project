@@ -1,4 +1,3 @@
-import 'package:auth_api_firebase/auth_api_firebase.dart';
 import 'package:empty_application/repositories/repositories.dart';
 import 'package:empty_application/services/location_service.dart';
 import 'package:empty_application/services/services.dart';
@@ -10,7 +9,8 @@ import 'package:location_service_api_geolocator/location_service_api_geolocator.
 import 'package:logging/logging.dart';
 import 'package:permission_service_api_handler/permission_service_api_handler.dart';
 import 'package:preferences_api_shared/preferences_api_shared.dart';
-import 'package:user_api_firestore/user_api_firestore.dart';
+import 'package:user_api/user_api.dart';
+import 'package:user_api_firebase/user_api_firebase.dart';
 
 import 'initialize.dart';
 
@@ -36,10 +36,10 @@ abstract final class AppInitializer {
       DeviceOrientation.portraitUp,
     ]);
     // Initialize Api's
-    final authApiFirebase = await AuthApiFirebaseInitializer().initialize();
+    final userApiFirebase = await UserApiFirebaseInitializer().initialize();
     final preferencesApiShared =
         await PreferencesApiSharedInitializer().initialize();
-    final userApiFirestore = await UserApiFirestoreInitializer().initialize();
+
     final permissionServiceApiHandler = PermissionServiceApiHandler();
     final imageServiceApiPicker = ImageServiceApiPicker();
     final locationServiceApiGeolocator = LocationServiceApiGeolocator();
@@ -47,9 +47,12 @@ abstract final class AppInitializer {
     // Inject Repositories
     await InjectionContainer.initializeDependencies(
       userRepository: UserRepository(
-        authApi: authApiFirebase,
-        userApi: userApiFirestore,
+        userApi: UserApi(
+          auth: userApiFirebase.auth,
+          database: userApiFirebase.firestore,
+        ),
       ),
+      //
       preferencesRepository: PreferencesRepository(
         preferencesApi: preferencesApiShared,
       ),

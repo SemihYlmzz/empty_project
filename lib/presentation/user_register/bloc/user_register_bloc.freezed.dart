@@ -25,6 +25,7 @@ mixin _$UserRegisterEvent {
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$UserRegisterEvent {
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$UserRegisterEvent {
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +63,7 @@ mixin _$UserRegisterEvent {
     required TResult Function(UpdateLocation value) updateLocation,
     required TResult Function(ClearUserRegisterState value)
         clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +75,7 @@ mixin _$UserRegisterEvent {
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +87,7 @@ mixin _$UserRegisterEvent {
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
     TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,6 +165,7 @@ class _$SignOutRequestImpl
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
   }) {
     return signOutRequest();
   }
@@ -173,6 +180,7 @@ class _$SignOutRequestImpl
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
   }) {
     return signOutRequest?.call();
   }
@@ -187,6 +195,7 @@ class _$SignOutRequestImpl
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (signOutRequest != null) {
@@ -206,6 +215,7 @@ class _$SignOutRequestImpl
     required TResult Function(UpdateLocation value) updateLocation,
     required TResult Function(ClearUserRegisterState value)
         clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) {
     return signOutRequest(this);
   }
@@ -220,6 +230,7 @@ class _$SignOutRequestImpl
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) {
     return signOutRequest?.call(this);
   }
@@ -234,6 +245,7 @@ class _$SignOutRequestImpl
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
     TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (signOutRequest != null) {
@@ -301,6 +313,7 @@ class _$SetAvatarViaPhotosImpl
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
   }) {
     return setAvatarViaPhotos();
   }
@@ -315,6 +328,7 @@ class _$SetAvatarViaPhotosImpl
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
   }) {
     return setAvatarViaPhotos?.call();
   }
@@ -329,6 +343,7 @@ class _$SetAvatarViaPhotosImpl
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (setAvatarViaPhotos != null) {
@@ -348,6 +363,7 @@ class _$SetAvatarViaPhotosImpl
     required TResult Function(UpdateLocation value) updateLocation,
     required TResult Function(ClearUserRegisterState value)
         clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) {
     return setAvatarViaPhotos(this);
   }
@@ -362,6 +378,7 @@ class _$SetAvatarViaPhotosImpl
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) {
     return setAvatarViaPhotos?.call(this);
   }
@@ -376,6 +393,7 @@ class _$SetAvatarViaPhotosImpl
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
     TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (setAvatarViaPhotos != null) {
@@ -443,6 +461,7 @@ class _$SetAvatarViaCameraImpl
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
   }) {
     return setAvatarViaCamera();
   }
@@ -457,6 +476,7 @@ class _$SetAvatarViaCameraImpl
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
   }) {
     return setAvatarViaCamera?.call();
   }
@@ -471,6 +491,7 @@ class _$SetAvatarViaCameraImpl
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (setAvatarViaCamera != null) {
@@ -490,6 +511,7 @@ class _$SetAvatarViaCameraImpl
     required TResult Function(UpdateLocation value) updateLocation,
     required TResult Function(ClearUserRegisterState value)
         clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) {
     return setAvatarViaCamera(this);
   }
@@ -504,6 +526,7 @@ class _$SetAvatarViaCameraImpl
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) {
     return setAvatarViaCamera?.call(this);
   }
@@ -518,6 +541,7 @@ class _$SetAvatarViaCameraImpl
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
     TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (setAvatarViaCamera != null) {
@@ -614,6 +638,7 @@ class _$UpdateFirstNameImpl
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
   }) {
     return updateFirstName(updatedFirstName);
   }
@@ -628,6 +653,7 @@ class _$UpdateFirstNameImpl
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
   }) {
     return updateFirstName?.call(updatedFirstName);
   }
@@ -642,6 +668,7 @@ class _$UpdateFirstNameImpl
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (updateFirstName != null) {
@@ -661,6 +688,7 @@ class _$UpdateFirstNameImpl
     required TResult Function(UpdateLocation value) updateLocation,
     required TResult Function(ClearUserRegisterState value)
         clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) {
     return updateFirstName(this);
   }
@@ -675,6 +703,7 @@ class _$UpdateFirstNameImpl
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) {
     return updateFirstName?.call(this);
   }
@@ -689,6 +718,7 @@ class _$UpdateFirstNameImpl
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
     TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (updateFirstName != null) {
@@ -791,6 +821,7 @@ class _$UpdateLastNameImpl
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
   }) {
     return updateLastName(updatedLastName);
   }
@@ -805,6 +836,7 @@ class _$UpdateLastNameImpl
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
   }) {
     return updateLastName?.call(updatedLastName);
   }
@@ -819,6 +851,7 @@ class _$UpdateLastNameImpl
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (updateLastName != null) {
@@ -838,6 +871,7 @@ class _$UpdateLastNameImpl
     required TResult Function(UpdateLocation value) updateLocation,
     required TResult Function(ClearUserRegisterState value)
         clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) {
     return updateLastName(this);
   }
@@ -852,6 +886,7 @@ class _$UpdateLastNameImpl
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) {
     return updateLastName?.call(this);
   }
@@ -866,6 +901,7 @@ class _$UpdateLastNameImpl
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
     TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (updateLastName != null) {
@@ -939,6 +975,7 @@ class _$UpdateLocationImpl
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
   }) {
     return updateLocation();
   }
@@ -953,6 +990,7 @@ class _$UpdateLocationImpl
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
   }) {
     return updateLocation?.call();
   }
@@ -967,6 +1005,7 @@ class _$UpdateLocationImpl
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (updateLocation != null) {
@@ -986,6 +1025,7 @@ class _$UpdateLocationImpl
     required TResult Function(UpdateLocation value) updateLocation,
     required TResult Function(ClearUserRegisterState value)
         clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) {
     return updateLocation(this);
   }
@@ -1000,6 +1040,7 @@ class _$UpdateLocationImpl
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) {
     return updateLocation?.call(this);
   }
@@ -1014,6 +1055,7 @@ class _$UpdateLocationImpl
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
     TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (updateLocation != null) {
@@ -1084,6 +1126,7 @@ class _$ClearUserRegisterStateImpl
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
   }) {
     return clearUserRegisterState();
   }
@@ -1098,6 +1141,7 @@ class _$ClearUserRegisterStateImpl
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
   }) {
     return clearUserRegisterState?.call();
   }
@@ -1112,6 +1156,7 @@ class _$ClearUserRegisterStateImpl
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
     TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (clearUserRegisterState != null) {
@@ -1131,6 +1176,7 @@ class _$ClearUserRegisterStateImpl
     required TResult Function(UpdateLocation value) updateLocation,
     required TResult Function(ClearUserRegisterState value)
         clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) {
     return clearUserRegisterState(this);
   }
@@ -1145,6 +1191,7 @@ class _$ClearUserRegisterStateImpl
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) {
     return clearUserRegisterState?.call(this);
   }
@@ -1159,6 +1206,7 @@ class _$ClearUserRegisterStateImpl
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
     TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) {
     if (clearUserRegisterState != null) {
@@ -1170,6 +1218,155 @@ class _$ClearUserRegisterStateImpl
 
 abstract class ClearUserRegisterState implements UserRegisterEvent {
   const factory ClearUserRegisterState() = _$ClearUserRegisterStateImpl;
+}
+
+/// @nodoc
+abstract class _$$UserRegisterRequestImplCopyWith<$Res> {
+  factory _$$UserRegisterRequestImplCopyWith(_$UserRegisterRequestImpl value,
+          $Res Function(_$UserRegisterRequestImpl) then) =
+      __$$UserRegisterRequestImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserRegisterRequestImplCopyWithImpl<$Res>
+    extends _$UserRegisterEventCopyWithImpl<$Res, _$UserRegisterRequestImpl>
+    implements _$$UserRegisterRequestImplCopyWith<$Res> {
+  __$$UserRegisterRequestImplCopyWithImpl(_$UserRegisterRequestImpl _value,
+      $Res Function(_$UserRegisterRequestImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserRegisterRequestImpl
+    with DiagnosticableTreeMixin
+    implements UserRegisterRequest {
+  const _$UserRegisterRequestImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UserRegisterEvent.userRegisterRequest()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'UserRegisterEvent.userRegisterRequest'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserRegisterRequestImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signOutRequest,
+    required TResult Function() setAvatarViaPhotos,
+    required TResult Function() setAvatarViaCamera,
+    required TResult Function(String updatedFirstName) updateFirstName,
+    required TResult Function(String updatedLastName) updateLastName,
+    required TResult Function() updateLocation,
+    required TResult Function() clearUserRegisterState,
+    required TResult Function() userRegisterRequest,
+  }) {
+    return userRegisterRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signOutRequest,
+    TResult? Function()? setAvatarViaPhotos,
+    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(String updatedFirstName)? updateFirstName,
+    TResult? Function(String updatedLastName)? updateLastName,
+    TResult? Function()? updateLocation,
+    TResult? Function()? clearUserRegisterState,
+    TResult? Function()? userRegisterRequest,
+  }) {
+    return userRegisterRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signOutRequest,
+    TResult Function()? setAvatarViaPhotos,
+    TResult Function()? setAvatarViaCamera,
+    TResult Function(String updatedFirstName)? updateFirstName,
+    TResult Function(String updatedLastName)? updateLastName,
+    TResult Function()? updateLocation,
+    TResult Function()? clearUserRegisterState,
+    TResult Function()? userRegisterRequest,
+    required TResult orElse(),
+  }) {
+    if (userRegisterRequest != null) {
+      return userRegisterRequest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignOutRequest value) signOutRequest,
+    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
+    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(UpdateFirstName value) updateFirstName,
+    required TResult Function(UpdateLastName value) updateLastName,
+    required TResult Function(UpdateLocation value) updateLocation,
+    required TResult Function(ClearUserRegisterState value)
+        clearUserRegisterState,
+    required TResult Function(UserRegisterRequest value) userRegisterRequest,
+  }) {
+    return userRegisterRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignOutRequest value)? signOutRequest,
+    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
+    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(UpdateFirstName value)? updateFirstName,
+    TResult? Function(UpdateLastName value)? updateLastName,
+    TResult? Function(UpdateLocation value)? updateLocation,
+    TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
+  }) {
+    return userRegisterRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignOutRequest value)? signOutRequest,
+    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
+    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(UpdateFirstName value)? updateFirstName,
+    TResult Function(UpdateLastName value)? updateLastName,
+    TResult Function(UpdateLocation value)? updateLocation,
+    TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
+    TResult Function(UserRegisterRequest value)? userRegisterRequest,
+    required TResult orElse(),
+  }) {
+    if (userRegisterRequest != null) {
+      return userRegisterRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserRegisterRequest implements UserRegisterEvent {
+  const factory UserRegisterRequest() = _$UserRegisterRequestImpl;
 }
 
 /// @nodoc

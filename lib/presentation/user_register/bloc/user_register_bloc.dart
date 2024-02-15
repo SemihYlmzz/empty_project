@@ -24,6 +24,7 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     on<UpdateFirstName>(_onUpdateFirstName);
     on<UpdateLastName>(_onUpdateLastName);
     on<UpdateLocation>(_onUpdateLocation);
+    on<UserRegisterRequest>(_onUserRegisterRequest);
   }
 
   final UserRepository userRepository;
@@ -151,4 +152,9 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
       ),
     );
   }
+
+  Future<void> _onUserRegisterRequest(
+    UserRegisterRequest event,
+    Emitter<UserRegisterState> emit,
+  ) async {}
 }

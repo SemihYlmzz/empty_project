@@ -1,0 +1,33 @@
+name: user_api_firebase
+description: description
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Auth Api
+  user_api:
+    path: ../user_api
+    
+  # Annotations
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
+
+  # Firebase
+  firebase_core: ^2.25.4
+  ## DATABASE / Cloud Firestore
+  cloud_firestore: ^4.15.4
+  ## AUTH / Firebase Auth
+  firebase_auth: ^4.17.4
+  
+dev_dependencies:
+  very_good_analysis: ^5.1.0
+  mocktail: ^1.0.0
+  # Code Generation
+  build_runner: ^2.4.8
+  freezed: ^2.4.6
+  json_serializable: ^6.7.1

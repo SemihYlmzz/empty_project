@@ -14,4 +14,5 @@ class UserRegisterEvent with _$UserRegisterEvent {
   const factory UserRegisterEvent.updateLocation() = UpdateLocation;
   const factory UserRegisterEvent.clearUserRegisterState() =
       ClearUserRegisterState;
+  const factory UserRegisterEvent.userRegisterRequest() = UserRegisterRequest;
 }
