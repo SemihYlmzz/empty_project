@@ -18,10 +18,12 @@ class UserLoadScreen extends StatelessWidget {
       )..add(const UserLoadEvent.loadUser()),
       child: BlocListener<UserLoadBloc, UserLoadState>(
         listener: (context, state) {
-          if (state is! UserLoadRegisterNeeded) {
-            return;
+          if (state is UserLoadRegisterNeeded) {
+            context.goNamed(UserRegisterScreen.name);
           }
-          context.goNamed(UserRegisterScreen.name);
+          if (state is UserLoaded) {
+            context.goNamed(ProfileScreen.name);
+          }
         },
         child: const UserLoadView(),
       ),

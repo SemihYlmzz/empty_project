@@ -23,6 +23,8 @@ dependencies:
   cloud_firestore: ^4.15.4
   ## AUTH / Firebase Auth
   firebase_auth: ^4.17.4
+  ## STORAGE / Firebase Storage
+  firebase_storage: ^11.6.5
   
 dev_dependencies:
   very_good_analysis: ^5.1.0

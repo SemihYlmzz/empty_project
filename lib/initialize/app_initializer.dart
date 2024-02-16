@@ -50,6 +50,7 @@ abstract final class AppInitializer {
         userApi: UserApi(
           auth: userApiFirebase.auth,
           database: userApiFirebase.firestore,
+          storage: userApiFirebase.storage,
         ),
       ),
       //

@@ -62,6 +62,22 @@ mixin RouterMixin on State<AppView> {
           child: UserRegisterScreen(),
         ),
       ),
+      GoRoute(
+        path: ProfileScreen.path,
+        name: ProfileScreen.name,
+        parentNavigatorKey: parentNavigatorKey,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: ProfileScreen(),
+        ),
+      ),
+      GoRoute(
+        path: SettingsScreen.path,
+        name: SettingsScreen.name,
+        parentNavigatorKey: parentNavigatorKey,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: SettingsScreen(),
+        ),
+      ),
     ],
     refreshListenable: GoRouterRefreshStream(
       stream: getIt<UserRepository>().authEntity,

@@ -156,5 +156,23 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
   Future<void> _onUserRegisterRequest(
     UserRegisterRequest event,
     Emitter<UserRegisterState> emit,
-  ) async {}
+  ) async {
+    emit(state.copyWith(isLoading: true));
+    final tryRegister = await userRepository.registerUser(
+      avatarImage: state.avatarImage!,
+      firstName: state.firstName!,
+      lastName: state.lastName!,
+      locationLatitude: state.latitude!,
+      locationLongitude: state.longitude!,
+    );
+    tryRegister.fold(
+      (failure) => emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: failure.message,
+        ),
+      ),
+      (r) => emit(state.copyWith(isLoading: false)),
+    );
+  }
 }
