@@ -2,19 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:user_database_api/user_database_api.dart';
 
-class UserDatabaseFirestoreInitializer {
-  Future<UserDatabaseFirestore> initialize({
+class CloudFirestoreImplInitializer {
+  static Future<CloudFirestoreImpl> initialize({
     FirebaseFirestore? firebaseFirestore,
   }) async {
     await Firebase.initializeApp();
-    return UserDatabaseFirestore(
+    return CloudFirestoreImpl(
       firebaseFirestore: firebaseFirestore,
     );
   }
 }
 
-class UserDatabaseFirestore implements UserDatabaseApi {
-  UserDatabaseFirestore({
+class CloudFirestoreImpl implements UserDatabaseApi {
+  CloudFirestoreImpl({
     FirebaseFirestore? firebaseFirestore,
   }) : _firebaseFirestore = firebaseFirestore ??= FirebaseFirestore.instance;
 

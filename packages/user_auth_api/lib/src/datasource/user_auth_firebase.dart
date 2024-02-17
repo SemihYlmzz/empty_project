@@ -2,17 +2,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:user_auth_api/user_auth_api.dart';
 
-class UserAuthFirebaseInitializer {
-  Future<UserAuthFirebase> initialize({FirebaseAuth? firebaseAuth}) async {
+class FirebaseAuthImplInitializer {
+  static Future<FirebaseAuthImpl> initialize({
+    FirebaseAuth? firebaseAuth,
+  }) async {
     await Firebase.initializeApp();
-    return UserAuthFirebase(
+    return FirebaseAuthImpl(
       firebaseAuth: firebaseAuth,
     );
   }
 }
 
-class UserAuthFirebase implements UserAuthApi {
-  UserAuthFirebase({
+class FirebaseAuthImpl implements UserAuthApi {
+  FirebaseAuthImpl({
     FirebaseAuth? firebaseAuth,
   }) : _firebaseAuth = firebaseAuth ??= FirebaseAuth.instance;
 

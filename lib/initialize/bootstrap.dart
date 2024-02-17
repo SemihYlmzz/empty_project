@@ -13,7 +13,9 @@ Future<void> bootstrap(AppScreen app) async {
   await runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
-      await AppInitializer.initialize();
+      await AppInitializer.initializeLoggers();
+      await AppInitializer.initializeConfigs();
+      await AppInitializer.initializeDependencies();
       runApp(app);
     },
     (error, stackTrace) => log(

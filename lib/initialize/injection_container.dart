@@ -1,4 +1,3 @@
-import 'package:empty_application/services/location_service.dart';
 import 'package:empty_application/services/services.dart';
 import 'package:get_it/get_it.dart';
 

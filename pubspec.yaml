@@ -9,6 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
+  shared_widgets:
+    path: packages/shared_widgets
+  shared_constants:
+    path: packages/shared_constants
 
   user_auth_api:
     path: packages/user_auth_api
@@ -18,24 +23,15 @@ dependencies:
     path: packages/user_local_database_api
   user_storage_api:
     path: packages/user_storage_api
+  image_picker_api:
+    path: packages/image_picker_api
+  image_compressor_api:
+    path: packages/image_compressor_api
+  location_locator_api:
+    path: packages/location_locator_api
+  permission_requestor_api:
+    path: packages/permission_requestor_api
 
-
-  shared_widgets:
-    path: packages/shared_widgets
-  shared_constants:
-    path: packages/shared_constants
-  permission_service_api:
-    path: packages/permission_service_api
-  permission_service_api_handler:
-    path: packages/permission_service_api_handler
-  image_service:
-    path: packages/image_service
-  image_service_api_picker:
-    path: packages/image_service_api_picker
-  location_service_api:
-    path: packages/location_service_api
-  location_service_api_geolocator:
-    path: packages/location_service_api_geolocator
 
   # State Management
   flutter_bloc: ^8.1.3

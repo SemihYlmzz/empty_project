@@ -1,15 +1,15 @@
 import 'package:empty_application/common/common.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:permission_service_api/permission_service_api.dart';
+import 'package:permission_requestor_api/permission_requestor_api.dart';
 
 class PermissionService {
   PermissionService({
-    required this.permissionServiceApi,
+    required this.permissionRequestorApi,
   });
-  final PermissionServiceApi permissionServiceApi;
+  final PermissionRequestorApi permissionRequestorApi;
   FutureUnit openAppSettings() async {
     try {
-      await permissionServiceApi.navigateToSettings();
+      await permissionRequestorApi.navigateToSettings();
       return const Right(unit);
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
@@ -19,7 +19,7 @@ class PermissionService {
   FutureEither<bool> ensureHasCameraPermission() async {
     try {
       final cameraPermissionType =
-          await permissionServiceApi.hasCameraPermission();
+          await permissionRequestorApi.hasCameraPermission();
 
       switch (cameraPermissionType) {
         case PermissionTypes.accepted:
@@ -27,7 +27,7 @@ class PermissionService {
         case PermissionTypes.permanentlyDenied:
           return const Right(false);
         case PermissionTypes.requestable:
-          return Right(await permissionServiceApi.requestCameraPermission());
+          return Right(await permissionRequestorApi.requestCameraPermission());
       }
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
@@ -37,7 +37,7 @@ class PermissionService {
   FutureEither<bool> ensureHasPhotosPermission() async {
     try {
       final photosPermissionType =
-          await permissionServiceApi.hasPhotosPermission();
+          await permissionRequestorApi.hasPhotosPermission();
 
       switch (photosPermissionType) {
         case PermissionTypes.accepted:
@@ -45,17 +45,17 @@ class PermissionService {
         case PermissionTypes.permanentlyDenied:
           return const Right(false);
         case PermissionTypes.requestable:
-          return Right(await permissionServiceApi.requestPhotosPermission());
+          return Right(await permissionRequestorApi.requestPhotosPermission());
       }
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
     }
   }
- 
+
   FutureEither<bool> ensureHasLocationPermission() async {
     try {
       final locationPermissionType =
-          await permissionServiceApi.hasLocationPermission();
+          await permissionRequestorApi.hasLocationPermission();
 
       switch (locationPermissionType) {
         case PermissionTypes.accepted:
@@ -63,11 +63,12 @@ class PermissionService {
         case PermissionTypes.permanentlyDenied:
           return const Right(false);
         case PermissionTypes.requestable:
-          return Right(await permissionServiceApi.requestLocationPermission());
+          return Right(
+            await permissionRequestorApi.requestLocationPermission(),
+          );
       }
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
     }
   }
-
 }

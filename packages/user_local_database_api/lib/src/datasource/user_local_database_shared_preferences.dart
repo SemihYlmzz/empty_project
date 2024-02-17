@@ -3,19 +3,19 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:user_local_database_api/user_local_database_api.dart';
 
-class UserLocalDatabaseSharedPreferencesInitializer {
-  Future<UserLocalDatabaseSharedPreferences> initialize({
+class SharedPreferencesImplInitializer {
+  static Future<SharedPreferencesImpl> initialize({
     SharedPreferences? sharedPreferences,
   }) async {
     sharedPreferences ??= await SharedPreferences.getInstance();
-    return UserLocalDatabaseSharedPreferences(
+    return SharedPreferencesImpl(
       sharedPreferences: sharedPreferences,
     );
   }
 }
 
-class UserLocalDatabaseSharedPreferences implements UserLocalDatabaseApi {
-  UserLocalDatabaseSharedPreferences({
+class SharedPreferencesImpl implements UserLocalDatabaseApi {
+  SharedPreferencesImpl({
     required SharedPreferences sharedPreferences,
   }) : _sharedPreferences = sharedPreferences;
 
