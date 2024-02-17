@@ -25,8 +25,8 @@ class LoadingScreen extends StatelessWidget {
               FadeEffect(delay: SharedDurations.ms500),
             ],
             child: Container(
-              width: size.width,
-              height: size.height,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height,
               color: Colors.black87,
               child: const Center(
                 child: CircularProgressIndicator.adaptive(),

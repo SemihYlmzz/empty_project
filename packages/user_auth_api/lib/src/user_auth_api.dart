@@ -1,0 +1,22 @@
+import 'package:user_auth_api/user_auth_api.dart';
+
+abstract class UserAuthApi {
+  UserAuthApi();
+
+  Future<UserAuthModel> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
+
+  Future<UserAuthModel> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+    required String confirmPassword,
+  });
+
+  Future<void> signOut();
+
+  UserAuthModel? currentUser();
+
+  Stream<UserAuthModel?> get authEntity;
+}

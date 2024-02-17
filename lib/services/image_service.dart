@@ -2,19 +2,21 @@ import 'dart:typed_data';
 
 import 'package:empty_application/common/common.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:image_service_api/image_service_api.dart';
+import 'package:image_service/image_service.dart' as service;
 
 class ImageService {
   ImageService({
-    required this.imageApi,
+    required this.imageService,
   });
-  final ImageServiceApi imageApi;
+  final service.ImageService imageService;
 
   FutureEither<Uint8List?> takeSingleImageWithCamera() async {
     try {
-      return Right(await imageApi.takeSingleImageWithCamera());
+      return Right(
+        await imageService.imagePickerApi.takeSingleImageWithCamera(),
+      );
     } catch (exception) {
-      if (exception is ImageServiceException) {
+      if (exception is service.ImagePickerException) {
         return Left(Failure(message: exception.runtimeType.toString()));
       }
       return const Left(Failure(message: 'UNKNOWN ERROR'));
@@ -23,12 +25,15 @@ class ImageService {
 
   FutureEither<Uint8List?> selectSingleImageFromPhotos() async {
     try {
-      return Right(await imageApi.selectSingleImageFromPhotos());
+      return Right(
+        await imageService.imagePickerApi.selectSingleImageFromPhotos(),
+      );
     } catch (exception) {
-      if (exception is ImageServiceException) {
+      if (exception is service.ImagePickerException) {
         return Left(Failure(message: exception.runtimeType.toString()));
       }
       return const Left(Failure(message: 'UNKNOWN ERROR'));
     }
   }
+
 }

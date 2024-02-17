@@ -1,12 +1,11 @@
-import 'package:empty_application/presentation/user_register/bloc_listeners/error_message_listener.dart';
-import 'package:empty_application/presentation/user_register/bloc_listeners/permission_denied_listener.dart';
+import 'package:empty_application/presentation/presentation.dart';
 import 'package:empty_application/repositories/repositories.dart';
-import 'package:empty_application/services/location_service.dart';
 import 'package:empty_application/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_widgets/shared_widgets.dart';
+
 import '../../../initialize/initialize.dart';
-import '../../presentation.dart';
 
 class UserRegisterScreen extends StatelessWidget {
   const UserRegisterScreen({super.key});
@@ -26,8 +25,20 @@ class UserRegisterScreen extends StatelessWidget {
         listeners: [
           errorMessageListener(),
           permissionDeniedListener(),
+          registeredUserModelListener(),
         ],
-        child: const UserRegisterView(),
+        child: Builder(
+          builder: (context) {
+            final isLoading = context.select(
+              (UserRegisterBloc bloc) => bloc.state.isLoading,
+            );
+            return LoadingScreen(
+              size: MediaQuery.sizeOf(context),
+              isLoading: isLoading,
+              child: const UserRegisterView(),
+            );
+          },
+        ),
       ),
     );
   }

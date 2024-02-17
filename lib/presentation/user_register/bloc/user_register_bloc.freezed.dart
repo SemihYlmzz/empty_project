@@ -1379,6 +1379,8 @@ mixin _$UserRegisterState {
       throw _privateConstructorUsedError;
   bool get isLocationPermissionPermanentlyDenied =>
       throw _privateConstructorUsedError;
+  UserDatabaseModel? get registeredUserModel =>
+      throw _privateConstructorUsedError;
   Uint8List? get avatarImage => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
@@ -1402,11 +1404,14 @@ abstract class $UserRegisterStateCopyWith<$Res> {
       bool isPhotosPermissionPermanentlyDenied,
       bool isCameraPermissionPermanentlyDenied,
       bool isLocationPermissionPermanentlyDenied,
+      UserDatabaseModel? registeredUserModel,
       Uint8List? avatarImage,
       String? firstName,
       String? lastName,
       double? latitude,
       double? longitude});
+
+  $UserDatabaseModelCopyWith<$Res>? get registeredUserModel;
 }
 
 /// @nodoc
@@ -1427,6 +1432,7 @@ class _$UserRegisterStateCopyWithImpl<$Res, $Val extends UserRegisterState>
     Object? isPhotosPermissionPermanentlyDenied = null,
     Object? isCameraPermissionPermanentlyDenied = null,
     Object? isLocationPermissionPermanentlyDenied = null,
+    Object? registeredUserModel = freezed,
     Object? avatarImage = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
@@ -1457,6 +1463,10 @@ class _$UserRegisterStateCopyWithImpl<$Res, $Val extends UserRegisterState>
           ? _value.isLocationPermissionPermanentlyDenied
           : isLocationPermissionPermanentlyDenied // ignore: cast_nullable_to_non_nullable
               as bool,
+      registeredUserModel: freezed == registeredUserModel
+          ? _value.registeredUserModel
+          : registeredUserModel // ignore: cast_nullable_to_non_nullable
+              as UserDatabaseModel?,
       avatarImage: freezed == avatarImage
           ? _value.avatarImage
           : avatarImage // ignore: cast_nullable_to_non_nullable
@@ -1479,6 +1489,19 @@ class _$UserRegisterStateCopyWithImpl<$Res, $Val extends UserRegisterState>
               as double?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserDatabaseModelCopyWith<$Res>? get registeredUserModel {
+    if (_value.registeredUserModel == null) {
+      return null;
+    }
+
+    return $UserDatabaseModelCopyWith<$Res>(_value.registeredUserModel!,
+        (value) {
+      return _then(_value.copyWith(registeredUserModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -1495,11 +1518,15 @@ abstract class _$$UserRegisterStateImplCopyWith<$Res>
       bool isPhotosPermissionPermanentlyDenied,
       bool isCameraPermissionPermanentlyDenied,
       bool isLocationPermissionPermanentlyDenied,
+      UserDatabaseModel? registeredUserModel,
       Uint8List? avatarImage,
       String? firstName,
       String? lastName,
       double? latitude,
       double? longitude});
+
+  @override
+  $UserDatabaseModelCopyWith<$Res>? get registeredUserModel;
 }
 
 /// @nodoc
@@ -1518,6 +1545,7 @@ class __$$UserRegisterStateImplCopyWithImpl<$Res>
     Object? isPhotosPermissionPermanentlyDenied = null,
     Object? isCameraPermissionPermanentlyDenied = null,
     Object? isLocationPermissionPermanentlyDenied = null,
+    Object? registeredUserModel = freezed,
     Object? avatarImage = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
@@ -1548,6 +1576,10 @@ class __$$UserRegisterStateImplCopyWithImpl<$Res>
           ? _value.isLocationPermissionPermanentlyDenied
           : isLocationPermissionPermanentlyDenied // ignore: cast_nullable_to_non_nullable
               as bool,
+      registeredUserModel: freezed == registeredUserModel
+          ? _value.registeredUserModel
+          : registeredUserModel // ignore: cast_nullable_to_non_nullable
+              as UserDatabaseModel?,
       avatarImage: freezed == avatarImage
           ? _value.avatarImage
           : avatarImage // ignore: cast_nullable_to_non_nullable
@@ -1583,6 +1615,7 @@ class _$UserRegisterStateImpl
       this.isPhotosPermissionPermanentlyDenied = false,
       this.isCameraPermissionPermanentlyDenied = false,
       this.isLocationPermissionPermanentlyDenied = false,
+      this.registeredUserModel,
       this.avatarImage,
       this.firstName,
       this.lastName,
@@ -1605,6 +1638,8 @@ class _$UserRegisterStateImpl
   @JsonKey()
   final bool isLocationPermissionPermanentlyDenied;
   @override
+  final UserDatabaseModel? registeredUserModel;
+  @override
   final Uint8List? avatarImage;
   @override
   final String? firstName;
@@ -1617,7 +1652,7 @@ class _$UserRegisterStateImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserRegisterState(isLoading: $isLoading, errorMessage: $errorMessage, isPhotosPermissionPermanentlyDenied: $isPhotosPermissionPermanentlyDenied, isCameraPermissionPermanentlyDenied: $isCameraPermissionPermanentlyDenied, isLocationPermissionPermanentlyDenied: $isLocationPermissionPermanentlyDenied, avatarImage: $avatarImage, firstName: $firstName, lastName: $lastName, latitude: $latitude, longitude: $longitude)';
+    return 'UserRegisterState(isLoading: $isLoading, errorMessage: $errorMessage, isPhotosPermissionPermanentlyDenied: $isPhotosPermissionPermanentlyDenied, isCameraPermissionPermanentlyDenied: $isCameraPermissionPermanentlyDenied, isLocationPermissionPermanentlyDenied: $isLocationPermissionPermanentlyDenied, registeredUserModel: $registeredUserModel, avatarImage: $avatarImage, firstName: $firstName, lastName: $lastName, latitude: $latitude, longitude: $longitude)';
   }
 
   @override
@@ -1633,6 +1668,7 @@ class _$UserRegisterStateImpl
           isCameraPermissionPermanentlyDenied))
       ..add(DiagnosticsProperty('isLocationPermissionPermanentlyDenied',
           isLocationPermissionPermanentlyDenied))
+      ..add(DiagnosticsProperty('registeredUserModel', registeredUserModel))
       ..add(DiagnosticsProperty('avatarImage', avatarImage))
       ..add(DiagnosticsProperty('firstName', firstName))
       ..add(DiagnosticsProperty('lastName', lastName))
@@ -1661,6 +1697,8 @@ class _$UserRegisterStateImpl
                     isLocationPermissionPermanentlyDenied) ||
                 other.isLocationPermissionPermanentlyDenied ==
                     isLocationPermissionPermanentlyDenied) &&
+            (identical(other.registeredUserModel, registeredUserModel) ||
+                other.registeredUserModel == registeredUserModel) &&
             const DeepCollectionEquality()
                 .equals(other.avatarImage, avatarImage) &&
             (identical(other.firstName, firstName) ||
@@ -1681,6 +1719,7 @@ class _$UserRegisterStateImpl
       isPhotosPermissionPermanentlyDenied,
       isCameraPermissionPermanentlyDenied,
       isLocationPermissionPermanentlyDenied,
+      registeredUserModel,
       const DeepCollectionEquality().hash(avatarImage),
       firstName,
       lastName,
@@ -1702,6 +1741,7 @@ abstract class _UserRegisterState implements UserRegisterState {
       final bool isPhotosPermissionPermanentlyDenied,
       final bool isCameraPermissionPermanentlyDenied,
       final bool isLocationPermissionPermanentlyDenied,
+      final UserDatabaseModel? registeredUserModel,
       final Uint8List? avatarImage,
       final String? firstName,
       final String? lastName,
@@ -1718,6 +1758,8 @@ abstract class _UserRegisterState implements UserRegisterState {
   bool get isCameraPermissionPermanentlyDenied;
   @override
   bool get isLocationPermissionPermanentlyDenied;
+  @override
+  UserDatabaseModel? get registeredUserModel;
   @override
   Uint8List? get avatarImage;
   @override

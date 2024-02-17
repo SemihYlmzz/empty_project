@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:image_service_api/image_service_api.dart';
+import 'package:image_service/image_service.dart';
 
-class ImageServiceApiPicker implements ImageServiceApi {
+class ImageServiceApiPicker implements ImagePickerApi {
   ImageServiceApiPicker();
   final ImagePicker _imagePicker = ImagePicker();
   @override
@@ -15,7 +15,7 @@ class ImageServiceApiPicker implements ImageServiceApi {
       }
       return image.readAsBytes();
     } catch (exception) {
-      throw ImageServiceUnknown();
+      throw ImagePickerUnknown();
     }
   }
 
@@ -28,7 +28,7 @@ class ImageServiceApiPicker implements ImageServiceApi {
       }
       return image.readAsBytes();
     } catch (exception) {
-      throw ImageServiceUnknown();
+      throw ImagePickerUnknown();
     }
   }
 }

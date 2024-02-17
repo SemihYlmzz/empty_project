@@ -1,4 +1,6 @@
 bricks:
+  new_api:
+    path: bricks/new_api
   new_presentation:
     path: bricks/new_presentation
   new_widget:

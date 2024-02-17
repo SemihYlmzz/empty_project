@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:empty_application/repositories/repositories.dart';
-import 'package:empty_application/services/location_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:user_database_api/user_database_api.dart';
 
 import '../../../services/services.dart';
 
@@ -172,7 +172,12 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
           errorMessage: failure.message,
         ),
       ),
-      (r) => emit(state.copyWith(isLoading: false)),
+      (userModel) => emit(
+        state.copyWith(
+          isLoading: false,
+          registeredUserModel: userModel,
+        ),
+      ),
     );
   }
 }

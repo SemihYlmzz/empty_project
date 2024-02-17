@@ -2,15 +2,24 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:fpdart/fpdart.dart';
-import 'package:user_api/user_api.dart';
+import 'package:user_auth_api/user_auth_api.dart';
+import 'package:user_database_api/user_database_api.dart';
+import 'package:user_storage_api/user_storage_api.dart';
 
 import '../common/common.dart';
 
 class UserRepository {
   UserRepository({
-    required this.userApi,
-  });
-  final UserApi userApi;
+    required UserAuthApi userAuthApi,
+    required UserDatabaseApi userDatabaseApi,
+    required UserStorageApi userStorageApi,
+  })  : _userAuthApi = userAuthApi,
+        _userStorageApi = userStorageApi,
+        _userDatabaseApi = userDatabaseApi;
+
+  final UserAuthApi _userAuthApi;
+  final UserDatabaseApi _userDatabaseApi;
+  final UserStorageApi _userStorageApi;
 
   FutureEither<UserDatabaseModel?> registerUser({
     required Uint8List avatarImage,
@@ -20,11 +29,11 @@ class UserRepository {
     required double locationLongitude,
   }) async {
     try {
-      final currentUserUid = userApi.auth.currentUser()?.uid;
+      final currentUserUid = _userAuthApi.currentUser()?.uid;
       if (currentUserUid == null) {
         return const Left(Failure(message: 'NO CURRENT USER'));
       }
-      final avatarUrls = await userApi.storage.uploadAvatarImage(
+      final avatarUrls = await _userStorageApi.uploadAvatarImage(
         avatarImage: avatarImage,
         uid: currentUserUid,
       );
@@ -44,7 +53,7 @@ class UserRepository {
         toyCounter: 0,
         switchableCounter: 0,
       );
-      await userApi.database.createUser(userModel: creatableUserModel);
+      await _userDatabaseApi.createUser(userModel: creatableUserModel);
       return Right(creatableUserModel);
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
@@ -53,11 +62,11 @@ class UserRepository {
 
   FutureEither<UserDatabaseModel?> initializeUserData() async {
     try {
-      final currentAuth = userApi.auth.currentUser();
+      final currentAuth = _userAuthApi.currentUser();
       if (currentAuth == null) {
         return const Left(Failure(message: 'Need Auth'));
       }
-      final readedUserModel = await userApi.database.readUserWithUid(
+      final readedUserModel = await _userDatabaseApi.readUserWithUid(
         uid: currentAuth.uid,
       );
       return Right(readedUserModel);
@@ -71,7 +80,7 @@ class UserRepository {
     required String password,
   }) async {
     try {
-      final authModel = await userApi.auth.signInWithEmailAndPassword(
+      final authModel = await _userAuthApi.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -87,7 +96,7 @@ class UserRepository {
     required String confirmPassword,
   }) async {
     try {
-      final authModel = await userApi.auth.createUserWithEmailAndPassword(
+      final authModel = await _userAuthApi.createUserWithEmailAndPassword(
         email: email,
         password: password,
         confirmPassword: confirmPassword,
@@ -99,10 +108,10 @@ class UserRepository {
   }
 
   Future<void> signOut() async {
-    await userApi.auth.signOut();
+    await _userAuthApi.signOut();
   }
 
-  Stream<UserAuthModel?> get authEntity => userApi.auth.authEntity;
+  Stream<UserAuthModel?> get authEntity => _userAuthApi.authEntity;
 
-  UserAuthModel? get currentUser => userApi.auth.currentUser();
+  UserAuthModel? get currentUser => _userAuthApi.currentUser();
 }

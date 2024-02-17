@@ -1,4 +1,4 @@
-name: image_service_api_picker
+name: user_database_api
 description: description
 version: 0.1.0+1
 publish_to: none
@@ -8,19 +8,18 @@ environment:
 
 dependencies:
 
-  image_service:
-    path: ../image_service
-
   # Annotations
   json_annotation: ^4.8.1
   freezed_annotation: ^2.4.1
 
-  # Image Picker
-  image_picker: ^1.0.7
+  # Firebase
+  firebase_core: ^2.25.4
+  cloud_firestore: ^4.15.4
 
 dev_dependencies:
   very_good_analysis: ^5.1.0
   mocktail: ^1.0.0
+
   # Code Generation
   build_runner: ^2.4.8
   freezed: ^2.4.6

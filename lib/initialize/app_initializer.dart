@@ -1,16 +1,20 @@
 import 'package:empty_application/repositories/repositories.dart';
-import 'package:empty_application/services/location_service.dart';
 import 'package:empty_application/services/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:image_service/image_service.dart' as service;
 import 'package:image_service_api_picker/image_service_api_picker.dart';
+
 import 'package:location_service_api_geolocator/location_service_api_geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:permission_service_api_handler/permission_service_api_handler.dart';
 import 'package:preferences_api_shared/preferences_api_shared.dart';
-import 'package:user_api/user_api.dart';
-import 'package:user_api_firebase/user_api_firebase.dart';
+
+import 'package:user_auth_api/user_auth_api.dart';
+import 'package:user_database_api/user_database_api.dart';
+import 'package:user_storage_api/user_storage_api.dart';
 
 import 'initialize.dart';
 
@@ -35,8 +39,20 @@ abstract final class AppInitializer {
       DeviceOrientation.portraitDown,
       DeviceOrientation.portraitUp,
     ]);
+
+    /// +++ UPDATED
+    /// +++ UPDATED
+    final userAuthApiFirebase =
+        await UserAuthFirebaseInitializer().initialize();
+    final userDatabaseApiFirebase =
+        await UserDatabaseFirestoreInitializer().initialize();
+    final userStorageApiFirebase =
+        await UserStorageFirebaseInitializer().initialize();
+
+    /// +++ UPDATED
+    /// +++ UPDATED
+
     // Initialize Api's
-    final userApiFirebase = await UserApiFirebaseInitializer().initialize();
     final preferencesApiShared =
         await PreferencesApiSharedInitializer().initialize();
 
@@ -47,11 +63,9 @@ abstract final class AppInitializer {
     // Inject Repositories
     await InjectionContainer.initializeDependencies(
       userRepository: UserRepository(
-        userApi: UserApi(
-          auth: userApiFirebase.auth,
-          database: userApiFirebase.firestore,
-          storage: userApiFirebase.storage,
-        ),
+        userDatabaseApi: userDatabaseApiFirebase,
+        userStorageApi: userStorageApiFirebase,
+        userAuthApi: userAuthApiFirebase,
       ),
       //
       preferencesRepository: PreferencesRepository(
@@ -60,7 +74,11 @@ abstract final class AppInitializer {
       permissionService: PermissionService(
         permissionServiceApi: permissionServiceApiHandler,
       ),
-      imageService: ImageService(imageApi: imageServiceApiPicker),
+      imageService: ImageService(
+        imageService: service.ImageService(
+          imagePickerApi: imageServiceApiPicker,
+        ),
+      ),
       locationService: LocationService(
         locationServiceApi: locationServiceApiGeolocator,
       ),
