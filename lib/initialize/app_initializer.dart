@@ -10,10 +10,10 @@ import 'package:image_service_api_picker/image_service_api_picker.dart';
 import 'package:location_service_api_geolocator/location_service_api_geolocator.dart';
 import 'package:logging/logging.dart';
 import 'package:permission_service_api_handler/permission_service_api_handler.dart';
-import 'package:preferences_api_shared/preferences_api_shared.dart';
 
 import 'package:user_auth_api/user_auth_api.dart';
 import 'package:user_database_api/user_database_api.dart';
+import 'package:user_local_database_api/user_local_database_api.dart';
 import 'package:user_storage_api/user_storage_api.dart';
 
 import 'initialize.dart';
@@ -48,13 +48,14 @@ abstract final class AppInitializer {
         await UserDatabaseFirestoreInitializer().initialize();
     final userStorageApiFirebase =
         await UserStorageFirebaseInitializer().initialize();
-
+    final userLocalDatabaseSharedPreferences =
+        await UserLocalDatabaseSharedPreferencesInitializer().initialize();
     /// +++ UPDATED
     /// +++ UPDATED
 
     // Initialize Api's
     final preferencesApiShared =
-        await PreferencesApiSharedInitializer().initialize();
+         await UserLocalDatabaseSharedPreferencesInitializer().initialize();
 
     final permissionServiceApiHandler = PermissionServiceApiHandler();
     final imageServiceApiPicker = ImageServiceApiPicker();
@@ -66,10 +67,7 @@ abstract final class AppInitializer {
         userDatabaseApi: userDatabaseApiFirebase,
         userStorageApi: userStorageApiFirebase,
         userAuthApi: userAuthApiFirebase,
-      ),
-      //
-      preferencesRepository: PreferencesRepository(
-        preferencesApi: preferencesApiShared,
+        userLocalDatabaseApi: userLocalDatabaseSharedPreferences,
       ),
       permissionService: PermissionService(
         permissionServiceApi: permissionServiceApiHandler,

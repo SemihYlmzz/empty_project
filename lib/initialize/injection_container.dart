@@ -9,19 +9,14 @@ final getIt = GetIt.instance;
 class InjectionContainer {
   static Future<void> initializeDependencies({
     required UserRepository userRepository,
-    required PreferencesRepository preferencesRepository,
     required PermissionService permissionService,
     required ImageService imageService,
     required LocationService locationService,
   }) async {
     getIt
       ..registerLazySingleton<UserRepository>(() => userRepository)
-      ..registerLazySingleton<PreferencesRepository>(
-        () => preferencesRepository,
-      )
       ..registerLazySingleton<PermissionService>(() => permissionService)
       ..registerLazySingleton<ImageService>(() => imageService)
-      ..registerLazySingleton<LocationService>(() => locationService)
-       ;
+      ..registerLazySingleton<LocationService>(() => locationService);
   }
 }

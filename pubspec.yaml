@@ -14,13 +14,12 @@ dependencies:
     path: packages/user_auth_api
   user_database_api:
     path: packages/user_database_api
+  user_local_database_api:
+    path: packages/user_local_database_api
   user_storage_api:
     path: packages/user_storage_api
 
-  preferences_api:
-    path: packages/preferences_api
-  preferences_api_shared:
-    path: packages/preferences_api_shared
+
   shared_widgets:
     path: packages/shared_widgets
   shared_constants:

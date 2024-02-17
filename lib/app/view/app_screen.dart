@@ -17,7 +17,7 @@ class AppScreen extends StatelessWidget {
 
     return BlocProvider(
       create: (context) => AppBloc(
-        preferencesRepository: getIt<PreferencesRepository>(),
+        userRepository: getIt<UserRepository>(),
       )..add(const AppFetchDevicePreferences()),
       child: const AppView(),
     );

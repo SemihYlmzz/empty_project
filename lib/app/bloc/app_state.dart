@@ -3,19 +3,19 @@ part of 'app_bloc.dart';
 @freezed
 class AppState with _$AppState {
   const factory AppState.initial({
-    PreferencesModel? preferencesModel,
+    UserLocalDatabaseModel? userLocalDatabaseModel,
   }) = AppInitial;
 
   const factory AppState.loading({
-    PreferencesModel? preferencesModel,
+    UserLocalDatabaseModel? userLocalDatabaseModel,
   }) = AppLoading;
 
   const factory AppState.loaded({
-    required PreferencesModel preferencesModel,
+    required UserLocalDatabaseModel userLocalDatabaseModel,
   }) = AppLoaded;
 
   const factory AppState.hasError({
     required String errorMessage,
-    PreferencesModel? preferencesModel,
+    UserLocalDatabaseModel? userLocalDatabaseModel,
   }) = AppHasError;
 }

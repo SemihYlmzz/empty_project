@@ -170,32 +170,38 @@ abstract class AppFetchDevicePreferences implements AppEvent {
 
 /// @nodoc
 mixin _$AppState {
-  PreferencesModel? get preferencesModel => throw _privateConstructorUsedError;
+  UserLocalDatabaseModel? get userLocalDatabaseModel =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PreferencesModel? preferencesModel) initial,
-    required TResult Function(PreferencesModel? preferencesModel) loading,
-    required TResult Function(PreferencesModel preferencesModel) loaded,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        initial,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        loading,
+    required TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)
+        loaded,
     required TResult Function(
-            String errorMessage, PreferencesModel? preferencesModel)
+            String errorMessage, UserLocalDatabaseModel? userLocalDatabaseModel)
         hasError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PreferencesModel? preferencesModel)? initial,
-    TResult? Function(PreferencesModel? preferencesModel)? loading,
-    TResult? Function(PreferencesModel preferencesModel)? loaded,
-    TResult? Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult? Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult? Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PreferencesModel? preferencesModel)? initial,
-    TResult Function(PreferencesModel? preferencesModel)? loading,
-    TResult Function(PreferencesModel preferencesModel)? loaded,
-    TResult Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
     required TResult orElse(),
   }) =>
@@ -236,9 +242,9 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({PreferencesModel preferencesModel});
+  $Res call({UserLocalDatabaseModel userLocalDatabaseModel});
 
-  $PreferencesModelCopyWith<$Res>? get preferencesModel;
+  $UserLocalDatabaseModelCopyWith<$Res>? get userLocalDatabaseModel;
 }
 
 /// @nodoc
@@ -254,25 +260,26 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? preferencesModel = null,
+    Object? userLocalDatabaseModel = null,
   }) {
     return _then(_value.copyWith(
-      preferencesModel: null == preferencesModel
-          ? _value.preferencesModel!
-          : preferencesModel // ignore: cast_nullable_to_non_nullable
-              as PreferencesModel,
+      userLocalDatabaseModel: null == userLocalDatabaseModel
+          ? _value.userLocalDatabaseModel!
+          : userLocalDatabaseModel // ignore: cast_nullable_to_non_nullable
+              as UserLocalDatabaseModel,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PreferencesModelCopyWith<$Res>? get preferencesModel {
-    if (_value.preferencesModel == null) {
+  $UserLocalDatabaseModelCopyWith<$Res>? get userLocalDatabaseModel {
+    if (_value.userLocalDatabaseModel == null) {
       return null;
     }
 
-    return $PreferencesModelCopyWith<$Res>(_value.preferencesModel!, (value) {
-      return _then(_value.copyWith(preferencesModel: value) as $Val);
+    return $UserLocalDatabaseModelCopyWith<$Res>(_value.userLocalDatabaseModel!,
+        (value) {
+      return _then(_value.copyWith(userLocalDatabaseModel: value) as $Val);
     });
   }
 }
@@ -285,10 +292,10 @@ abstract class _$$AppInitialImplCopyWith<$Res>
       __$$AppInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({PreferencesModel? preferencesModel});
+  $Res call({UserLocalDatabaseModel? userLocalDatabaseModel});
 
   @override
-  $PreferencesModelCopyWith<$Res>? get preferencesModel;
+  $UserLocalDatabaseModelCopyWith<$Res>? get userLocalDatabaseModel;
 }
 
 /// @nodoc
@@ -302,13 +309,13 @@ class __$$AppInitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? preferencesModel = freezed,
+    Object? userLocalDatabaseModel = freezed,
   }) {
     return _then(_$AppInitialImpl(
-      preferencesModel: freezed == preferencesModel
-          ? _value.preferencesModel
-          : preferencesModel // ignore: cast_nullable_to_non_nullable
-              as PreferencesModel?,
+      userLocalDatabaseModel: freezed == userLocalDatabaseModel
+          ? _value.userLocalDatabaseModel
+          : userLocalDatabaseModel // ignore: cast_nullable_to_non_nullable
+              as UserLocalDatabaseModel?,
     ));
   }
 }
@@ -316,14 +323,14 @@ class __$$AppInitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppInitialImpl implements AppInitial {
-  const _$AppInitialImpl({this.preferencesModel});
+  const _$AppInitialImpl({this.userLocalDatabaseModel});
 
   @override
-  final PreferencesModel? preferencesModel;
+  final UserLocalDatabaseModel? userLocalDatabaseModel;
 
   @override
   String toString() {
-    return 'AppState.initial(preferencesModel: $preferencesModel)';
+    return 'AppState.initial(userLocalDatabaseModel: $userLocalDatabaseModel)';
   }
 
   @override
@@ -331,12 +338,12 @@ class _$AppInitialImpl implements AppInitial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppInitialImpl &&
-            (identical(other.preferencesModel, preferencesModel) ||
-                other.preferencesModel == preferencesModel));
+            (identical(other.userLocalDatabaseModel, userLocalDatabaseModel) ||
+                other.userLocalDatabaseModel == userLocalDatabaseModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, preferencesModel);
+  int get hashCode => Object.hash(runtimeType, userLocalDatabaseModel);
 
   @JsonKey(ignore: true)
   @override
@@ -347,40 +354,45 @@ class _$AppInitialImpl implements AppInitial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PreferencesModel? preferencesModel) initial,
-    required TResult Function(PreferencesModel? preferencesModel) loading,
-    required TResult Function(PreferencesModel preferencesModel) loaded,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        initial,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        loading,
+    required TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)
+        loaded,
     required TResult Function(
-            String errorMessage, PreferencesModel? preferencesModel)
+            String errorMessage, UserLocalDatabaseModel? userLocalDatabaseModel)
         hasError,
   }) {
-    return initial(preferencesModel);
+    return initial(userLocalDatabaseModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PreferencesModel? preferencesModel)? initial,
-    TResult? Function(PreferencesModel? preferencesModel)? loading,
-    TResult? Function(PreferencesModel preferencesModel)? loaded,
-    TResult? Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult? Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult? Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
   }) {
-    return initial?.call(preferencesModel);
+    return initial?.call(userLocalDatabaseModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PreferencesModel? preferencesModel)? initial,
-    TResult Function(PreferencesModel? preferencesModel)? loading,
-    TResult Function(PreferencesModel preferencesModel)? loaded,
-    TResult Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(preferencesModel);
+      return initial(userLocalDatabaseModel);
     }
     return orElse();
   }
@@ -424,11 +436,12 @@ class _$AppInitialImpl implements AppInitial {
 }
 
 abstract class AppInitial implements AppState {
-  const factory AppInitial({final PreferencesModel? preferencesModel}) =
+  const factory AppInitial(
+          {final UserLocalDatabaseModel? userLocalDatabaseModel}) =
       _$AppInitialImpl;
 
   @override
-  PreferencesModel? get preferencesModel;
+  UserLocalDatabaseModel? get userLocalDatabaseModel;
   @override
   @JsonKey(ignore: true)
   _$$AppInitialImplCopyWith<_$AppInitialImpl> get copyWith =>
@@ -443,10 +456,10 @@ abstract class _$$AppLoadingImplCopyWith<$Res>
       __$$AppLoadingImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({PreferencesModel? preferencesModel});
+  $Res call({UserLocalDatabaseModel? userLocalDatabaseModel});
 
   @override
-  $PreferencesModelCopyWith<$Res>? get preferencesModel;
+  $UserLocalDatabaseModelCopyWith<$Res>? get userLocalDatabaseModel;
 }
 
 /// @nodoc
@@ -460,13 +473,13 @@ class __$$AppLoadingImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? preferencesModel = freezed,
+    Object? userLocalDatabaseModel = freezed,
   }) {
     return _then(_$AppLoadingImpl(
-      preferencesModel: freezed == preferencesModel
-          ? _value.preferencesModel
-          : preferencesModel // ignore: cast_nullable_to_non_nullable
-              as PreferencesModel?,
+      userLocalDatabaseModel: freezed == userLocalDatabaseModel
+          ? _value.userLocalDatabaseModel
+          : userLocalDatabaseModel // ignore: cast_nullable_to_non_nullable
+              as UserLocalDatabaseModel?,
     ));
   }
 }
@@ -474,14 +487,14 @@ class __$$AppLoadingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppLoadingImpl implements AppLoading {
-  const _$AppLoadingImpl({this.preferencesModel});
+  const _$AppLoadingImpl({this.userLocalDatabaseModel});
 
   @override
-  final PreferencesModel? preferencesModel;
+  final UserLocalDatabaseModel? userLocalDatabaseModel;
 
   @override
   String toString() {
-    return 'AppState.loading(preferencesModel: $preferencesModel)';
+    return 'AppState.loading(userLocalDatabaseModel: $userLocalDatabaseModel)';
   }
 
   @override
@@ -489,12 +502,12 @@ class _$AppLoadingImpl implements AppLoading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppLoadingImpl &&
-            (identical(other.preferencesModel, preferencesModel) ||
-                other.preferencesModel == preferencesModel));
+            (identical(other.userLocalDatabaseModel, userLocalDatabaseModel) ||
+                other.userLocalDatabaseModel == userLocalDatabaseModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, preferencesModel);
+  int get hashCode => Object.hash(runtimeType, userLocalDatabaseModel);
 
   @JsonKey(ignore: true)
   @override
@@ -505,40 +518,45 @@ class _$AppLoadingImpl implements AppLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PreferencesModel? preferencesModel) initial,
-    required TResult Function(PreferencesModel? preferencesModel) loading,
-    required TResult Function(PreferencesModel preferencesModel) loaded,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        initial,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        loading,
+    required TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)
+        loaded,
     required TResult Function(
-            String errorMessage, PreferencesModel? preferencesModel)
+            String errorMessage, UserLocalDatabaseModel? userLocalDatabaseModel)
         hasError,
   }) {
-    return loading(preferencesModel);
+    return loading(userLocalDatabaseModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PreferencesModel? preferencesModel)? initial,
-    TResult? Function(PreferencesModel? preferencesModel)? loading,
-    TResult? Function(PreferencesModel preferencesModel)? loaded,
-    TResult? Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult? Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult? Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
   }) {
-    return loading?.call(preferencesModel);
+    return loading?.call(userLocalDatabaseModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PreferencesModel? preferencesModel)? initial,
-    TResult Function(PreferencesModel? preferencesModel)? loading,
-    TResult Function(PreferencesModel preferencesModel)? loaded,
-    TResult Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(preferencesModel);
+      return loading(userLocalDatabaseModel);
     }
     return orElse();
   }
@@ -582,11 +600,12 @@ class _$AppLoadingImpl implements AppLoading {
 }
 
 abstract class AppLoading implements AppState {
-  const factory AppLoading({final PreferencesModel? preferencesModel}) =
+  const factory AppLoading(
+          {final UserLocalDatabaseModel? userLocalDatabaseModel}) =
       _$AppLoadingImpl;
 
   @override
-  PreferencesModel? get preferencesModel;
+  UserLocalDatabaseModel? get userLocalDatabaseModel;
   @override
   @JsonKey(ignore: true)
   _$$AppLoadingImplCopyWith<_$AppLoadingImpl> get copyWith =>
@@ -601,10 +620,10 @@ abstract class _$$AppLoadedImplCopyWith<$Res>
       __$$AppLoadedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({PreferencesModel preferencesModel});
+  $Res call({UserLocalDatabaseModel userLocalDatabaseModel});
 
   @override
-  $PreferencesModelCopyWith<$Res> get preferencesModel;
+  $UserLocalDatabaseModelCopyWith<$Res> get userLocalDatabaseModel;
 }
 
 /// @nodoc
@@ -618,21 +637,22 @@ class __$$AppLoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? preferencesModel = null,
+    Object? userLocalDatabaseModel = null,
   }) {
     return _then(_$AppLoadedImpl(
-      preferencesModel: null == preferencesModel
-          ? _value.preferencesModel
-          : preferencesModel // ignore: cast_nullable_to_non_nullable
-              as PreferencesModel,
+      userLocalDatabaseModel: null == userLocalDatabaseModel
+          ? _value.userLocalDatabaseModel
+          : userLocalDatabaseModel // ignore: cast_nullable_to_non_nullable
+              as UserLocalDatabaseModel,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PreferencesModelCopyWith<$Res> get preferencesModel {
-    return $PreferencesModelCopyWith<$Res>(_value.preferencesModel, (value) {
-      return _then(_value.copyWith(preferencesModel: value));
+  $UserLocalDatabaseModelCopyWith<$Res> get userLocalDatabaseModel {
+    return $UserLocalDatabaseModelCopyWith<$Res>(_value.userLocalDatabaseModel,
+        (value) {
+      return _then(_value.copyWith(userLocalDatabaseModel: value));
     });
   }
 }
@@ -640,14 +660,14 @@ class __$$AppLoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppLoadedImpl implements AppLoaded {
-  const _$AppLoadedImpl({required this.preferencesModel});
+  const _$AppLoadedImpl({required this.userLocalDatabaseModel});
 
   @override
-  final PreferencesModel preferencesModel;
+  final UserLocalDatabaseModel userLocalDatabaseModel;
 
   @override
   String toString() {
-    return 'AppState.loaded(preferencesModel: $preferencesModel)';
+    return 'AppState.loaded(userLocalDatabaseModel: $userLocalDatabaseModel)';
   }
 
   @override
@@ -655,12 +675,12 @@ class _$AppLoadedImpl implements AppLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppLoadedImpl &&
-            (identical(other.preferencesModel, preferencesModel) ||
-                other.preferencesModel == preferencesModel));
+            (identical(other.userLocalDatabaseModel, userLocalDatabaseModel) ||
+                other.userLocalDatabaseModel == userLocalDatabaseModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, preferencesModel);
+  int get hashCode => Object.hash(runtimeType, userLocalDatabaseModel);
 
   @JsonKey(ignore: true)
   @override
@@ -671,40 +691,45 @@ class _$AppLoadedImpl implements AppLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PreferencesModel? preferencesModel) initial,
-    required TResult Function(PreferencesModel? preferencesModel) loading,
-    required TResult Function(PreferencesModel preferencesModel) loaded,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        initial,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        loading,
+    required TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)
+        loaded,
     required TResult Function(
-            String errorMessage, PreferencesModel? preferencesModel)
+            String errorMessage, UserLocalDatabaseModel? userLocalDatabaseModel)
         hasError,
   }) {
-    return loaded(preferencesModel);
+    return loaded(userLocalDatabaseModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PreferencesModel? preferencesModel)? initial,
-    TResult? Function(PreferencesModel? preferencesModel)? loading,
-    TResult? Function(PreferencesModel preferencesModel)? loaded,
-    TResult? Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult? Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult? Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
   }) {
-    return loaded?.call(preferencesModel);
+    return loaded?.call(userLocalDatabaseModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PreferencesModel? preferencesModel)? initial,
-    TResult Function(PreferencesModel? preferencesModel)? loading,
-    TResult Function(PreferencesModel preferencesModel)? loaded,
-    TResult Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(preferencesModel);
+      return loaded(userLocalDatabaseModel);
     }
     return orElse();
   }
@@ -748,11 +773,12 @@ class _$AppLoadedImpl implements AppLoaded {
 }
 
 abstract class AppLoaded implements AppState {
-  const factory AppLoaded({required final PreferencesModel preferencesModel}) =
+  const factory AppLoaded(
+          {required final UserLocalDatabaseModel userLocalDatabaseModel}) =
       _$AppLoadedImpl;
 
   @override
-  PreferencesModel get preferencesModel;
+  UserLocalDatabaseModel get userLocalDatabaseModel;
   @override
   @JsonKey(ignore: true)
   _$$AppLoadedImplCopyWith<_$AppLoadedImpl> get copyWith =>
@@ -767,10 +793,11 @@ abstract class _$$AppHasErrorImplCopyWith<$Res>
       __$$AppHasErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String errorMessage, PreferencesModel? preferencesModel});
+  $Res call(
+      {String errorMessage, UserLocalDatabaseModel? userLocalDatabaseModel});
 
   @override
-  $PreferencesModelCopyWith<$Res>? get preferencesModel;
+  $UserLocalDatabaseModelCopyWith<$Res>? get userLocalDatabaseModel;
 }
 
 /// @nodoc
@@ -785,17 +812,17 @@ class __$$AppHasErrorImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? errorMessage = null,
-    Object? preferencesModel = freezed,
+    Object? userLocalDatabaseModel = freezed,
   }) {
     return _then(_$AppHasErrorImpl(
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
-      preferencesModel: freezed == preferencesModel
-          ? _value.preferencesModel
-          : preferencesModel // ignore: cast_nullable_to_non_nullable
-              as PreferencesModel?,
+      userLocalDatabaseModel: freezed == userLocalDatabaseModel
+          ? _value.userLocalDatabaseModel
+          : userLocalDatabaseModel // ignore: cast_nullable_to_non_nullable
+              as UserLocalDatabaseModel?,
     ));
   }
 }
@@ -803,16 +830,17 @@ class __$$AppHasErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppHasErrorImpl implements AppHasError {
-  const _$AppHasErrorImpl({required this.errorMessage, this.preferencesModel});
+  const _$AppHasErrorImpl(
+      {required this.errorMessage, this.userLocalDatabaseModel});
 
   @override
   final String errorMessage;
   @override
-  final PreferencesModel? preferencesModel;
+  final UserLocalDatabaseModel? userLocalDatabaseModel;
 
   @override
   String toString() {
-    return 'AppState.hasError(errorMessage: $errorMessage, preferencesModel: $preferencesModel)';
+    return 'AppState.hasError(errorMessage: $errorMessage, userLocalDatabaseModel: $userLocalDatabaseModel)';
   }
 
   @override
@@ -822,12 +850,13 @@ class _$AppHasErrorImpl implements AppHasError {
             other is _$AppHasErrorImpl &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.preferencesModel, preferencesModel) ||
-                other.preferencesModel == preferencesModel));
+            (identical(other.userLocalDatabaseModel, userLocalDatabaseModel) ||
+                other.userLocalDatabaseModel == userLocalDatabaseModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorMessage, preferencesModel);
+  int get hashCode =>
+      Object.hash(runtimeType, errorMessage, userLocalDatabaseModel);
 
   @JsonKey(ignore: true)
   @override
@@ -838,40 +867,45 @@ class _$AppHasErrorImpl implements AppHasError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PreferencesModel? preferencesModel) initial,
-    required TResult Function(PreferencesModel? preferencesModel) loading,
-    required TResult Function(PreferencesModel preferencesModel) loaded,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        initial,
+    required TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)
+        loading,
+    required TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)
+        loaded,
     required TResult Function(
-            String errorMessage, PreferencesModel? preferencesModel)
+            String errorMessage, UserLocalDatabaseModel? userLocalDatabaseModel)
         hasError,
   }) {
-    return hasError(errorMessage, preferencesModel);
+    return hasError(errorMessage, userLocalDatabaseModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PreferencesModel? preferencesModel)? initial,
-    TResult? Function(PreferencesModel? preferencesModel)? loading,
-    TResult? Function(PreferencesModel preferencesModel)? loaded,
-    TResult? Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult? Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult? Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult? Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
   }) {
-    return hasError?.call(errorMessage, preferencesModel);
+    return hasError?.call(errorMessage, userLocalDatabaseModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PreferencesModel? preferencesModel)? initial,
-    TResult Function(PreferencesModel? preferencesModel)? loading,
-    TResult Function(PreferencesModel preferencesModel)? loaded,
-    TResult Function(String errorMessage, PreferencesModel? preferencesModel)?
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? initial,
+    TResult Function(UserLocalDatabaseModel? userLocalDatabaseModel)? loading,
+    TResult Function(UserLocalDatabaseModel userLocalDatabaseModel)? loaded,
+    TResult Function(String errorMessage,
+            UserLocalDatabaseModel? userLocalDatabaseModel)?
         hasError,
     required TResult orElse(),
   }) {
     if (hasError != null) {
-      return hasError(errorMessage, preferencesModel);
+      return hasError(errorMessage, userLocalDatabaseModel);
     }
     return orElse();
   }
@@ -916,12 +950,13 @@ class _$AppHasErrorImpl implements AppHasError {
 
 abstract class AppHasError implements AppState {
   const factory AppHasError(
-      {required final String errorMessage,
-      final PreferencesModel? preferencesModel}) = _$AppHasErrorImpl;
+          {required final String errorMessage,
+          final UserLocalDatabaseModel? userLocalDatabaseModel}) =
+      _$AppHasErrorImpl;
 
   String get errorMessage;
   @override
-  PreferencesModel? get preferencesModel;
+  UserLocalDatabaseModel? get userLocalDatabaseModel;
   @override
   @JsonKey(ignore: true)
   _$$AppHasErrorImplCopyWith<_$AppHasErrorImpl> get copyWith =>

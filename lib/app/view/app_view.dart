@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:preferences_api/preferences_api.dart';
+import 'package:user_local_database_api/user_local_database_api.dart';
 
 import '../../app/app.dart';
 
@@ -14,8 +14,8 @@ class AppView extends StatefulWidget {
 class _AppViewState extends State<AppView> with RouterMixin {
   @override
   Widget build(BuildContext context) {
-    
-    final currentPrefModel = context.watch<AppBloc>().state.preferencesModel;
+    final currentPrefModel =
+        context.watch<AppBloc>().state.userLocalDatabaseModel;
 
     final appTheme = switch (currentPrefModel?.appTheme) {
       AppThemes.lightTheme => ThemeData.light(),

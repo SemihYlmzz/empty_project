@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:fpdart/fpdart.dart';
 import 'package:user_auth_api/user_auth_api.dart';
 import 'package:user_database_api/user_database_api.dart';
+import 'package:user_local_database_api/user_local_database_api.dart';
 import 'package:user_storage_api/user_storage_api.dart';
 
 import '../common/common.dart';
@@ -12,13 +13,16 @@ class UserRepository {
   UserRepository({
     required UserAuthApi userAuthApi,
     required UserDatabaseApi userDatabaseApi,
+    required UserLocalDatabaseApi userLocalDatabaseApi,
     required UserStorageApi userStorageApi,
   })  : _userAuthApi = userAuthApi,
         _userStorageApi = userStorageApi,
+        _userLocalDatabaseApi = userLocalDatabaseApi,
         _userDatabaseApi = userDatabaseApi;
 
   final UserAuthApi _userAuthApi;
   final UserDatabaseApi _userDatabaseApi;
+  final UserLocalDatabaseApi _userLocalDatabaseApi;
   final UserStorageApi _userStorageApi;
 
   FutureEither<UserDatabaseModel?> registerUser({
@@ -114,4 +118,22 @@ class UserRepository {
   Stream<UserAuthModel?> get authEntity => _userAuthApi.authEntity;
 
   UserAuthModel? get currentUser => _userAuthApi.currentUser();
+  // CONTROL EDILICEK
+  FutureEither<UserLocalDatabaseModel> readPreferences() async {
+    return Right(await _userLocalDatabaseApi.readPreferences());
+  }
+
+  FutureEither<UserLocalDatabaseModel> resetPreferences() async {
+    return Right(await _userLocalDatabaseApi.resetPreferences());
+  }
+
+  FutureEither<void> savePreferences({
+    required UserLocalDatabaseModel userLocalDatabaseModel,
+  }) async {
+    return Right(
+      _userLocalDatabaseApi.savePreferences(
+        userLocalDatabaseModel: userLocalDatabaseModel,
+      ),
+    );
+  }
 }
