@@ -33,6 +33,9 @@ dependencies:
     path: packages/permission_requestor_api
 
 
+  # Animations
+  animations: ^2.0.11
+  
   # State Management
   flutter_bloc: ^8.1.3
   bloc: ^8.1.2
@@ -49,8 +52,6 @@ dependencies:
   freezed_annotation: ^2.4.1
   # Logging
   logging: ^1.2.0
-
-  
   # Widget
   skeletonizer: ^1.0.1
 

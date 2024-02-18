@@ -21,6 +21,7 @@ class UserRegisterView extends StatelessWidget {
               UserLocationPicker(),
             ],
           ),
+          ImageSizeDisplayer(),
           UserRegisterButton(),
         ],
       ),

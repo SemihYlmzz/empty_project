@@ -14,6 +14,17 @@ class ImageService {
   final ImagePickerApi _imagePickerApi;
   final ImageCompressorApi _imageCompressorApi;
 
+  FutureEither<Uint8List> compressImage(Uint8List compressableImage) async {
+    try {
+      final compressedImage = await _imageCompressorApi.compressWithList(
+        compressableImage,
+      );
+      return Right(compressedImage);
+    } catch (exception) {
+      return const Left(Failure(message: 'Compress Failure'));
+    }
+  }
+
   FutureEither<Uint8List?> takeSingleImageWithCamera() async {
     try {
       return Right(

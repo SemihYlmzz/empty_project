@@ -75,6 +75,7 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     Emitter<UserRegisterState> emit,
   ) async {
     var hasPhotosPermission = false;
+    late Uint8List selectedImage;
 
     final hasPermission = await permissionService.ensureHasPhotosPermission();
     hasPermission.fold(
@@ -93,9 +94,21 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
         if (nullableImage == null) {
           return;
         }
-        emit(state.copyWith(avatarImage: nullableImage));
+        selectedImage = nullableImage;
       },
     );
+    final tryCompress = await imageService.compressImage(selectedImage);
+    tryCompress
+        .fold((failure) => emit(state.copyWith(errorMessage: failure.message)),
+            (compressedImage) {
+      emit(
+        state.copyWith(
+          avatarImage: selectedImage,
+          avatarImage1024: compressedImage,
+        ),
+      );
+    });
+
   }
 
   Future<void> _onSetAvatarViaCamera(
@@ -120,7 +133,11 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
         if (nullableImage == null) {
           return;
         }
-        emit(state.copyWith(avatarImage: nullableImage));
+        emit(
+          state.copyWith(
+            avatarImage: nullableImage,
+          ),
+        );
       },
     );
   }

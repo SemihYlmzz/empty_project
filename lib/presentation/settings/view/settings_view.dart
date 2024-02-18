@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_widgets/shared_widgets.dart';
 import '../../presentation.dart';
 
 class SettingsView extends StatelessWidget {
@@ -6,17 +7,16 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const SettingsAppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return const Scaffold(
+      appBar: SettingsAppBar(),
+      body: BaseColumn(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Center(
-            child: TextButton(
-              onPressed: () {},
-              child: const Text('Settings Button'),
-            ),
-          ),
+          UserSettingsNavigatorButton(),
+          NotificationSettingsNavigatorButton(),
+          AppThemeSetting(),
+          AppLanguageSetting(),
+          AppVibrationSetting(),
         ],
       ),
     );
