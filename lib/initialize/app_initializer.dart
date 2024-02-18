@@ -48,11 +48,13 @@ final class AppInitializer {
         userDatabaseApi: cloudFirestoreImpl,
         userStorageApi: firebaseStorageImpl,
         userAuthApi: firebaseAuthImpl,
-        userLocalDatabaseApi: sharedPreferencesImpl,
+        userLocalDatabaseApi: sharedPreferencesImpl, 
+        imageCompressorApi: flutterImageCompressImpl,
       ),
       imageService: ImageService(
         imagePickerApi: imagePickerImpl,
         imageCompressorApi: flutterImageCompressImpl,
+        permissionRequestorApi: permissionHandlerImpl,
       ),
       permissionService: PermissionService(
         permissionRequestorApi: permissionHandlerImpl,

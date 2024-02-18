@@ -1,18 +1,24 @@
 import 'dart:typed_data';
 
 import 'package:empty_application/common/common.dart';
+import 'package:empty_application/presentation/presentation.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:image_compressor_api/image_compressor_api.dart';
 import 'package:image_picker_api/image_picker_api.dart';
+import 'package:permission_requestor_api/permission_requestor_api.dart';
 
 class ImageService {
   ImageService({
+    required PermissionRequestorApi permissionRequestorApi,
     required ImagePickerApi imagePickerApi,
     required ImageCompressorApi imageCompressorApi,
   })  : _imagePickerApi = imagePickerApi,
+        _permissionRequestorApi = permissionRequestorApi,
         _imageCompressorApi = imageCompressorApi;
+
   final ImagePickerApi _imagePickerApi;
   final ImageCompressorApi _imageCompressorApi;
+  final PermissionRequestorApi _permissionRequestorApi;
 
   FutureEither<Uint8List> compressImage(Uint8List compressableImage) async {
     try {
@@ -25,23 +31,26 @@ class ImageService {
     }
   }
 
-  FutureEither<Uint8List?> takeSingleImageWithCamera() async {
+  FutureEither<Uint8List?> selectSingleImages({
+    required ImageSource imageSource,
+  }) async {
     try {
-      return Right(
-        await _imagePickerApi.takeSingleImageWithCamera(),
-      );
-    } catch (exception) {
-      if (exception is ImagePickerException) {
-        return Left(Failure(message: exception.runtimeType.toString()));
+      final hasPermission = switch (imageSource) {
+        ImageSource.photos =>
+          await _permissionRequestorApi.requestPhotosPermission(),
+        ImageSource.camera =>
+          await _permissionRequestorApi.requestCameraPermission(),
+      };
+      if (!hasPermission) {
+        return const Left(Failure(message: 'UNKNOWN ERROR'));
       }
-      return const Left(Failure(message: 'UNKNOWN ERROR'));
-    }
-  }
-
-  FutureEither<Uint8List?> selectSingleImageFromPhotos() async {
-    try {
+      final image = switch (imageSource) {
+        ImageSource.photos =>
+          await _imagePickerApi.selectSingleImageFromPhotos(),
+        ImageSource.camera => await _imagePickerApi.takeSingleImageWithCamera(),
+      };
       return Right(
-        await _imagePickerApi.selectSingleImageFromPhotos(),
+        image,
       );
     } catch (exception) {
       if (exception is ImagePickerException) {

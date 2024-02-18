@@ -19,8 +19,7 @@ mixin _$UserRegisterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
+    required TResult Function(ImageSource imageSource) setAvatar,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
@@ -31,8 +30,7 @@ mixin _$UserRegisterEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(ImageSource imageSource)? setAvatar,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
@@ -43,8 +41,7 @@ mixin _$UserRegisterEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
+    TResult Function(ImageSource imageSource)? setAvatar,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
@@ -56,8 +53,7 @@ mixin _$UserRegisterEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(SetAvatar value) setAvatar,
     required TResult Function(UpdateFirstName value) updateFirstName,
     required TResult Function(UpdateLastName value) updateLastName,
     required TResult Function(UpdateLocation value) updateLocation,
@@ -69,8 +65,7 @@ mixin _$UserRegisterEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(SetAvatar value)? setAvatar,
     TResult? Function(UpdateFirstName value)? updateFirstName,
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
@@ -81,8 +76,7 @@ mixin _$UserRegisterEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(SetAvatar value)? setAvatar,
     TResult Function(UpdateFirstName value)? updateFirstName,
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
@@ -159,8 +153,7 @@ class _$SignOutRequestImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
+    required TResult Function(ImageSource imageSource) setAvatar,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
@@ -174,8 +167,7 @@ class _$SignOutRequestImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(ImageSource imageSource)? setAvatar,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
@@ -189,8 +181,7 @@ class _$SignOutRequestImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
+    TResult Function(ImageSource imageSource)? setAvatar,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
@@ -208,8 +199,7 @@ class _$SignOutRequestImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(SetAvatar value) setAvatar,
     required TResult Function(UpdateFirstName value) updateFirstName,
     required TResult Function(UpdateLastName value) updateLastName,
     required TResult Function(UpdateLocation value) updateLocation,
@@ -224,8 +214,7 @@ class _$SignOutRequestImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(SetAvatar value)? setAvatar,
     TResult? Function(UpdateFirstName value)? updateFirstName,
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
@@ -239,8 +228,7 @@ class _$SignOutRequestImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(SetAvatar value)? setAvatar,
     TResult Function(UpdateFirstName value)? updateFirstName,
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
@@ -260,85 +248,108 @@ abstract class SignOutRequest implements UserRegisterEvent {
 }
 
 /// @nodoc
-abstract class _$$SetAvatarViaPhotosImplCopyWith<$Res> {
-  factory _$$SetAvatarViaPhotosImplCopyWith(_$SetAvatarViaPhotosImpl value,
-          $Res Function(_$SetAvatarViaPhotosImpl) then) =
-      __$$SetAvatarViaPhotosImplCopyWithImpl<$Res>;
+abstract class _$$SetAvatarImplCopyWith<$Res> {
+  factory _$$SetAvatarImplCopyWith(
+          _$SetAvatarImpl value, $Res Function(_$SetAvatarImpl) then) =
+      __$$SetAvatarImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ImageSource imageSource});
 }
 
 /// @nodoc
-class __$$SetAvatarViaPhotosImplCopyWithImpl<$Res>
-    extends _$UserRegisterEventCopyWithImpl<$Res, _$SetAvatarViaPhotosImpl>
-    implements _$$SetAvatarViaPhotosImplCopyWith<$Res> {
-  __$$SetAvatarViaPhotosImplCopyWithImpl(_$SetAvatarViaPhotosImpl _value,
-      $Res Function(_$SetAvatarViaPhotosImpl) _then)
+class __$$SetAvatarImplCopyWithImpl<$Res>
+    extends _$UserRegisterEventCopyWithImpl<$Res, _$SetAvatarImpl>
+    implements _$$SetAvatarImplCopyWith<$Res> {
+  __$$SetAvatarImplCopyWithImpl(
+      _$SetAvatarImpl _value, $Res Function(_$SetAvatarImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageSource = null,
+  }) {
+    return _then(_$SetAvatarImpl(
+      imageSource: null == imageSource
+          ? _value.imageSource
+          : imageSource // ignore: cast_nullable_to_non_nullable
+              as ImageSource,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$SetAvatarViaPhotosImpl
-    with DiagnosticableTreeMixin
-    implements SetAvatarViaPhotos {
-  const _$SetAvatarViaPhotosImpl();
+class _$SetAvatarImpl with DiagnosticableTreeMixin implements SetAvatar {
+  const _$SetAvatarImpl({required this.imageSource});
+
+  @override
+  final ImageSource imageSource;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserRegisterEvent.setAvatarViaPhotos()';
+    return 'UserRegisterEvent.setAvatar(imageSource: $imageSource)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'UserRegisterEvent.setAvatarViaPhotos'));
+    properties
+      ..add(DiagnosticsProperty('type', 'UserRegisterEvent.setAvatar'))
+      ..add(DiagnosticsProperty('imageSource', imageSource));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SetAvatarViaPhotosImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SetAvatarImpl &&
+            (identical(other.imageSource, imageSource) ||
+                other.imageSource == imageSource));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, imageSource);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetAvatarImplCopyWith<_$SetAvatarImpl> get copyWith =>
+      __$$SetAvatarImplCopyWithImpl<_$SetAvatarImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
+    required TResult Function(ImageSource imageSource) setAvatar,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
     required TResult Function() clearUserRegisterState,
     required TResult Function() userRegisterRequest,
   }) {
-    return setAvatarViaPhotos();
+    return setAvatar(imageSource);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(ImageSource imageSource)? setAvatar,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
     TResult? Function()? clearUserRegisterState,
     TResult? Function()? userRegisterRequest,
   }) {
-    return setAvatarViaPhotos?.call();
+    return setAvatar?.call(imageSource);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
+    TResult Function(ImageSource imageSource)? setAvatar,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
@@ -346,8 +357,8 @@ class _$SetAvatarViaPhotosImpl
     TResult Function()? userRegisterRequest,
     required TResult orElse(),
   }) {
-    if (setAvatarViaPhotos != null) {
-      return setAvatarViaPhotos();
+    if (setAvatar != null) {
+      return setAvatar(imageSource);
     }
     return orElse();
   }
@@ -356,8 +367,7 @@ class _$SetAvatarViaPhotosImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(SetAvatar value) setAvatar,
     required TResult Function(UpdateFirstName value) updateFirstName,
     required TResult Function(UpdateLastName value) updateLastName,
     required TResult Function(UpdateLocation value) updateLocation,
@@ -365,30 +375,28 @@ class _$SetAvatarViaPhotosImpl
         clearUserRegisterState,
     required TResult Function(UserRegisterRequest value) userRegisterRequest,
   }) {
-    return setAvatarViaPhotos(this);
+    return setAvatar(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(SetAvatar value)? setAvatar,
     TResult? Function(UpdateFirstName value)? updateFirstName,
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
     TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
     TResult? Function(UserRegisterRequest value)? userRegisterRequest,
   }) {
-    return setAvatarViaPhotos?.call(this);
+    return setAvatar?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(SetAvatar value)? setAvatar,
     TResult Function(UpdateFirstName value)? updateFirstName,
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
@@ -396,163 +404,21 @@ class _$SetAvatarViaPhotosImpl
     TResult Function(UserRegisterRequest value)? userRegisterRequest,
     required TResult orElse(),
   }) {
-    if (setAvatarViaPhotos != null) {
-      return setAvatarViaPhotos(this);
+    if (setAvatar != null) {
+      return setAvatar(this);
     }
     return orElse();
   }
 }
 
-abstract class SetAvatarViaPhotos implements UserRegisterEvent {
-  const factory SetAvatarViaPhotos() = _$SetAvatarViaPhotosImpl;
-}
+abstract class SetAvatar implements UserRegisterEvent {
+  const factory SetAvatar({required final ImageSource imageSource}) =
+      _$SetAvatarImpl;
 
-/// @nodoc
-abstract class _$$SetAvatarViaCameraImplCopyWith<$Res> {
-  factory _$$SetAvatarViaCameraImplCopyWith(_$SetAvatarViaCameraImpl value,
-          $Res Function(_$SetAvatarViaCameraImpl) then) =
-      __$$SetAvatarViaCameraImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$SetAvatarViaCameraImplCopyWithImpl<$Res>
-    extends _$UserRegisterEventCopyWithImpl<$Res, _$SetAvatarViaCameraImpl>
-    implements _$$SetAvatarViaCameraImplCopyWith<$Res> {
-  __$$SetAvatarViaCameraImplCopyWithImpl(_$SetAvatarViaCameraImpl _value,
-      $Res Function(_$SetAvatarViaCameraImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$SetAvatarViaCameraImpl
-    with DiagnosticableTreeMixin
-    implements SetAvatarViaCamera {
-  const _$SetAvatarViaCameraImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserRegisterEvent.setAvatarViaCamera()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'UserRegisterEvent.setAvatarViaCamera'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SetAvatarViaCameraImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
-    required TResult Function(String updatedFirstName) updateFirstName,
-    required TResult Function(String updatedLastName) updateLastName,
-    required TResult Function() updateLocation,
-    required TResult Function() clearUserRegisterState,
-    required TResult Function() userRegisterRequest,
-  }) {
-    return setAvatarViaCamera();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
-    TResult? Function(String updatedFirstName)? updateFirstName,
-    TResult? Function(String updatedLastName)? updateLastName,
-    TResult? Function()? updateLocation,
-    TResult? Function()? clearUserRegisterState,
-    TResult? Function()? userRegisterRequest,
-  }) {
-    return setAvatarViaCamera?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
-    TResult Function(String updatedFirstName)? updateFirstName,
-    TResult Function(String updatedLastName)? updateLastName,
-    TResult Function()? updateLocation,
-    TResult Function()? clearUserRegisterState,
-    TResult Function()? userRegisterRequest,
-    required TResult orElse(),
-  }) {
-    if (setAvatarViaCamera != null) {
-      return setAvatarViaCamera();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
-    required TResult Function(UpdateFirstName value) updateFirstName,
-    required TResult Function(UpdateLastName value) updateLastName,
-    required TResult Function(UpdateLocation value) updateLocation,
-    required TResult Function(ClearUserRegisterState value)
-        clearUserRegisterState,
-    required TResult Function(UserRegisterRequest value) userRegisterRequest,
-  }) {
-    return setAvatarViaCamera(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
-    TResult? Function(UpdateFirstName value)? updateFirstName,
-    TResult? Function(UpdateLastName value)? updateLastName,
-    TResult? Function(UpdateLocation value)? updateLocation,
-    TResult? Function(ClearUserRegisterState value)? clearUserRegisterState,
-    TResult? Function(UserRegisterRequest value)? userRegisterRequest,
-  }) {
-    return setAvatarViaCamera?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
-    TResult Function(UpdateFirstName value)? updateFirstName,
-    TResult Function(UpdateLastName value)? updateLastName,
-    TResult Function(UpdateLocation value)? updateLocation,
-    TResult Function(ClearUserRegisterState value)? clearUserRegisterState,
-    TResult Function(UserRegisterRequest value)? userRegisterRequest,
-    required TResult orElse(),
-  }) {
-    if (setAvatarViaCamera != null) {
-      return setAvatarViaCamera(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetAvatarViaCamera implements UserRegisterEvent {
-  const factory SetAvatarViaCamera() = _$SetAvatarViaCameraImpl;
+  ImageSource get imageSource;
+  @JsonKey(ignore: true)
+  _$$SetAvatarImplCopyWith<_$SetAvatarImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -632,8 +498,7 @@ class _$UpdateFirstNameImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
+    required TResult Function(ImageSource imageSource) setAvatar,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
@@ -647,8 +512,7 @@ class _$UpdateFirstNameImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(ImageSource imageSource)? setAvatar,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
@@ -662,8 +526,7 @@ class _$UpdateFirstNameImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
+    TResult Function(ImageSource imageSource)? setAvatar,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
@@ -681,8 +544,7 @@ class _$UpdateFirstNameImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(SetAvatar value) setAvatar,
     required TResult Function(UpdateFirstName value) updateFirstName,
     required TResult Function(UpdateLastName value) updateLastName,
     required TResult Function(UpdateLocation value) updateLocation,
@@ -697,8 +559,7 @@ class _$UpdateFirstNameImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(SetAvatar value)? setAvatar,
     TResult? Function(UpdateFirstName value)? updateFirstName,
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
@@ -712,8 +573,7 @@ class _$UpdateFirstNameImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(SetAvatar value)? setAvatar,
     TResult Function(UpdateFirstName value)? updateFirstName,
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
@@ -815,8 +675,7 @@ class _$UpdateLastNameImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
+    required TResult Function(ImageSource imageSource) setAvatar,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
@@ -830,8 +689,7 @@ class _$UpdateLastNameImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(ImageSource imageSource)? setAvatar,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
@@ -845,8 +703,7 @@ class _$UpdateLastNameImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
+    TResult Function(ImageSource imageSource)? setAvatar,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
@@ -864,8 +721,7 @@ class _$UpdateLastNameImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(SetAvatar value) setAvatar,
     required TResult Function(UpdateFirstName value) updateFirstName,
     required TResult Function(UpdateLastName value) updateLastName,
     required TResult Function(UpdateLocation value) updateLocation,
@@ -880,8 +736,7 @@ class _$UpdateLastNameImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(SetAvatar value)? setAvatar,
     TResult? Function(UpdateFirstName value)? updateFirstName,
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
@@ -895,8 +750,7 @@ class _$UpdateLastNameImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(SetAvatar value)? setAvatar,
     TResult Function(UpdateFirstName value)? updateFirstName,
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
@@ -969,8 +823,7 @@ class _$UpdateLocationImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
+    required TResult Function(ImageSource imageSource) setAvatar,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
@@ -984,8 +837,7 @@ class _$UpdateLocationImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(ImageSource imageSource)? setAvatar,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
@@ -999,8 +851,7 @@ class _$UpdateLocationImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
+    TResult Function(ImageSource imageSource)? setAvatar,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
@@ -1018,8 +869,7 @@ class _$UpdateLocationImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(SetAvatar value) setAvatar,
     required TResult Function(UpdateFirstName value) updateFirstName,
     required TResult Function(UpdateLastName value) updateLastName,
     required TResult Function(UpdateLocation value) updateLocation,
@@ -1034,8 +884,7 @@ class _$UpdateLocationImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(SetAvatar value)? setAvatar,
     TResult? Function(UpdateFirstName value)? updateFirstName,
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
@@ -1049,8 +898,7 @@ class _$UpdateLocationImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(SetAvatar value)? setAvatar,
     TResult Function(UpdateFirstName value)? updateFirstName,
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
@@ -1120,8 +968,7 @@ class _$ClearUserRegisterStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
+    required TResult Function(ImageSource imageSource) setAvatar,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
@@ -1135,8 +982,7 @@ class _$ClearUserRegisterStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(ImageSource imageSource)? setAvatar,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
@@ -1150,8 +996,7 @@ class _$ClearUserRegisterStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
+    TResult Function(ImageSource imageSource)? setAvatar,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
@@ -1169,8 +1014,7 @@ class _$ClearUserRegisterStateImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(SetAvatar value) setAvatar,
     required TResult Function(UpdateFirstName value) updateFirstName,
     required TResult Function(UpdateLastName value) updateLastName,
     required TResult Function(UpdateLocation value) updateLocation,
@@ -1185,8 +1029,7 @@ class _$ClearUserRegisterStateImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(SetAvatar value)? setAvatar,
     TResult? Function(UpdateFirstName value)? updateFirstName,
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
@@ -1200,8 +1043,7 @@ class _$ClearUserRegisterStateImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(SetAvatar value)? setAvatar,
     TResult Function(UpdateFirstName value)? updateFirstName,
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,
@@ -1269,8 +1111,7 @@ class _$UserRegisterRequestImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOutRequest,
-    required TResult Function() setAvatarViaPhotos,
-    required TResult Function() setAvatarViaCamera,
+    required TResult Function(ImageSource imageSource) setAvatar,
     required TResult Function(String updatedFirstName) updateFirstName,
     required TResult Function(String updatedLastName) updateLastName,
     required TResult Function() updateLocation,
@@ -1284,8 +1125,7 @@ class _$UserRegisterRequestImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOutRequest,
-    TResult? Function()? setAvatarViaPhotos,
-    TResult? Function()? setAvatarViaCamera,
+    TResult? Function(ImageSource imageSource)? setAvatar,
     TResult? Function(String updatedFirstName)? updateFirstName,
     TResult? Function(String updatedLastName)? updateLastName,
     TResult? Function()? updateLocation,
@@ -1299,8 +1139,7 @@ class _$UserRegisterRequestImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOutRequest,
-    TResult Function()? setAvatarViaPhotos,
-    TResult Function()? setAvatarViaCamera,
+    TResult Function(ImageSource imageSource)? setAvatar,
     TResult Function(String updatedFirstName)? updateFirstName,
     TResult Function(String updatedLastName)? updateLastName,
     TResult Function()? updateLocation,
@@ -1318,8 +1157,7 @@ class _$UserRegisterRequestImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignOutRequest value) signOutRequest,
-    required TResult Function(SetAvatarViaPhotos value) setAvatarViaPhotos,
-    required TResult Function(SetAvatarViaCamera value) setAvatarViaCamera,
+    required TResult Function(SetAvatar value) setAvatar,
     required TResult Function(UpdateFirstName value) updateFirstName,
     required TResult Function(UpdateLastName value) updateLastName,
     required TResult Function(UpdateLocation value) updateLocation,
@@ -1334,8 +1172,7 @@ class _$UserRegisterRequestImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignOutRequest value)? signOutRequest,
-    TResult? Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult? Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult? Function(SetAvatar value)? setAvatar,
     TResult? Function(UpdateFirstName value)? updateFirstName,
     TResult? Function(UpdateLastName value)? updateLastName,
     TResult? Function(UpdateLocation value)? updateLocation,
@@ -1349,8 +1186,7 @@ class _$UserRegisterRequestImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignOutRequest value)? signOutRequest,
-    TResult Function(SetAvatarViaPhotos value)? setAvatarViaPhotos,
-    TResult Function(SetAvatarViaCamera value)? setAvatarViaCamera,
+    TResult Function(SetAvatar value)? setAvatar,
     TResult Function(UpdateFirstName value)? updateFirstName,
     TResult Function(UpdateLastName value)? updateLastName,
     TResult Function(UpdateLocation value)? updateLocation,

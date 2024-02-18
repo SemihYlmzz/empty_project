@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:fpdart/fpdart.dart';
+import 'package:image_compressor_api/image_compressor_api.dart';
 import 'package:user_auth_api/user_auth_api.dart';
 import 'package:user_database_api/user_database_api.dart';
 import 'package:user_local_database_api/user_local_database_api.dart';
@@ -15,15 +16,18 @@ class UserRepository {
     required UserDatabaseApi userDatabaseApi,
     required UserLocalDatabaseApi userLocalDatabaseApi,
     required UserStorageApi userStorageApi,
+    required ImageCompressorApi imageCompressorApi,
   })  : _userAuthApi = userAuthApi,
         _userStorageApi = userStorageApi,
         _userLocalDatabaseApi = userLocalDatabaseApi,
-        _userDatabaseApi = userDatabaseApi;
+        _userDatabaseApi = userDatabaseApi,
+        _imageCompressorApi = imageCompressorApi;
 
   final UserAuthApi _userAuthApi;
   final UserDatabaseApi _userDatabaseApi;
   final UserLocalDatabaseApi _userLocalDatabaseApi;
   final UserStorageApi _userStorageApi;
+  final ImageCompressorApi _imageCompressorApi;
 
   FutureEither<UserDatabaseModel?> registerUser({
     required Uint8List avatarImage,

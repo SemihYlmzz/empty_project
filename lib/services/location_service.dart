@@ -11,7 +11,6 @@ class LocationService {
   FutureEither<CurrentLocationModel> getCurrentLocation() async {
     try {
       final result = await locationLocatorApi.getLocation();
-
       return Right(result);
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));

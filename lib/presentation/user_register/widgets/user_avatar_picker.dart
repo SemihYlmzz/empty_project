@@ -23,10 +23,18 @@ class UserAvatarPicker extends StatelessWidget {
           return;
         }
         if (imageSource == ImageSources.gallery) {
-          context.read<UserRegisterBloc>().add(const SetAvatarViaPhotos());
+          context.read<UserRegisterBloc>().add(
+                const SetAvatar(
+                  imageSource: ImageSource.photos,
+                ),
+              );
         }
         if (imageSource == ImageSources.camera) {
-          context.read<UserRegisterBloc>().add(const SetAvatarViaCamera());
+          context.read<UserRegisterBloc>().add(
+                const SetAvatar(
+                  imageSource: ImageSource.camera,
+                ),
+              );
         }
       },
       child: CircleAvatar(
