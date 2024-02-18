@@ -9,6 +9,16 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.green,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_search), label: 'Users'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Requests'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+      ),
       appBar: const ProfileAppBar(),
       endDrawer: const ProfileEndDrawer(),
       body: Column(

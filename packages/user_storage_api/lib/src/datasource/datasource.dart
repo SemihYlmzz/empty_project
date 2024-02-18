@@ -1,1 +1,1 @@
-export 'user_storage_firebase.dart';
+export 'firebase/firebase.dart';
