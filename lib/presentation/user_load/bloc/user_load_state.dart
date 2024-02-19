@@ -8,7 +8,9 @@ class UserLoadState with _$UserLoadState {
 
   const factory UserLoadState.registerNeeded() = UserLoadRegisterNeeded;
 
-  const factory UserLoadState.loaded() = UserLoaded;
+  const factory UserLoadState.loaded({
+    required UserDatabaseModel currentUserModel,
+  }) = UserLoaded;
 
   const factory UserLoadState.loadError({
     required String errorMessage,

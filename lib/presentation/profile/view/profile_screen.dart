@@ -5,15 +5,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../presentation.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen(
+    this._profileScreenParams, {
+    super.key,
+  });
   static const String path = '/profile';
   static const String name = 'profile';
+  final ProfileScreenParams _profileScreenParams;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ProfileBloc(
         userRepository: getIt<UserRepository>(),
+        currentUserDatabaseModel: _profileScreenParams.userDatabaseModel,
       ),
       child: const ProfileView(),
     );

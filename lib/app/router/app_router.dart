@@ -62,14 +62,7 @@ mixin RouterMixin on State<AppView> {
           child: UserRegisterScreen(),
         ),
       ),
-      GoRoute(
-        path: ProfileScreen.path,
-        name: ProfileScreen.name,
-        parentNavigatorKey: parentNavigatorKey,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: ProfileScreen(),
-        ),
-      ),
+      ProfileScreenRoute.initialize(parentNavigatorKey: parentNavigatorKey),
       GoRoute(
         path: SettingsScreen.path,
         name: SettingsScreen.name,

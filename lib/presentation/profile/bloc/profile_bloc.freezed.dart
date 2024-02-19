@@ -166,49 +166,13 @@ abstract class ProfileSignOut implements ProfileEvent {
 
 /// @nodoc
 mixin _$ProfileState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) =>
+  UserDatabaseModel get currentUserDatabaseModel =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitial value) initial,
-    required TResult Function(ProfileLoading value) loading,
-    required TResult Function(ProfileLoaded value) loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitial value)? initial,
-    TResult? Function(ProfileLoading value)? loading,
-    TResult? Function(ProfileLoaded value)? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitial value)? initial,
-    TResult Function(ProfileLoading value)? loading,
-    TResult Function(ProfileLoaded value)? loaded,
-    required TResult orElse(),
-  }) =>
+  bool get isLoading => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ProfileStateCopyWith<ProfileState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -217,6 +181,13 @@ abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res, ProfileState>;
+  @useResult
+  $Res call(
+      {UserDatabaseModel currentUserDatabaseModel,
+      bool isLoading,
+      String? errorMessage});
+
+  $UserDatabaseModelCopyWith<$Res> get currentUserDatabaseModel;
 }
 
 /// @nodoc
@@ -228,328 +199,151 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentUserDatabaseModel = null,
+    Object? isLoading = null,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(_value.copyWith(
+      currentUserDatabaseModel: null == currentUserDatabaseModel
+          ? _value.currentUserDatabaseModel
+          : currentUserDatabaseModel // ignore: cast_nullable_to_non_nullable
+              as UserDatabaseModel,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserDatabaseModelCopyWith<$Res> get currentUserDatabaseModel {
+    return $UserDatabaseModelCopyWith<$Res>(_value.currentUserDatabaseModel,
+        (value) {
+      return _then(_value.copyWith(currentUserDatabaseModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$ProfileInitialImplCopyWith<$Res> {
-  factory _$$ProfileInitialImplCopyWith(_$ProfileInitialImpl value,
-          $Res Function(_$ProfileInitialImpl) then) =
-      __$$ProfileInitialImplCopyWithImpl<$Res>;
+abstract class _$$ProfileStateStateImplCopyWith<$Res>
+    implements $ProfileStateCopyWith<$Res> {
+  factory _$$ProfileStateStateImplCopyWith(_$ProfileStateStateImpl value,
+          $Res Function(_$ProfileStateStateImpl) then) =
+      __$$ProfileStateStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {UserDatabaseModel currentUserDatabaseModel,
+      bool isLoading,
+      String? errorMessage});
+
+  @override
+  $UserDatabaseModelCopyWith<$Res> get currentUserDatabaseModel;
 }
 
 /// @nodoc
-class __$$ProfileInitialImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileInitialImpl>
-    implements _$$ProfileInitialImplCopyWith<$Res> {
-  __$$ProfileInitialImplCopyWithImpl(
-      _$ProfileInitialImpl _value, $Res Function(_$ProfileInitialImpl) _then)
+class __$$ProfileStateStateImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateStateImpl>
+    implements _$$ProfileStateStateImplCopyWith<$Res> {
+  __$$ProfileStateStateImplCopyWithImpl(_$ProfileStateStateImpl _value,
+      $Res Function(_$ProfileStateStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentUserDatabaseModel = null,
+    Object? isLoading = null,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(_$ProfileStateStateImpl(
+      currentUserDatabaseModel: null == currentUserDatabaseModel
+          ? _value.currentUserDatabaseModel
+          : currentUserDatabaseModel // ignore: cast_nullable_to_non_nullable
+              as UserDatabaseModel,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$ProfileInitialImpl implements ProfileInitial {
-  const _$ProfileInitialImpl();
+class _$ProfileStateStateImpl implements _ProfileStateState {
+  const _$ProfileStateStateImpl(
+      {required this.currentUserDatabaseModel,
+      this.isLoading = false,
+      this.errorMessage = null});
+
+  @override
+  final UserDatabaseModel currentUserDatabaseModel;
+  @override
+  @JsonKey()
+  final bool isLoading;
+  @override
+  @JsonKey()
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'ProfileState.initial()';
+    return 'ProfileState(currentUserDatabaseModel: $currentUserDatabaseModel, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ProfileInitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileStateStateImpl &&
+            (identical(
+                    other.currentUserDatabaseModel, currentUserDatabaseModel) ||
+                other.currentUserDatabaseModel == currentUserDatabaseModel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, currentUserDatabaseModel, isLoading, errorMessage);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitial value) initial,
-    required TResult Function(ProfileLoading value) loading,
-    required TResult Function(ProfileLoaded value) loaded,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitial value)? initial,
-    TResult? Function(ProfileLoading value)? loading,
-    TResult? Function(ProfileLoaded value)? loaded,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitial value)? initial,
-    TResult Function(ProfileLoading value)? loading,
-    TResult Function(ProfileLoaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$ProfileStateStateImplCopyWith<_$ProfileStateStateImpl> get copyWith =>
+      __$$ProfileStateStateImplCopyWithImpl<_$ProfileStateStateImpl>(
+          this, _$identity);
 }
 
-abstract class ProfileInitial implements ProfileState {
-  const factory ProfileInitial() = _$ProfileInitialImpl;
-}
-
-/// @nodoc
-abstract class _$$ProfileLoadingImplCopyWith<$Res> {
-  factory _$$ProfileLoadingImplCopyWith(_$ProfileLoadingImpl value,
-          $Res Function(_$ProfileLoadingImpl) then) =
-      __$$ProfileLoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ProfileLoadingImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileLoadingImpl>
-    implements _$$ProfileLoadingImplCopyWith<$Res> {
-  __$$ProfileLoadingImplCopyWithImpl(
-      _$ProfileLoadingImpl _value, $Res Function(_$ProfileLoadingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ProfileLoadingImpl implements ProfileLoading {
-  const _$ProfileLoadingImpl();
+abstract class _ProfileStateState implements ProfileState {
+  const factory _ProfileStateState(
+      {required final UserDatabaseModel currentUserDatabaseModel,
+      final bool isLoading,
+      final String? errorMessage}) = _$ProfileStateStateImpl;
 
   @override
-  String toString() {
-    return 'ProfileState.loading()';
-  }
-
+  UserDatabaseModel get currentUserDatabaseModel;
   @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ProfileLoadingImpl);
-  }
-
+  bool get isLoading;
   @override
-  int get hashCode => runtimeType.hashCode;
-
+  String? get errorMessage;
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitial value) initial,
-    required TResult Function(ProfileLoading value) loading,
-    required TResult Function(ProfileLoaded value) loaded,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitial value)? initial,
-    TResult? Function(ProfileLoading value)? loading,
-    TResult? Function(ProfileLoaded value)? loaded,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitial value)? initial,
-    TResult Function(ProfileLoading value)? loading,
-    TResult Function(ProfileLoaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfileLoading implements ProfileState {
-  const factory ProfileLoading() = _$ProfileLoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$ProfileLoadedImplCopyWith<$Res> {
-  factory _$$ProfileLoadedImplCopyWith(
-          _$ProfileLoadedImpl value, $Res Function(_$ProfileLoadedImpl) then) =
-      __$$ProfileLoadedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ProfileLoadedImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileLoadedImpl>
-    implements _$$ProfileLoadedImplCopyWith<$Res> {
-  __$$ProfileLoadedImplCopyWithImpl(
-      _$ProfileLoadedImpl _value, $Res Function(_$ProfileLoadedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ProfileLoadedImpl implements ProfileLoaded {
-  const _$ProfileLoadedImpl();
-
-  @override
-  String toString() {
-    return 'ProfileState.loaded()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ProfileLoadedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitial value) initial,
-    required TResult Function(ProfileLoading value) loading,
-    required TResult Function(ProfileLoaded value) loaded,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitial value)? initial,
-    TResult? Function(ProfileLoading value)? loading,
-    TResult? Function(ProfileLoaded value)? loaded,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitial value)? initial,
-    TResult Function(ProfileLoading value)? loading,
-    TResult Function(ProfileLoaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfileLoaded implements ProfileState {
-  const factory ProfileLoaded() = _$ProfileLoadedImpl;
+  @JsonKey(ignore: true)
+  _$$ProfileStateStateImplCopyWith<_$ProfileStateStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

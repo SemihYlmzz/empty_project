@@ -13,15 +13,12 @@ class FlutterImageCompressImpl implements ImageCompressorApi {
     required int height,
   }) async {
     try {
-      print(width);
-      print(height);
       final abc = await FlutterImageCompress.compressWithList(
         image,
         minHeight: height,
         minWidth: width,
         quality: 50,
       );
-      print(abc.lengthInBytes);
       return abc;
     } catch (exception) {
       throw ImageCompressorUnknown();

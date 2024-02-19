@@ -45,6 +45,8 @@ dependencies:
 
   # Dart
   fpdart: ^1.1.0
+  # Image
+  cached_network_image: ^3.3.1
   # Router
   go_router: ^13.1.0
   # JSON

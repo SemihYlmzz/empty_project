@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared_constants/shared_constants.dart';
+import 'package:user_database_api/user_database_api.dart';
 
 import '../../../repositories/repositories.dart';
 
@@ -30,7 +31,7 @@ class UserLoadBloc extends Bloc<UserLoadEvent, UserLoadState> {
         if (nullableUserModel == null) {
           return emit(const UserLoadState.registerNeeded());
         }
-        emit(const UserLoadState.loaded());
+        emit(UserLoadState.loaded(currentUserModel: nullableUserModel));
       },
     );
   }
