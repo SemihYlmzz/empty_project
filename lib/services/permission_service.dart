@@ -18,17 +18,7 @@ class PermissionService {
 
   FutureEither<bool> ensureHasCameraPermission() async {
     try {
-      final cameraPermissionType =
-          await permissionRequestorApi.hasCameraPermission();
-
-      switch (cameraPermissionType) {
-        case PermissionTypes.accepted:
-          return const Right(true);
-        case PermissionTypes.permanentlyDenied:
-          return const Right(false);
-        case PermissionTypes.requestable:
-          return Right(await permissionRequestorApi.requestCameraPermission());
-      }
+      return Right(await permissionRequestorApi.requestCameraPermission());
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
     }
@@ -36,17 +26,7 @@ class PermissionService {
 
   FutureEither<bool> ensureHasPhotosPermission() async {
     try {
-      final photosPermissionType =
-          await permissionRequestorApi.hasPhotosPermission();
-
-      switch (photosPermissionType) {
-        case PermissionTypes.accepted:
-          return const Right(true);
-        case PermissionTypes.permanentlyDenied:
-          return const Right(false);
-        case PermissionTypes.requestable:
-          return Right(await permissionRequestorApi.requestPhotosPermission());
-      }
+      return Right(await permissionRequestorApi.requestPhotosPermission());
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
     }
@@ -54,19 +34,7 @@ class PermissionService {
 
   FutureEither<bool> ensureHasLocationPermission() async {
     try {
-      final locationPermissionType =
-          await permissionRequestorApi.hasLocationPermission();
-
-      switch (locationPermissionType) {
-        case PermissionTypes.accepted:
-          return const Right(true);
-        case PermissionTypes.permanentlyDenied:
-          return const Right(false);
-        case PermissionTypes.requestable:
-          return Right(
-            await permissionRequestorApi.requestLocationPermission(),
-          );
-      }
+      return Right(await permissionRequestorApi.requestLocationPermission());
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
     }

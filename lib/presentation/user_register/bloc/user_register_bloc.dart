@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:empty_application/common/errors/failure.dart';
 import 'package:empty_application/repositories/repositories.dart';
 import 'package:flutter/foundation.dart';
-import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:user_database_api/user_database_api.dart';
 
@@ -75,7 +73,6 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
     SetAvatar event,
     Emitter<UserRegisterState> emit,
   ) async {
-    late Uint8List selectedImage;
     final trySelect =
         await imageService.selectSingleImages(imageSource: event.imageSource);
     trySelect.fold(
@@ -84,20 +81,9 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
         if (nullableImage == null) {
           return;
         }
-        selectedImage = nullableImage;
+        emit(state.copyWith(avatarImage: nullableImage));
       },
     );
-    final tryCompress = await imageService.compressImage(selectedImage);
-    tryCompress
-        .fold((failure) => emit(state.copyWith(errorMessage: failure.message)),
-            (compressedImage) {
-      emit(
-        state.copyWith(
-          avatarImage: selectedImage,
-          avatarImage1024: compressedImage,
-        ),
-      );
-    });
   }
 
   Future<void> _onUpdateLocation(

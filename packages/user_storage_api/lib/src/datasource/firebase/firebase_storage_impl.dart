@@ -13,39 +13,37 @@ class FirebaseStorageImpl implements UserStorageApi {
 
   @override
   Future<AvatarUrlsModel> uploadAvatarImage({
-    required Uint8List avatarImage,
+    required Uint8List avatarImage1024,
+    required Uint8List avatarImage512,
+    required Uint8List avatarImage256,
+    required Uint8List avatarImage128,
     required String uid,
   }) async {
-    String? urlPhoto128;
-    String? urlPhoto256;
-    String? urlPhoto512;
-    String? urlPhoto1024;
-
     final userAvatarsRef = _firebaseStorage.ref(
       '${UserStorageConstants.usersPath}/'
       '$uid/'
       '${UserStorageConstants.avatarsPath}',
     );
-    final avatarRef = userAvatarsRef.child(uid);
-    await avatarRef.putData(
-      avatarImage,
-      SettableMetadata(contentType: 'image/jpeg'),
-    );
-    final resizedPhoto128 = userAvatarsRef.child('${uid}_128x128');
-    final resizedPhoto256 = userAvatarsRef.child('${uid}_256x256');
-    final resizedPhoto512 = userAvatarsRef.child('${uid}_512x512');
-    final resizedPhoto1024 = userAvatarsRef.child('${uid}_1024x1024');
-    await Future<void>.delayed(const Duration(seconds: 4));
-    urlPhoto128 = await resizedPhoto128.getDownloadURL();
-    urlPhoto256 = await resizedPhoto256.getDownloadURL();
-    urlPhoto512 = await resizedPhoto512.getDownloadURL();
-    urlPhoto1024 = await resizedPhoto1024.getDownloadURL();
+    final avatarRef1024 = userAvatarsRef.child('1024');
+    final avatarRef128 = userAvatarsRef.child('128');
+    final avatarRef256 = userAvatarsRef.child('256');
+    final avatarRef512 = userAvatarsRef.child('512');
+
+    await avatarRef1024.putData(avatarImage1024);
+    await avatarRef128.putData(avatarImage128);
+    await avatarRef256.putData(avatarImage256);
+    await avatarRef512.putData(avatarImage512);
+
+    final urlPhoto1024 = await avatarRef1024.getDownloadURL();
+    final urlPhoto128 = await avatarRef128.getDownloadURL();
+    final urlPhoto256 = await avatarRef256.getDownloadURL();
+    final urlPhoto512 = await avatarRef512.getDownloadURL();
 
     return AvatarUrlsModel(
+      url1024: urlPhoto1024,
       url128: urlPhoto128,
       url256: urlPhoto256,
       url512: urlPhoto512,
-      url1024: urlPhoto1024,
     );
   }
 

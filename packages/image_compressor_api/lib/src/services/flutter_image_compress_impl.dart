@@ -7,14 +7,22 @@ class FlutterImageCompressImpl implements ImageCompressorApi {
   FlutterImageCompressImpl();
 
   @override
-  Future<Uint8List> compressWithList(Uint8List image) async {
+  Future<Uint8List> compressWithList(
+    Uint8List image, {
+    required int width,
+    required int height,
+  }) async {
     try {
-      return FlutterImageCompress.compressWithList(
+      print(width);
+      print(height);
+      final abc = await FlutterImageCompress.compressWithList(
         image,
-        minHeight: 512,
-        minWidth: 512,
+        minHeight: height,
+        minWidth: width,
         quality: 50,
       );
+      print(abc.lengthInBytes);
+      return abc;
     } catch (exception) {
       throw ImageCompressorUnknown();
     }

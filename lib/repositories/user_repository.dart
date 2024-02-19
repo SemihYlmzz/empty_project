@@ -41,8 +41,32 @@ class UserRepository {
       if (currentUserUid == null) {
         return const Left(Failure(message: 'NO CURRENT USER'));
       }
+      final compressedAvatar1024 = await _imageCompressorApi.compressWithList(
+        avatarImage,
+        width: 1024,
+        height: 1024,
+      );
+      final compressedAvatar128 = await _imageCompressorApi.compressWithList(
+        avatarImage,
+        width: 128,
+        height: 128,
+      );
+      final compressedAvatar256 = await _imageCompressorApi.compressWithList(
+        avatarImage,
+        width: 256,
+        height: 256,
+      );
+      final compressedAvatar512 = await _imageCompressorApi.compressWithList(
+        avatarImage,
+        width: 512,
+        height: 512,
+      );
+
       final avatarUrls = await _userStorageApi.uploadAvatarImage(
-        avatarImage: avatarImage,
+        avatarImage1024: compressedAvatar1024,
+        avatarImage128: compressedAvatar128,
+        avatarImage256: compressedAvatar256,
+        avatarImage512: compressedAvatar512,
         uid: currentUserUid,
       );
       final creatableUserModel = UserDatabaseModel(

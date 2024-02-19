@@ -20,10 +20,16 @@ class ImageService {
   final ImageCompressorApi _imageCompressorApi;
   final PermissionRequestorApi _permissionRequestorApi;
 
-  FutureEither<Uint8List> compressImage(Uint8List compressableImage) async {
+  FutureEither<Uint8List> compressImage(
+    Uint8List compressableImage, {
+    required int width,
+    required int height,
+  }) async {
     try {
       final compressedImage = await _imageCompressorApi.compressWithList(
         compressableImage,
+        width: width,
+        height: height,
       );
       return Right(compressedImage);
     } catch (exception) {

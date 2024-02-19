@@ -13,33 +13,6 @@ class PermissionHandlerImpl implements PermissionRequestorApi {
   }
 
   @override
-  Future<PermissionTypes> hasCameraPermission() async {
-    try {
-      return _permissionTypeFromStatus(await Permission.camera.status);
-    } catch (exception) {
-      throw PermissionRequestorUnknown();
-    }
-  }
-
-  @override
-  Future<PermissionTypes> hasLocationPermission() async {
-    try {
-      return _permissionTypeFromStatus(await Permission.location.status);
-    } catch (exception) {
-      throw PermissionRequestorUnknown();
-    }
-  }
-
-  @override
-  Future<PermissionTypes> hasPhotosPermission() async {
-    try {
-      return _permissionTypeFromStatus(await Permission.photos.status);
-    } catch (exception) {
-      throw PermissionRequestorUnknown();
-    }
-  }
-
-  @override
   Future<bool> requestCameraPermission() async {
     try {
       final status = await Permission.camera.request();
@@ -67,20 +40,6 @@ class PermissionHandlerImpl implements PermissionRequestorApi {
     } catch (exception) {
       throw PermissionRequestorUnknown();
     }
-  }
-
-  // Permission handler specific functions
-  PermissionTypes _permissionTypeFromStatus(
-    PermissionStatus permissionStatus,
-  ) {
-    return switch (permissionStatus) {
-      PermissionStatus.denied => PermissionTypes.requestable,
-      PermissionStatus.granted => PermissionTypes.accepted,
-      PermissionStatus.limited => PermissionTypes.accepted,
-      PermissionStatus.permanentlyDenied => PermissionTypes.permanentlyDenied,
-      PermissionStatus.provisional => PermissionTypes.accepted,
-      PermissionStatus.restricted => PermissionTypes.permanentlyDenied,
-    };
   }
 
   bool _permissionStatusToHasPermission(PermissionStatus permissionStatus) {
