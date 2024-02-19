@@ -285,7 +285,7 @@ mixin _$UserLoadState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerNeeded,
-    required TResult Function(UserDatabaseModel currentUserModel) loaded,
+    required TResult Function() userLoaded,
     required TResult Function(String errorMessage) loadError,
   }) =>
       throw _privateConstructorUsedError;
@@ -294,7 +294,7 @@ mixin _$UserLoadState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerNeeded,
-    TResult? Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult? Function()? userLoaded,
     TResult? Function(String errorMessage)? loadError,
   }) =>
       throw _privateConstructorUsedError;
@@ -303,7 +303,7 @@ mixin _$UserLoadState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerNeeded,
-    TResult Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult Function()? userLoaded,
     TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) =>
@@ -313,7 +313,7 @@ mixin _$UserLoadState {
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
     required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
-    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(UserLoadError value) loadError,
   }) =>
       throw _privateConstructorUsedError;
@@ -322,7 +322,7 @@ mixin _$UserLoadState {
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
     TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoaded value)? userLoaded,
     TResult? Function(UserLoadError value)? loadError,
   }) =>
       throw _privateConstructorUsedError;
@@ -331,7 +331,7 @@ mixin _$UserLoadState {
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
     TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoaded value)? userLoaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) =>
@@ -397,7 +397,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerNeeded,
-    required TResult Function(UserDatabaseModel currentUserModel) loaded,
+    required TResult Function() userLoaded,
     required TResult Function(String errorMessage) loadError,
   }) {
     return initial();
@@ -409,7 +409,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerNeeded,
-    TResult? Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult? Function()? userLoaded,
     TResult? Function(String errorMessage)? loadError,
   }) {
     return initial?.call();
@@ -421,7 +421,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerNeeded,
-    TResult Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult Function()? userLoaded,
     TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
@@ -437,7 +437,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
     required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
-    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
     return initial(this);
@@ -449,7 +449,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
     TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoaded value)? userLoaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
     return initial?.call(this);
@@ -461,7 +461,7 @@ class _$UserLoadInitialImpl implements UserLoadInitial {
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
     TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoaded value)? userLoaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) {
@@ -517,7 +517,7 @@ class _$UserLoadingImpl implements UserLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerNeeded,
-    required TResult Function(UserDatabaseModel currentUserModel) loaded,
+    required TResult Function() userLoaded,
     required TResult Function(String errorMessage) loadError,
   }) {
     return loading();
@@ -529,7 +529,7 @@ class _$UserLoadingImpl implements UserLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerNeeded,
-    TResult? Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult? Function()? userLoaded,
     TResult? Function(String errorMessage)? loadError,
   }) {
     return loading?.call();
@@ -541,7 +541,7 @@ class _$UserLoadingImpl implements UserLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerNeeded,
-    TResult Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult Function()? userLoaded,
     TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
@@ -557,7 +557,7 @@ class _$UserLoadingImpl implements UserLoading {
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
     required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
-    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
     return loading(this);
@@ -569,7 +569,7 @@ class _$UserLoadingImpl implements UserLoading {
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
     TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoaded value)? userLoaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
     return loading?.call(this);
@@ -581,7 +581,7 @@ class _$UserLoadingImpl implements UserLoading {
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
     TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoaded value)? userLoaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) {
@@ -640,7 +640,7 @@ class _$UserLoadRegisterNeededImpl implements UserLoadRegisterNeeded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerNeeded,
-    required TResult Function(UserDatabaseModel currentUserModel) loaded,
+    required TResult Function() userLoaded,
     required TResult Function(String errorMessage) loadError,
   }) {
     return registerNeeded();
@@ -652,7 +652,7 @@ class _$UserLoadRegisterNeededImpl implements UserLoadRegisterNeeded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerNeeded,
-    TResult? Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult? Function()? userLoaded,
     TResult? Function(String errorMessage)? loadError,
   }) {
     return registerNeeded?.call();
@@ -664,7 +664,7 @@ class _$UserLoadRegisterNeededImpl implements UserLoadRegisterNeeded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerNeeded,
-    TResult Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult Function()? userLoaded,
     TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
@@ -680,7 +680,7 @@ class _$UserLoadRegisterNeededImpl implements UserLoadRegisterNeeded {
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
     required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
-    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
     return registerNeeded(this);
@@ -692,7 +692,7 @@ class _$UserLoadRegisterNeededImpl implements UserLoadRegisterNeeded {
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
     TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoaded value)? userLoaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
     return registerNeeded?.call(this);
@@ -704,7 +704,7 @@ class _$UserLoadRegisterNeededImpl implements UserLoadRegisterNeeded {
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
     TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoaded value)? userLoaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) {
@@ -724,10 +724,6 @@ abstract class _$$UserLoadedImplCopyWith<$Res> {
   factory _$$UserLoadedImplCopyWith(
           _$UserLoadedImpl value, $Res Function(_$UserLoadedImpl) then) =
       __$$UserLoadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({UserDatabaseModel currentUserModel});
-
-  $UserDatabaseModelCopyWith<$Res> get currentUserModel;
 }
 
 /// @nodoc
@@ -737,59 +733,26 @@ class __$$UserLoadedImplCopyWithImpl<$Res>
   __$$UserLoadedImplCopyWithImpl(
       _$UserLoadedImpl _value, $Res Function(_$UserLoadedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentUserModel = null,
-  }) {
-    return _then(_$UserLoadedImpl(
-      currentUserModel: null == currentUserModel
-          ? _value.currentUserModel
-          : currentUserModel // ignore: cast_nullable_to_non_nullable
-              as UserDatabaseModel,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserDatabaseModelCopyWith<$Res> get currentUserModel {
-    return $UserDatabaseModelCopyWith<$Res>(_value.currentUserModel, (value) {
-      return _then(_value.copyWith(currentUserModel: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$UserLoadedImpl implements UserLoaded {
-  const _$UserLoadedImpl({required this.currentUserModel});
-
-  @override
-  final UserDatabaseModel currentUserModel;
+  const _$UserLoadedImpl();
 
   @override
   String toString() {
-    return 'UserLoadState.loaded(currentUserModel: $currentUserModel)';
+    return 'UserLoadState.userLoaded()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UserLoadedImpl &&
-            (identical(other.currentUserModel, currentUserModel) ||
-                other.currentUserModel == currentUserModel));
+        (other.runtimeType == runtimeType && other is _$UserLoadedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentUserModel);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UserLoadedImplCopyWith<_$UserLoadedImpl> get copyWith =>
-      __$$UserLoadedImplCopyWithImpl<_$UserLoadedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -797,10 +760,10 @@ class _$UserLoadedImpl implements UserLoaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerNeeded,
-    required TResult Function(UserDatabaseModel currentUserModel) loaded,
+    required TResult Function() userLoaded,
     required TResult Function(String errorMessage) loadError,
   }) {
-    return loaded(currentUserModel);
+    return userLoaded();
   }
 
   @override
@@ -809,10 +772,10 @@ class _$UserLoadedImpl implements UserLoaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerNeeded,
-    TResult? Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult? Function()? userLoaded,
     TResult? Function(String errorMessage)? loadError,
   }) {
-    return loaded?.call(currentUserModel);
+    return userLoaded?.call();
   }
 
   @override
@@ -821,12 +784,12 @@ class _$UserLoadedImpl implements UserLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerNeeded,
-    TResult Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult Function()? userLoaded,
     TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(currentUserModel);
+    if (userLoaded != null) {
+      return userLoaded();
     }
     return orElse();
   }
@@ -837,10 +800,10 @@ class _$UserLoadedImpl implements UserLoaded {
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
     required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
-    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
-    return loaded(this);
+    return userLoaded(this);
   }
 
   @override
@@ -849,10 +812,10 @@ class _$UserLoadedImpl implements UserLoaded {
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
     TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoaded value)? userLoaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
-    return loaded?.call(this);
+    return userLoaded?.call(this);
   }
 
   @override
@@ -861,25 +824,19 @@ class _$UserLoadedImpl implements UserLoaded {
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
     TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoaded value)? userLoaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (userLoaded != null) {
+      return userLoaded(this);
     }
     return orElse();
   }
 }
 
 abstract class UserLoaded implements UserLoadState {
-  const factory UserLoaded(
-      {required final UserDatabaseModel currentUserModel}) = _$UserLoadedImpl;
-
-  UserDatabaseModel get currentUserModel;
-  @JsonKey(ignore: true)
-  _$$UserLoadedImplCopyWith<_$UserLoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory UserLoaded() = _$UserLoadedImpl;
 }
 
 /// @nodoc
@@ -950,7 +907,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerNeeded,
-    required TResult Function(UserDatabaseModel currentUserModel) loaded,
+    required TResult Function() userLoaded,
     required TResult Function(String errorMessage) loadError,
   }) {
     return loadError(errorMessage);
@@ -962,7 +919,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerNeeded,
-    TResult? Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult? Function()? userLoaded,
     TResult? Function(String errorMessage)? loadError,
   }) {
     return loadError?.call(errorMessage);
@@ -974,7 +931,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerNeeded,
-    TResult Function(UserDatabaseModel currentUserModel)? loaded,
+    TResult Function()? userLoaded,
     TResult Function(String errorMessage)? loadError,
     required TResult orElse(),
   }) {
@@ -990,7 +947,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
     required TResult Function(UserLoadInitial value) initial,
     required TResult Function(UserLoading value) loading,
     required TResult Function(UserLoadRegisterNeeded value) registerNeeded,
-    required TResult Function(UserLoaded value) loaded,
+    required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(UserLoadError value) loadError,
   }) {
     return loadError(this);
@@ -1002,7 +959,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
     TResult? Function(UserLoadInitial value)? initial,
     TResult? Function(UserLoading value)? loading,
     TResult? Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult? Function(UserLoaded value)? loaded,
+    TResult? Function(UserLoaded value)? userLoaded,
     TResult? Function(UserLoadError value)? loadError,
   }) {
     return loadError?.call(this);
@@ -1014,7 +971,7 @@ class _$UserLoadErrorImpl implements UserLoadError {
     TResult Function(UserLoadInitial value)? initial,
     TResult Function(UserLoading value)? loading,
     TResult Function(UserLoadRegisterNeeded value)? registerNeeded,
-    TResult Function(UserLoaded value)? loaded,
+    TResult Function(UserLoaded value)? userLoaded,
     TResult Function(UserLoadError value)? loadError,
     required TResult orElse(),
   }) {

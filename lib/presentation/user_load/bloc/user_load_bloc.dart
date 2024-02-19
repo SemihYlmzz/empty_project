@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared_constants/shared_constants.dart';
-import 'package:user_database_api/user_database_api.dart';
 
 import '../../../repositories/repositories.dart';
 
@@ -18,6 +17,7 @@ class UserLoadBloc extends Bloc<UserLoadEvent, UserLoadState> {
   }
 
   final UserRepository userRepository;
+
   Future<void> _onUserLoadUser(
     UserLoadUser event,
     Emitter<UserLoadState> emit,
@@ -27,12 +27,9 @@ class UserLoadBloc extends Bloc<UserLoadEvent, UserLoadState> {
     final tryInit = await userRepository.initializeUserData();
     tryInit.fold(
       (failure) => emit(UserLoadState.loadError(errorMessage: failure.message)),
-      (nullableUserModel) {
-        if (nullableUserModel == null) {
-          return emit(const UserLoadState.registerNeeded());
-        }
-        emit(UserLoadState.loaded(currentUserModel: nullableUserModel));
-      },
+      (succcess) => userRepository.currentUser == null
+          ? emit(const UserLoadState.registerNeeded())
+          : emit(const UserLoadState.userLoaded()),
     );
   }
 

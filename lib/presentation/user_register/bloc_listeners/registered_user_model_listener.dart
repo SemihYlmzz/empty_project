@@ -5,16 +5,10 @@ BlocListener<UserRegisterBloc, UserRegisterState>
     registeredUserModelListener() {
   return BlocListener<UserRegisterBloc, UserRegisterState>(
     listener: (context, userRegisterState) async {
-      final currentUserModel = userRegisterState.registeredUserModel;
-      if (currentUserModel == null) {
+      if (!userRegisterState.isRegistered) {
         return;
       }
-      ProfileScreenRoute.go(
-        context,
-        profileScreenParams: ProfileScreenParams(
-          currentUserDatabaseModel: currentUserModel,
-        ),
-      );
+      ProfileScreenRoute.go(context);
     },
   );
 }

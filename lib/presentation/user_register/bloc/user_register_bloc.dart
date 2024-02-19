@@ -133,12 +133,9 @@ class UserRegisterBloc extends Bloc<UserRegisterEvent, UserRegisterState> {
           errorMessage: failure.message,
         ),
       ),
-      (userModel) => emit(
-        state.copyWith(
-          isLoading: false,
-          registeredUserModel: userModel,
-        ),
-      ),
+      (userModel) {
+        emit(state.copyWith(isLoading: false, isRegistered: true));
+      },
     );
   }
 }

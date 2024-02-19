@@ -9,18 +9,32 @@ part 'profile_state.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({
-    required this.userRepository,
-    required UserDatabaseModel currentUserDatabaseModel,
-  }) : super(
-          ProfileState(currentUserDatabaseModel: currentUserDatabaseModel),
+    required UserRepository userRepository,
+  })  : _userRepository = userRepository,
+        super(
+          ProfileState(
+            currentUserDatabaseModel: userRepository.currentUserDatabaseModel!,
+          ),
         ) {
     on<ProfileSignOut>(_onProfileSignOut);
+    on<ProfileUserDatabaseModelUpdated>(_onProfileUserDatabaseModelUpdated);
+    userRepository.userStream.listen((value) {
+      add(ProfileUserDatabaseModelUpdated(newUserDatabaseModel: value));
+    });
   }
-  final UserRepository userRepository;
+  final UserRepository _userRepository;
+
   Future<void> _onProfileSignOut(
     ProfileSignOut event,
     Emitter<ProfileState> emit,
   ) async {
-    await userRepository.signOut();
+    await _userRepository.signOut();
+  }
+
+  Future<void> _onProfileUserDatabaseModelUpdated(
+    ProfileUserDatabaseModelUpdated event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(state.copyWith(currentUserDatabaseModel: event.newUserDatabaseModel));
   }
 }

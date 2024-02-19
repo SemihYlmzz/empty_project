@@ -8,7 +8,7 @@ class UserRegisterState with _$UserRegisterState {
     @Default(false) bool isPhotosPermissionPermanentlyDenied,
     @Default(false) bool isCameraPermissionPermanentlyDenied,
     @Default(false) bool isLocationPermissionPermanentlyDenied,
-    UserDatabaseModel? registeredUserModel,
+    @Default(false) bool isRegistered,
     Uint8List? avatarImage,
     String? firstName,
     String? lastName,

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:fpdart/fpdart.dart';
@@ -21,15 +22,30 @@ class UserRepository {
         _userStorageApi = userStorageApi,
         _userLocalDatabaseApi = userLocalDatabaseApi,
         _userDatabaseApi = userDatabaseApi,
-        _imageCompressorApi = imageCompressorApi;
+        _imageCompressorApi = imageCompressorApi {
+    userStream.listen((newUserDatabaseModel) {
+      currentUserDatabaseModel = newUserDatabaseModel;
+    });
+  }
 
+  /// API'S
   final UserAuthApi _userAuthApi;
   final UserDatabaseApi _userDatabaseApi;
   final UserLocalDatabaseApi _userLocalDatabaseApi;
   final UserStorageApi _userStorageApi;
   final ImageCompressorApi _imageCompressorApi;
 
-  FutureEither<UserDatabaseModel?> registerUser({
+  /// VARIABLES
+  final _currentUserStreamController =
+      StreamController<UserDatabaseModel>.broadcast();
+
+  Stream<UserDatabaseModel> get userStream =>
+      _currentUserStreamController.stream;
+
+  UserDatabaseModel? currentUserDatabaseModel;
+
+  /// FUNCTIONS
+  FutureUnit registerUser({
     required Uint8List avatarImage,
     required String firstName,
     required String lastName,
@@ -86,13 +102,14 @@ class UserRepository {
         switchableCounter: 0,
       );
       await _userDatabaseApi.createUser(userModel: creatableUserModel);
-      return Right(creatableUserModel);
+      _currentUserStreamController.sink.add(creatableUserModel);
+      return const Right(unit);
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
     }
   }
 
-  FutureEither<UserDatabaseModel?> initializeUserData() async {
+  FutureUnit initializeUserData() async {
     try {
       final currentAuth = _userAuthApi.currentUser();
       if (currentAuth == null) {
@@ -101,7 +118,11 @@ class UserRepository {
       final readedUserModel = await _userDatabaseApi.readUserWithUid(
         uid: currentAuth.uid,
       );
-      return Right(readedUserModel);
+      if (readedUserModel != null) {
+        _currentUserStreamController.sink.add(readedUserModel);
+      }
+
+      return const Right(unit);
     } catch (exception) {
       return Left(Failure(message: exception.runtimeType.toString()));
     }

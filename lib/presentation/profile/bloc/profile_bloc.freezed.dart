@@ -19,32 +19,44 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
+    required TResult Function(UserDatabaseModel newUserDatabaseModel)
+        userDatabaseModelUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
+    TResult? Function(UserDatabaseModel newUserDatabaseModel)?
+        userDatabaseModelUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
+    TResult Function(UserDatabaseModel newUserDatabaseModel)?
+        userDatabaseModelUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileSignOut value) signOut,
+    required TResult Function(ProfileUserDatabaseModelUpdated value)
+        userDatabaseModelUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ProfileSignOut value)? signOut,
+    TResult? Function(ProfileUserDatabaseModelUpdated value)?
+        userDatabaseModelUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileSignOut value)? signOut,
+    TResult Function(ProfileUserDatabaseModelUpdated value)?
+        userDatabaseModelUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +119,8 @@ class _$ProfileSignOutImpl implements ProfileSignOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
+    required TResult Function(UserDatabaseModel newUserDatabaseModel)
+        userDatabaseModelUpdated,
   }) {
     return signOut();
   }
@@ -115,6 +129,8 @@ class _$ProfileSignOutImpl implements ProfileSignOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
+    TResult? Function(UserDatabaseModel newUserDatabaseModel)?
+        userDatabaseModelUpdated,
   }) {
     return signOut?.call();
   }
@@ -123,6 +139,8 @@ class _$ProfileSignOutImpl implements ProfileSignOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
+    TResult Function(UserDatabaseModel newUserDatabaseModel)?
+        userDatabaseModelUpdated,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -135,6 +153,8 @@ class _$ProfileSignOutImpl implements ProfileSignOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileSignOut value) signOut,
+    required TResult Function(ProfileUserDatabaseModelUpdated value)
+        userDatabaseModelUpdated,
   }) {
     return signOut(this);
   }
@@ -143,6 +163,8 @@ class _$ProfileSignOutImpl implements ProfileSignOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ProfileSignOut value)? signOut,
+    TResult? Function(ProfileUserDatabaseModelUpdated value)?
+        userDatabaseModelUpdated,
   }) {
     return signOut?.call(this);
   }
@@ -151,6 +173,8 @@ class _$ProfileSignOutImpl implements ProfileSignOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileSignOut value)? signOut,
+    TResult Function(ProfileUserDatabaseModelUpdated value)?
+        userDatabaseModelUpdated,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -162,6 +186,167 @@ class _$ProfileSignOutImpl implements ProfileSignOut {
 
 abstract class ProfileSignOut implements ProfileEvent {
   const factory ProfileSignOut() = _$ProfileSignOutImpl;
+}
+
+/// @nodoc
+abstract class _$$ProfileUserDatabaseModelUpdatedImplCopyWith<$Res> {
+  factory _$$ProfileUserDatabaseModelUpdatedImplCopyWith(
+          _$ProfileUserDatabaseModelUpdatedImpl value,
+          $Res Function(_$ProfileUserDatabaseModelUpdatedImpl) then) =
+      __$$ProfileUserDatabaseModelUpdatedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserDatabaseModel newUserDatabaseModel});
+
+  $UserDatabaseModelCopyWith<$Res> get newUserDatabaseModel;
+}
+
+/// @nodoc
+class __$$ProfileUserDatabaseModelUpdatedImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res,
+        _$ProfileUserDatabaseModelUpdatedImpl>
+    implements _$$ProfileUserDatabaseModelUpdatedImplCopyWith<$Res> {
+  __$$ProfileUserDatabaseModelUpdatedImplCopyWithImpl(
+      _$ProfileUserDatabaseModelUpdatedImpl _value,
+      $Res Function(_$ProfileUserDatabaseModelUpdatedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newUserDatabaseModel = null,
+  }) {
+    return _then(_$ProfileUserDatabaseModelUpdatedImpl(
+      newUserDatabaseModel: null == newUserDatabaseModel
+          ? _value.newUserDatabaseModel
+          : newUserDatabaseModel // ignore: cast_nullable_to_non_nullable
+              as UserDatabaseModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserDatabaseModelCopyWith<$Res> get newUserDatabaseModel {
+    return $UserDatabaseModelCopyWith<$Res>(_value.newUserDatabaseModel,
+        (value) {
+      return _then(_value.copyWith(newUserDatabaseModel: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ProfileUserDatabaseModelUpdatedImpl
+    implements ProfileUserDatabaseModelUpdated {
+  const _$ProfileUserDatabaseModelUpdatedImpl(
+      {required this.newUserDatabaseModel});
+
+  @override
+  final UserDatabaseModel newUserDatabaseModel;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.userDatabaseModelUpdated(newUserDatabaseModel: $newUserDatabaseModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileUserDatabaseModelUpdatedImpl &&
+            (identical(other.newUserDatabaseModel, newUserDatabaseModel) ||
+                other.newUserDatabaseModel == newUserDatabaseModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newUserDatabaseModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfileUserDatabaseModelUpdatedImplCopyWith<
+          _$ProfileUserDatabaseModelUpdatedImpl>
+      get copyWith => __$$ProfileUserDatabaseModelUpdatedImplCopyWithImpl<
+          _$ProfileUserDatabaseModelUpdatedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signOut,
+    required TResult Function(UserDatabaseModel newUserDatabaseModel)
+        userDatabaseModelUpdated,
+  }) {
+    return userDatabaseModelUpdated(newUserDatabaseModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signOut,
+    TResult? Function(UserDatabaseModel newUserDatabaseModel)?
+        userDatabaseModelUpdated,
+  }) {
+    return userDatabaseModelUpdated?.call(newUserDatabaseModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signOut,
+    TResult Function(UserDatabaseModel newUserDatabaseModel)?
+        userDatabaseModelUpdated,
+    required TResult orElse(),
+  }) {
+    if (userDatabaseModelUpdated != null) {
+      return userDatabaseModelUpdated(newUserDatabaseModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileSignOut value) signOut,
+    required TResult Function(ProfileUserDatabaseModelUpdated value)
+        userDatabaseModelUpdated,
+  }) {
+    return userDatabaseModelUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ProfileSignOut value)? signOut,
+    TResult? Function(ProfileUserDatabaseModelUpdated value)?
+        userDatabaseModelUpdated,
+  }) {
+    return userDatabaseModelUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileSignOut value)? signOut,
+    TResult Function(ProfileUserDatabaseModelUpdated value)?
+        userDatabaseModelUpdated,
+    required TResult orElse(),
+  }) {
+    if (userDatabaseModelUpdated != null) {
+      return userDatabaseModelUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProfileUserDatabaseModelUpdated implements ProfileEvent {
+  const factory ProfileUserDatabaseModelUpdated(
+          {required final UserDatabaseModel newUserDatabaseModel}) =
+      _$ProfileUserDatabaseModelUpdatedImpl;
+
+  UserDatabaseModel get newUserDatabaseModel;
+  @JsonKey(ignore: true)
+  _$$ProfileUserDatabaseModelUpdatedImplCopyWith<
+          _$ProfileUserDatabaseModelUpdatedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

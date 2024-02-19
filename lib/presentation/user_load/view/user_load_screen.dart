@@ -22,12 +22,7 @@ class UserLoadScreen extends StatelessWidget {
             context.goNamed(UserRegisterScreen.name);
           }
           if (state is UserLoaded) {
-            ProfileScreenRoute.go(
-              context,
-              profileScreenParams: ProfileScreenParams(
-                currentUserDatabaseModel: state.currentUserModel,
-              ),
-            );
+            ProfileScreenRoute.go(context);
           }
         },
         child: const UserLoadView(),

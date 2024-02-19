@@ -13,26 +13,18 @@ class ProfileScreenRoute {
       name: ProfileScreen.name,
       parentNavigatorKey: parentNavigatorKey,
       pageBuilder: (context, state) {
-        return NoTransitionPage(
-          child: ProfileScreen(
-            state.extra! as ProfileScreenParams,
-          ),
+        return const NoTransitionPage(
+          child: ProfileScreen(),
         );
       },
     );
   }
 
-  static void go(
-    BuildContext context, {
-    required ProfileScreenParams profileScreenParams,
-  }) {
-    context.goNamed(ProfileScreen.name,extra: profileScreenParams);
+  static void go(BuildContext context) {
+    context.goNamed(ProfileScreen.name);
   }
 
-  static void push(
-    BuildContext context, {
-    required ProfileScreenParams profileScreenParams,
-  }) {
-    context.pushNamed(ProfileScreen.name,extra: profileScreenParams);
+  static void push(BuildContext context) {
+    context.pushNamed(ProfileScreen.name);
   }
 }
