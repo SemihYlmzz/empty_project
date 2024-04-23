@@ -1,11 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:empty_application/errors/errors.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:remote_database/remote_database.dart';
 
 class FirebaseFirestoreRemoteDatabase extends RemoteDatabase {
   FirebaseFirestoreRemoteDatabase();
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  WriteBatch _batch = FirebaseFirestore.instance.batch();
 
   Future<void> initialize() async {
     try {
@@ -38,23 +41,6 @@ class FirebaseFirestoreRemoteDatabase extends RemoteDatabase {
   }
 
   @override
-  Future<void> createDoc({
-    required String collectionID,
-    required String? documentID,
-    required Map<String, dynamic> jsonData,
-  }) {
-    try {
-      return _firestore
-          .collection(collectionID)
-          .doc(documentID)
-          .set(jsonData)
-          .then((_) => jsonData);
-    } catch (exception) {
-      rethrow;
-    }
-  }
-
-  @override
   Future<List<Map<String, dynamic>>?> readCollection({
     required String collectionID,
   }) async {
@@ -73,19 +59,39 @@ class FirebaseFirestoreRemoteDatabase extends RemoteDatabase {
   }
 
   @override
-  Future<void> updateDoc({
+  void batchSetDoc({
     required String collectionID,
-    required String documentID,
+    required String? documentID,
     required Map<String, dynamic> jsonData,
-  }) async {
+  }) {
     try {
-      await _firestore
-          .collection(collectionID)
-          .doc(documentID)
-          .update(jsonData);
+      final docRef = _firestore.collection(collectionID).doc(documentID);
+      _batch.set(docRef, jsonData);
       return;
     } catch (exception) {
       rethrow;
+    }
+  }
+
+  @override
+  void batchUpdateDoc({
+    required String collectionID,
+    required String documentID,
+    required Map<String, dynamic> jsonData,
+  }) {
+    final docRef = _firestore.collection(collectionID).doc(documentID);
+    _batch.update(docRef, jsonData);
+    return;
+  }
+
+  @override
+  FutureUnit batchCommit() async {
+    try {
+      await _batch.commit();
+      _batch = _firestore.batch();
+      return right(unit);
+    } catch (exception) {
+      return const Left(RemoteDatabaseException.unknown());
     }
   }
 }

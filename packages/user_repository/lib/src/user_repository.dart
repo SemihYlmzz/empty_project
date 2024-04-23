@@ -24,7 +24,7 @@ class UserRepository {
   User currentUser = User.empty();
 
   // Functions
-  FutureUnit readCurrentUser({
+  FutureEither<User?> readCurrentUser({
     required String currentUserDocumentID,
   }) async {
     try {
@@ -33,47 +33,39 @@ class UserRepository {
         documentID: currentUserDocumentID,
       );
       if (currentUserJson == null) {
-        return createCurrentUser();
+        return right(null);
       }
-      _currentUserStreamController.sink.add(User.fromJson(currentUserJson));
-      return right(unit);
+      final createdUser = User.fromJson(currentUserJson);
+      _currentUserStreamController.sink.add(createdUser);
+      return right(createdUser);
     } catch (exception) {
       return const Left(UserRepositoryException.unknown());
     }
   }
 
-  FutureUnit createCurrentUser() async {
+  void batchCreateCurrentUser() {
     const user = User(
       id: 'currentUser',
       postCount: 4,
     );
-    try {
-      await _remoteDatabase.createDoc(
-        collectionID: 'users',
-        documentID: 'currentUser',
-        jsonData: user.toJson(),
-      );
-      _currentUserStreamController.sink.add(user);
-      return right(unit);
-    } catch (exception) {
-      return const Left(UserRepositoryException.unknown());
-    }
+    _remoteDatabase.batchSetDoc(
+      collectionID: 'users',
+      documentID: 'currentUser',
+      jsonData: user.toJson(),
+    );
   }
 
-  FutureUnit incrementPostCount() async {
-    final updatedUser = currentUser.copyWith(
-      postCount: currentUser.postCount + 1,
+  void batchIncrementPostCount(int updatedPostCount) {
+    _remoteDatabase.batchUpdateDoc(
+      collectionID: 'users',
+      documentID: currentUser.id,
+      jsonData: {
+        'updatedPostCount': updatedPostCount,
+      },
     );
-    try {
-      await _remoteDatabase.updateDoc(
-        collectionID: 'users',
-        documentID: currentUser.id,
-        jsonData: updatedUser.toJson(),
-      );
-      _currentUserStreamController.sink.add(updatedUser);
-      return right(unit);
-    } catch (exception) {
-      return const Left(UserRepositoryException.unknown());
-    }
+  }
+
+  void updateCurrentUserValue({required User newUserValue}) {
+    _currentUserStreamController.sink.add(newUserValue);
   }
 }

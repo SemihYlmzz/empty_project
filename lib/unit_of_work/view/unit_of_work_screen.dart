@@ -15,6 +15,7 @@ class UnitOfWorkScreen extends StatelessWidget {
       create: (context) => UnitOfWorkBloc(
         userRepository: context.read(),
         postRepository: context.read(),
+        remoteDatabase: context.read(),
       )
         ..add(
           const UnitOfWorkEvent.readCurrentUser(

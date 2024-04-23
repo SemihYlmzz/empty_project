@@ -719,7 +719,7 @@ packages:
     source: hosted
     version: "1.2.3"
   remote_database:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "packages/remote_database"
       relative: true

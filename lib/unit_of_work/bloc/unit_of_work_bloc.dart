@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:post_repository/post_repository.dart';
+import 'package:remote_database/remote_database.dart';
 import 'package:user_repository/user_repository.dart';
 
 import '../../errors/errors.dart';
@@ -15,8 +16,10 @@ class UnitOfWorkBloc extends Bloc<UnitOfWorkEvent, UnitOfWorkState> {
   UnitOfWorkBloc({
     required UserRepository userRepository,
     required PostRepository postRepository,
+    required RemoteDatabase remoteDatabase,
   })  : _userRepository = userRepository,
         _postRepository = postRepository,
+        _remoteDatabase = remoteDatabase,
         super(UnitOfWorkState(currentUser: userRepository.currentUser)) {
     on<UnitOfWorkEvent>(_onUnitOfWorkEvent);
     // Listen User Changes
@@ -27,6 +30,7 @@ class UnitOfWorkBloc extends Bloc<UnitOfWorkEvent, UnitOfWorkState> {
   // Repositories
   final UserRepository _userRepository;
   final PostRepository _postRepository;
+  final RemoteDatabase _remoteDatabase;
 
   // Stream Subscriptions
   StreamSubscription<User>? _currentUserSubscription;
@@ -63,29 +67,29 @@ class UnitOfWorkBloc extends Bloc<UnitOfWorkEvent, UnitOfWorkState> {
         );
       },
       createPost: (e) async {
-        final tryCreate = await _postRepository.createPost(
+        _postRepository.createPost(
           postOwnerId: e.ownerUserID,
           postText: e.post,
         );
-        Post? createdPost;
-
-        tryCreate.fold(
-          (f) => emit(state.copyWith(failure: f)),
-          (post) => createdPost = post,
+        _userRepository.batchIncrementPostCount(
+          state.currentUser.postCount + 1,
         );
-        if (createdPost == null) return;
-        emit(
-          state.copyWith(
-            posts: [
-              ...state.posts + [createdPost!],
-            ],
-          ),
-        );
-
-        final tryUpdate = await _userRepository.incrementPostCount();
-        tryUpdate.fold(
-          (l) => emit(state.copyWith(failure: l)),
-          (r) => null,
+        final tryCommit = await _remoteDatabase.batchCommit();
+        tryCommit.fold(
+          (failure) => emit(state.copyWith(failure: failure)),
+          (success) {
+            _userRepository.updateCurrentUserValue(
+              newUserValue: state.currentUser.copyWith(
+                postCount: state.currentUser.postCount + 1,
+              ),
+            );
+            emit(
+              state.copyWith(
+                posts: state.posts +
+                    [Post(ownerUserID: e.ownerUserID, post: e.post)],
+              ),
+            );
+          },
         );
       },
     );

@@ -4,6 +4,7 @@ import 'package:firebase_firestore_remote_database/firebase_firestore_remote_dat
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:post_repository/post_repository.dart';
+import 'package:remote_database/remote_database.dart';
 import 'package:user_repository/user_repository.dart';
 
 void main() async {
@@ -15,37 +16,30 @@ void main() async {
   await firebaseRemoteDatabase.initialize();
 
   // Repository Initialize
-  final userRepository = UserRepository(
-    remoteDatabase: firebaseRemoteDatabase,
-  );
-  final postRepository = PostRepository(
-    remoteDatabase: firebaseRemoteDatabase,
-  );
 
   runApp(
-    App(
-      userRepository: userRepository,
-      postRepository: postRepository,
-    ),
+    App(remoteDatabase: firebaseRemoteDatabase),
   );
 }
 
 class App extends StatelessWidget {
   const App({
-    required UserRepository userRepository,
-    required PostRepository postRepository,
+    required RemoteDatabase remoteDatabase,
     super.key,
-  })  : _userRepository = userRepository,
-        _postRepository = postRepository;
+  }) : _remoteDatabase = remoteDatabase;
 
-  final UserRepository _userRepository;
-  final PostRepository _postRepository;
+  final RemoteDatabase _remoteDatabase;
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        RepositoryProvider(create: (context) => _userRepository),
-        RepositoryProvider(create: (context) => _postRepository),
+        RepositoryProvider(
+          create: (context) => UserRepository(remoteDatabase: _remoteDatabase),
+        ),
+        RepositoryProvider(
+          create: (context) => PostRepository(remoteDatabase: _remoteDatabase),
+        ),
+        RepositoryProvider(create: (context) => _remoteDatabase),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

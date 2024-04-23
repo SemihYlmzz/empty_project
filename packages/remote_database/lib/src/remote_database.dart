@@ -1,15 +1,19 @@
+import 'package:empty_application/errors/errors.dart';
+
 abstract class RemoteDatabase {
   const RemoteDatabase();
-  Future<void> createDoc({
+
+  void batchSetDoc({
     required String collectionID,
     required String? documentID,
     required Map<String, dynamic> jsonData,
   });
+
   Future<Map<String, dynamic>?> readDoc({
     required String collectionID,
     required String documentID,
   });
-  Future<void> updateDoc({
+  void batchUpdateDoc({
     required String collectionID,
     required String documentID,
     required Map<String, dynamic> jsonData,
@@ -18,4 +22,5 @@ abstract class RemoteDatabase {
   Future<List<Map<String, dynamic>>?> readCollection({
     required String collectionID,
   });
+  FutureUnit batchCommit();
 }
