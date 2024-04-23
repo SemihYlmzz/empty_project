@@ -22,6 +22,8 @@ dependencies:
   # Repos
   user_repository:
     path: packages/user_repository
+  post_repository:
+    path: packages/post_repository
 
   # Animations
   animations: ^2.0.11

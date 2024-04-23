@@ -24,7 +24,7 @@ class UserRepository {
   User currentUser = User.empty();
 
   // Functions
-  FutureEither<User> readCurrentUser({
+  FutureUnit readCurrentUser({
     required String currentUserDocumentID,
   }) async {
     try {
@@ -35,13 +35,14 @@ class UserRepository {
       if (currentUserJson == null) {
         return createCurrentUser();
       }
-      return right(User.fromJson(currentUserJson));
+      _currentUserStreamController.sink.add(User.fromJson(currentUserJson));
+      return right(unit);
     } catch (exception) {
       return const Left(UserRepositoryException.unknown());
     }
   }
 
-  FutureEither<User> createCurrentUser() async {
+  FutureUnit createCurrentUser() async {
     const user = User(
       id: 'currentUser',
       postCount: 4,
@@ -52,7 +53,25 @@ class UserRepository {
         documentID: 'currentUser',
         jsonData: user.toJson(),
       );
-      return right(user);
+      _currentUserStreamController.sink.add(user);
+      return right(unit);
+    } catch (exception) {
+      return const Left(UserRepositoryException.unknown());
+    }
+  }
+
+  FutureUnit incrementPostCount() async {
+    final updatedUser = currentUser.copyWith(
+      postCount: currentUser.postCount + 1,
+    );
+    try {
+      await _remoteDatabase.updateDoc(
+        collectionID: 'users',
+        documentID: currentUser.id,
+        jsonData: updatedUser.toJson(),
+      );
+      _currentUserStreamController.sink.add(updatedUser);
+      return right(unit);
     } catch (exception) {
       return const Left(UserRepositoryException.unknown());
     }

@@ -12,7 +12,7 @@ class FirebaseFirestoreRemoteDatabase extends RemoteDatabase {
       await Firebase.initializeApp();
       return;
     } catch (exception) {
-      print(exception);
+      rethrow;
     }
   }
 
@@ -33,7 +33,6 @@ class FirebaseFirestoreRemoteDatabase extends RemoteDatabase {
       }
       return documentSnapshotData;
     } catch (exception) {
-      print(exception);
       rethrow;
     }
   }
@@ -41,7 +40,7 @@ class FirebaseFirestoreRemoteDatabase extends RemoteDatabase {
   @override
   Future<void> createDoc({
     required String collectionID,
-    required String documentID,
+    required String? documentID,
     required Map<String, dynamic> jsonData,
   }) {
     try {
@@ -50,6 +49,41 @@ class FirebaseFirestoreRemoteDatabase extends RemoteDatabase {
           .doc(documentID)
           .set(jsonData)
           .then((_) => jsonData);
+    } catch (exception) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<Map<String, dynamic>>?> readCollection({
+    required String collectionID,
+  }) async {
+    try {
+      final collectionData = await _firestore.collection(collectionID).get();
+      if (collectionData.docs.isEmpty) {
+        return null;
+      }
+      final collectionDataList = collectionData.docs
+          .map((documentSnapshot) => documentSnapshot.data())
+          .toList();
+      return collectionDataList;
+    } catch (exception) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> updateDoc({
+    required String collectionID,
+    required String documentID,
+    required Map<String, dynamic> jsonData,
+  }) async {
+    try {
+      await _firestore
+          .collection(collectionID)
+          .doc(documentID)
+          .update(jsonData);
+      return;
     } catch (exception) {
       rethrow;
     }

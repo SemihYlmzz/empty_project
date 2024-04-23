@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:post_repository/post_repository.dart';
 import 'package:user_repository/user_repository.dart';
 
 import '../../errors/errors.dart';
@@ -13,7 +14,9 @@ part 'unit_of_work_state.dart';
 class UnitOfWorkBloc extends Bloc<UnitOfWorkEvent, UnitOfWorkState> {
   UnitOfWorkBloc({
     required UserRepository userRepository,
+    required PostRepository postRepository,
   })  : _userRepository = userRepository,
+        _postRepository = postRepository,
         super(UnitOfWorkState(currentUser: userRepository.currentUser)) {
     on<UnitOfWorkEvent>(_onUnitOfWorkEvent);
     // Listen User Changes
@@ -23,8 +26,11 @@ class UnitOfWorkBloc extends Bloc<UnitOfWorkEvent, UnitOfWorkState> {
   }
   // Repositories
   final UserRepository _userRepository;
+  final PostRepository _postRepository;
+
   // Stream Subscriptions
   StreamSubscription<User>? _currentUserSubscription;
+
   // Events
   Future<void> _onUnitOfWorkEvent(
     UnitOfWorkEvent event,
@@ -42,12 +48,45 @@ class UnitOfWorkBloc extends Bloc<UnitOfWorkEvent, UnitOfWorkState> {
         );
         tryRead.fold(
           (l) => emit(state.copyWith(failure: l)),
-          (success) => emit(state.copyWith(currentUser: success)),
+          (success) => null,
         );
       },
       currentUserUpdated: (e) async {
         emit(state.copyWith(currentUser: e.updatedUser));
         return;
+      },
+      readPosts: (e) async {
+        final tryRead = await _postRepository.readPosts();
+        tryRead.fold(
+          (l) => emit(state.copyWith(failure: l)),
+          (success) => emit(state.copyWith(posts: success)),
+        );
+      },
+      createPost: (e) async {
+        final tryCreate = await _postRepository.createPost(
+          postOwnerId: e.ownerUserID,
+          postText: e.post,
+        );
+        Post? createdPost;
+
+        tryCreate.fold(
+          (f) => emit(state.copyWith(failure: f)),
+          (post) => createdPost = post,
+        );
+        if (createdPost == null) return;
+        emit(
+          state.copyWith(
+            posts: [
+              ...state.posts + [createdPost!],
+            ],
+          ),
+        );
+
+        final tryUpdate = await _userRepository.incrementPostCount();
+        tryUpdate.fold(
+          (l) => emit(state.copyWith(failure: l)),
+          (r) => null,
+        );
       },
     );
 

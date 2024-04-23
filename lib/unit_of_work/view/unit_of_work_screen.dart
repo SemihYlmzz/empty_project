@@ -14,11 +14,14 @@ class UnitOfWorkScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => UnitOfWorkBloc(
         userRepository: context.read(),
-      )..add(
+        postRepository: context.read(),
+      )
+        ..add(
           const UnitOfWorkEvent.readCurrentUser(
-            currentUserDocumentID: 'currentUserDocumentID',
+            currentUserDocumentID: 'currentUser',
           ),
-        ),
+        )
+        ..add(const UnitOfWorkEvent.readPosts()),
       child: MultiBlocListener(
         listeners: [
           unitOfWorkBlocListeners.errorDisplayer(),
