@@ -15,23 +15,13 @@ dependencies:
   shared_constants:
     path: packages/shared_constants
 
-  user_auth_api:
-    path: packages/user_auth_api
-  user_database_api:
-    path: packages/user_database_api
-  user_local_database_api:
-    path: packages/user_local_database_api
-  user_storage_api:
-    path: packages/user_storage_api
-  image_picker_api:
-    path: packages/image_picker_api
-  image_compressor_api:
-    path: packages/image_compressor_api
-  location_locator_api:
-    path: packages/location_locator_api
-  permission_requestor_api:
-    path: packages/permission_requestor_api
+  # Databases
+  firebase_firestore_remote_database:
+    path: packages/firebase_firestore_remote_database
 
+  # Repos
+  user_repository:
+    path: packages/user_repository
 
   # Animations
   animations: ^2.0.11
@@ -56,7 +46,8 @@ dependencies:
   logging: ^1.2.0
   # Widget
   skeletonizer: ^1.0.1
-
+  # Firebase
+  firebase_core: ^2.30.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
